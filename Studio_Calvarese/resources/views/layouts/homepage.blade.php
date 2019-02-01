@@ -57,26 +57,23 @@
     </section>
 
 
-    <!-- Section -->
+    <!-- Section
     <section>
         <header class="major">
             <h2 id="notizie">Recent Posts</h2>
         </header>
         <div class="posts">
-            @foreach($posts->chunk(3) as $chunk)
-                @foreach($chunk as $post)
+
             <article style="overflow: hidden">
-                <a href="#" class="image"><img src="images/{{$post->titolo}}/{{$post->image}}" alt="" height="400" /></a>
-                <h3>{{$post->titolo}}</h3>
-                <p>{{str_limit($post->descrizione,$limit=250,$end='...')}}</p>
+                " alt="" height="400" /></a>
+                <h3></h3>
+                <p></p>
                 <ul class="actions">
-                    <li><a href="{{ route('posts',['id'=>$post->id]) }}" class="button">More</a></li>
+                    <li><a href="" class="button">More</a></li>
                 </ul>
             </article>
-                @endforeach
-                @endforeach
         </div>
-    </section>
+    </section> -->
 
     </div>
     </div>

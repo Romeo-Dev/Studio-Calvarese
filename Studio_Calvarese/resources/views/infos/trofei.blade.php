@@ -1,8 +1,8 @@
-@extends('app')
+@extends('layouts.app')
 @section('home')
 
     <header id="header">
-        <h1 class="major">Servizi</h1>
+        <h1 class="major">Trofei</h1>
     </header>
     <!-- Section -->
     <section>
@@ -37,6 +37,6 @@
             </article>
         </div>
     </section>
-</div>
+    </div>
     </div>
 @endsection

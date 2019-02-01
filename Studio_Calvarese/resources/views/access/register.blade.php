@@ -1,11 +1,5 @@
 @extends('layouts.app')
 @section('home')
-<!-- Wrapper -->
-<div id="wrapper">
-
-    <!-- Main -->
-    <section id="main" class="wrapper">
-        <div class="inner">
             <header id="header"><h1 class="major">Registrazione</h1></header>
 
 
@@ -36,14 +30,10 @@
                     <div class="col-12">
                         <input type="submit" value="Register" class="primary" />
                     </div>
-        </div>
         </form>
     </section>
 
-
 </div>
-</section>
-
 </div>
 
 

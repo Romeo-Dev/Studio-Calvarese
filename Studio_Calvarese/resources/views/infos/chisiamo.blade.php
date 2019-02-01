@@ -1,4 +1,4 @@
-@extends('app')
+@extends('layouts.app')
 @section('home')
 
     <header id="header"><h1 class="major">Chi Siamo</h1></header>

@@ -25,7 +25,7 @@
 
             <!-- Header -->
             <header id="header">
-                <a href="index.html" class="logo"><strong>Gaming</strong> Blog</a>
+                <a href="index.html" class="logo"><strong>Calvarese 's</strong> Studio</a>
                 <ul class="icons">
                     <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
                     <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
@@ -49,7 +49,13 @@
                 </header>
                 <ul>
                     <li><a href="{{url('/home')}}">Home</a></li>
-                    <li><a href="{{url('/eventi')}}">Eventi</a></li>
+                       <li><span class="opener">Eventi</span>
+                    <ul>
+                        @foreach($categories as $category)
+                       <li><a href="{{url('/eventi')}}">{{$category->categoria}}</a></li>
+                        @endforeach
+                    </ul>
+                       </li>
                     <li><a href="{{url('/servizi')}}">Servizi</a></li>
                     <li><a href="{{url('/trofei')}}">Trofei</a></li>
                     <li><a href="{{url('/chisiamo')}}">Chi Siamo</a></li>

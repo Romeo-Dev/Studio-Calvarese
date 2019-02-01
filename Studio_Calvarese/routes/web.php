@@ -11,38 +11,27 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/home', 'MainController@index')->name('home');
 
-Route::get('/home', function () {
-    return view('homepage');
-});
 
 Route::get('/eventi', function () {
     return view('eventi');
 });
 
-Route::get('/servizi', function () {
-    return view('servizi');
-});
+Route::get('/servizi', 'ServicesController@index')->name('servizi');
 
 Route::get('/trofei', function () {
-    return view('trofei');
+    return view('infos.trofei');
 });
 
-Route::get('/chisiamo', function () {
-    return view('chisiamo');
-});
+Route::get('/chisiamo', 'InfosController@getAboutme')->name('chisiamo');
 
-Route::get('/contatti', function () {
-    return view('contatti');
-});
+Route::get('/contatti', 'InfosController@getContact')->name('contatti');
 
 Route::get('/login', function () {
-    return view('login');
+    return view('access.login');
 });
 
 Route::get('/registrazione', function () {
-    return view('register');
+    return view('access.register');
 });
