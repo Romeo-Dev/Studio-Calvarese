@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `Studio_Calvarese` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `Studio_Calvarese`;
 -- MySQL dump 10.13  Distrib 5.7.25, for Linux (x86_64)
 --
 -- Host: 127.0.0.1    Database: Studio_Calvarese
@@ -30,7 +28,7 @@ CREATE TABLE `categories` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,6 +37,7 @@ CREATE TABLE `categories` (
 
 LOCK TABLES `categories` WRITE;
 /*!40000 ALTER TABLE `categories` DISABLE KEYS */;
+INSERT INTO `categories` VALUES (1,'Matrimoni',NULL,NULL),(2,'Feste ',NULL,NULL),(4,'Articoli',NULL,NULL),(5,'Tutorial',NULL,NULL);
 /*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -312,12 +311,13 @@ DROP TABLE IF EXISTS `services`;
 CREATE TABLE `services` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `service` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `descrizione` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `descrizione` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `icon` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `route` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -326,6 +326,7 @@ CREATE TABLE `services` (
 
 LOCK TABLES `services` WRITE;
 /*!40000 ALTER TABLE `services` DISABLE KEYS */;
+INSERT INTO `services` VALUES (1,'Stampe','permette di stampare tutte le foto che si vuole per quell evento disponibile anche funzioni online tramite sito per accellerare i tempi ed evitare attese','fa fa-picture-o',NULL,NULL,NULL),(2,'Impaginato','permette di avere un impaginato (le foto piu belle) rese a modo di impaginato con un determinato formato a modo di book fotografico ','fa fa-address-book-o',NULL,NULL,NULL),(3,'Sala','permette di affittare sale per ore o giornata potrete organizzarvi sia tramite sito sia presentandovi allo studio','fa fa-university',NULL,NULL,NULL),(4,'Attrezzatura','permette di noleggiare attrezzatura professionale per uso privato o lavorativo','fa fa-briefcase',NULL,NULL,NULL),(5,'Prenotazione Appuntamento','permette di prenotare eventi da casa tramite il sito in modo tale da avere un calendario dove indica i vari impegni presi e le giornate disponibili per querll evento ','fa fa-calendar-plus-o',NULL,NULL,NULL),(6,'Area Personale','permette ad ogni utente di registrarsi e di comunicare con piero direttametne tramite sito e potrete accedere alla vostra area dove poter gestire sia le stampe , l impaginato online e prenotazioni di evento.','fa fa-id-card-o',NULL,NULL,NULL),(7,'Contribuisci al sito','permette di scegliere delle immagini dalla gallery per quell\' evento che in totale lberta tramite l opzione pubblica o riservata andranno dal fotografo il quale elaborera un post e un racconto per quella giornata indimenticabile e lo inserira dentro al sito\n',' fa-signal',NULL,NULL,NULL),(8,'Commenta','permette di commentare i post creati da piero e essere attivo sul sito per migliorarlo e per commentare la giornata dell evento ','fa fa-comments-o',NULL,NULL,NULL),(12,'Area Personale ','permette ad ogni utente di registrarsi e di comunicare con piero direttametne tramite sito e potrete accedere alla vostra area dove poter gestire sia le stampe , l impaginato online e prenotazioni .',NULL,NULL,NULL,NULL),(13,'Contribuire al sito','permette di scegliere delle immagini dalla gallery per quell\' evento che in totale lberta scelte andranno dal fotografo il quale elaborera un post e un racconto per quella giornata indimenticabile ',NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `services` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -369,4 +370,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-01-31 17:13:25
+-- Dump completed on 2019-02-02 10:27:48
