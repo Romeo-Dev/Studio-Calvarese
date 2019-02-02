@@ -6,7 +6,7 @@
 -->
 <html>
 <head>
-    <title>Editorial by HTML5 UP</title>
+    <title>Studio Fotografico Calvarese</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
@@ -25,7 +25,6 @@
 
             <!-- Header -->
             <header id="header">
-                <a href="{{route('home')}}" class="logo"><img src="{{asset('images/logo/Studio Fotografico1.png')}}" width="100%" height="350" alt="logo"></a>
                 <ul class="icons">
                     <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
                     <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>

@@ -20,7 +20,7 @@ Route::get('/eventi', function () {
 
 Route::get('/servizi', 'ServicesController@index')->name('servizi');
 
-Route::get('/trofei', 'PostController@index')->name('post');
+Route::get('/posts/{id}','PostController@getPost')->name('posts');
 
 Route::get('/chisiamo', 'InfosController@getAboutme')->name('chisiamo');
 
