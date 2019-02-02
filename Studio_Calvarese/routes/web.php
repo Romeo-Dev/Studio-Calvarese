@@ -28,10 +28,6 @@ Route::get('/chisiamo', 'InfosController@getAboutme')->name('chisiamo');
 
 Route::get('/contatti', 'InfosController@getContact')->name('contatti');
 
-Route::get('/login', function () {
-    return view('access.login');
-});
+Route::get('/login', 'LoginController@getLogin')->name('login');
 
-Route::get('/registrazione', function () {
-    return view('access.register');
-});
+Route::get('/registrazione', 'RegisterController@getRegistration')->name('registrazione');

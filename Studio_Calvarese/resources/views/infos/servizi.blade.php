@@ -13,7 +13,7 @@
                 <span class="icon {{$service->icon}}"></span>
                 <div class="content">
                     <h3>{{$service->service}}</h3>
-                    <p>{{$service->descrizione}} <strong>(Registrati per saperne di piu)</strong></p>
+                    <p>{{str_limit($service->descrizione,$limit=130,$end='...')}} <br><a href="{{route('registrazione')}}"><strong>Registrati per saperne di piu</strong></a></p>
                 </div>
             </article>
             @endforeach
