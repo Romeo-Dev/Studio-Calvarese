@@ -7,6 +7,8 @@
     <section>
         <p>Sed varius enim lorem ullamcorper dolore aliquam aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin sed aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
         <ul class="contact">
+            <li href="#" class="icon fa-facebook"><a href="#"> Facebook</a></li>
+            <li href="#" class="icon fa-instagram"><a href="#"> Instagram</a></li>
             <li class="fa-envelope-o"><a href="#">information@untitled.tld</a></li>
             <li class="fa-phone">(000) 000-0000</li>
             <li class="fa-home">1234 Somewhere Road #8254<br />

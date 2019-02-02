@@ -55,7 +55,7 @@
 
 @endsection
 
-@section('side')
+{{--@section('side')
 
     <!-- Section -->
     <section>
@@ -96,10 +96,12 @@
     </section>
 
 
-    </div>
+    </div>--}}
+{{--
     </div>
 
     </div>
 
 
 @endsection
+--}}
