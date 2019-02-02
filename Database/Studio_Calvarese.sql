@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `Studio_Calvarese` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `Studio_Calvarese`;
 -- MySQL dump 10.13  Distrib 5.7.25, for Linux (x86_64)
 --
 -- Host: 127.0.0.1    Database: Studio_Calvarese
@@ -175,7 +177,7 @@ CREATE TABLE `images` (
   PRIMARY KEY (`id`),
   KEY `images_post_id_foreign` (`post_id`),
   CONSTRAINT `images_post_id_foreign` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -184,6 +186,7 @@ CREATE TABLE `images` (
 
 LOCK TABLES `images` WRITE;
 /*!40000 ALTER TABLE `images` DISABLE KEYS */;
+INSERT INTO `images` VALUES (1,1,'GDF_2450.JPG','published','cover',NULL,NULL),(2,1,'NIK_0004.JPG','published','left',NULL,NULL),(3,1,'NIK_0012.JPG','published','right',NULL,NULL),(4,1,'NIK_9990.JPG','published','various',NULL,NULL);
 /*!40000 ALTER TABLE `images` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -229,7 +232,7 @@ CREATE TABLE `migrations` (
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -238,7 +241,7 @@ CREATE TABLE `migrations` (
 
 LOCK TABLES `migrations` WRITE;
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
-INSERT INTO `migrations` VALUES (5,'2014_10_12_000000_create_users_table',1),(6,'2014_10_12_100000_create_password_resets_table',1),(7,'2019_01_31_134028_create_services_table',1),(8,'2019_01_31_134419_create_groups_table',1),(9,'2019_01_31_145634_create_group_user_table',1),(10,'2019_01_31_145649_create_group_service_table',1),(11,'2019_01_31_150335_create_categories_table',2),(12,'2019_01_31_150402_create_posts_table',2),(13,'2019_01_31_150938_create_comments_table',2),(14,'2019_01_31_152302_create_messages_table',3),(16,'2019_01_31_153903_create_images_table',4),(17,'2019_01_31_160722_add_descrizione_to_services',5);
+INSERT INTO `migrations` VALUES (5,'2014_10_12_000000_create_users_table',1),(6,'2014_10_12_100000_create_password_resets_table',1),(7,'2019_01_31_134028_create_services_table',1),(8,'2019_01_31_134419_create_groups_table',1),(9,'2019_01_31_145634_create_group_user_table',1),(10,'2019_01_31_145649_create_group_service_table',1),(11,'2019_01_31_150335_create_categories_table',2),(12,'2019_01_31_150402_create_posts_table',2),(13,'2019_01_31_150938_create_comments_table',2),(14,'2019_01_31_152302_create_messages_table',3),(16,'2019_01_31_153903_create_images_table',4),(17,'2019_01_31_160722_add_descrizione_to_services',5),(18,'2019_02_02_103829_add_subtitle_to_posts',6);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -280,7 +283,9 @@ CREATE TABLE `posts` (
   `titolo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `giorno` date NOT NULL,
   `paragraph_1` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `subtitle` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `paragraph_2` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `in_conclusion` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `paragraph_3` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -289,7 +294,7 @@ CREATE TABLE `posts` (
   KEY `posts_user_id_foreign` (`user_id`),
   CONSTRAINT `posts_category_id_foreign` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`),
   CONSTRAINT `posts_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -298,6 +303,7 @@ CREATE TABLE `posts` (
 
 LOCK TABLES `posts` WRITE;
 /*!40000 ALTER TABLE `posts` DISABLE KEYS */;
+INSERT INTO `posts` VALUES (1,1,1,'Chiara e Brian','2019-12-14','Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut odio. Nam sed est. Nam a risus et est iaculis adipiscing. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer ut justo. In tincidunt viverra nisl. Donec dictum malesuada magna. Curabitur id nibh auctor tellus adipiscing pharetra. Fusce vel justo non orci semper feugiat. Cras eu leo at purus ultrices tristique.\n','In Chiesa','Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut odio. Nam sed est. Nam a risus et est iaculis adipiscing. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer ut justo. In tincidunt viverra nisl. Donec dictum malesuada magna. Curabitur id nibh auctor tellus adipiscing pharetra. Fusce vel justo non orci semper feugiat. Cras eu leo at purus ultrices tristique.\n\nDuis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.\n\nUt wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.\n\nNam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.','La Festa','Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut odio. Nam sed est. Nam a risus et est iaculis adipiscing. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer ut justo. In tincidunt viverra nisl. Donec dictum malesuada magna. Curabitur id nibh auctor tellus adipiscing pharetra. Fusce vel justo non orci semper feugiat. Cras eu leo at purus ultrices tristique.\n\nDuis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.\n\nUt wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.\n\nNam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.',NULL,NULL);
 /*!40000 ALTER TABLE `posts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -326,7 +332,7 @@ CREATE TABLE `services` (
 
 LOCK TABLES `services` WRITE;
 /*!40000 ALTER TABLE `services` DISABLE KEYS */;
-INSERT INTO `services` VALUES (1,'Stampe','permette di stampare tutte le foto che si vuole per quell evento disponibile anche funzioni online tramite sito per accellerare i tempi ed evitare attese','fa fa-picture-o',NULL,NULL,NULL),(2,'Impaginato','permette di avere un impaginato (le foto piu belle) rese a modo di impaginato con un determinato formato a modo di book fotografico ','fa fa-address-book-o',NULL,NULL,NULL),(3,'Sala','permette di affittare sale per ore o giornata potrete organizzarvi sia tramite sito sia presentandovi allo studio','fa fa-university',NULL,NULL,NULL),(4,'Attrezzatura','permette di noleggiare attrezzatura professionale per uso privato o lavorativo','fa fa-briefcase',NULL,NULL,NULL),(5,'Prenotazione Appuntamento','permette di prenotare eventi da casa tramite il sito in modo tale da avere un calendario dove indica i vari impegni presi e le giornate disponibili per querll evento ','fa fa-calendar-plus-o',NULL,NULL,NULL),(6,'Area Personale','permette ad ogni utente di registrarsi e di comunicare con piero direttametne tramite sito e potrete accedere alla vostra area dove poter gestire sia le stampe , l impaginato online e prenotazioni di evento.','fa fa-id-card-o',NULL,NULL,NULL),(7,'Contribuisci al sito','permette di scegliere delle immagini dalla gallery per quell\' evento che in totale lberta tramite l opzione pubblica o riservata andranno dal fotografo il quale elaborera un post e un racconto per quella giornata indimenticabile e lo inserira dentro al sito\n',' fa-signal',NULL,NULL,NULL),(8,'Commenta','permette di commentare i post creati da piero e essere attivo sul sito per migliorarlo e per commentare la giornata dell evento ','fa fa-comments-o',NULL,NULL,NULL),(12,'Area Personale ','permette ad ogni utente di registrarsi e di comunicare con piero direttametne tramite sito e potrete accedere alla vostra area dove poter gestire sia le stampe , l impaginato online e prenotazioni .',NULL,NULL,NULL,NULL),(13,'Contribuire al sito','permette di scegliere delle immagini dalla gallery per quell\' evento che in totale lberta scelte andranno dal fotografo il quale elaborera un post e un racconto per quella giornata indimenticabile ',NULL,NULL,NULL,NULL);
+INSERT INTO `services` VALUES (1,'Stampe','permette di stampare tutte le foto che si vuole per quell evento disponibile anche funzioni online tramite sito per accellerare i tempi ed evitare attese','fa fa-picture-o',NULL,NULL,NULL),(2,'Impaginato','permette di avere un impaginato (le foto piu belle) rese a modo di impaginato con un determinato formato a modo di book fotografico ','fa fa-address-book-o',NULL,NULL,NULL),(3,'Sala','permette di affittare sale per ore o giornata potrete organizzarvi sia tramite sito sia presentandovi allo studio','fa fa-university',NULL,NULL,NULL),(4,'Attrezzatura','permette di noleggiare attrezzatura professionale per uso privato o lavorativo','fa fa-briefcase',NULL,NULL,NULL),(5,'Prenotazione Appuntamento','permette di prenotare eventi da casa tramite il sito in modo tale da avere un calendario dove indica i vari impegni presi e le giornate disponibili per querll evento ','fa fa-calendar-plus-o',NULL,NULL,NULL),(6,'Area Personale','permette ad ogni utente di registrarsi e di comunicare con piero direttametne tramite sito e potrete accedere alla vostra area dove poter gestire sia le stampe , l impaginato online e prenotazioni di evento.','fa fa-id-card-o',NULL,NULL,NULL),(7,'Contribuisci al sito','permette di scegliere delle immagini dalla gallery per quell\' evento che in totale lberta tramite l opzione pubblica o riservata andranno dal fotografo il quale elaborera un post e un racconto per quella giornata indimenticabile e lo inserira dentro al sito\n',' fa-signal',NULL,NULL,NULL),(8,'Commenta','permette di commentare i post creati da piero e essere attivo sul sito per migliorarlo e per commentare la giornata dell evento ','fa fa-comments-o',NULL,NULL,NULL);
 /*!40000 ALTER TABLE `services` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -349,7 +355,7 @@ CREATE TABLE `users` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -358,6 +364,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'Piero','Calvarese','pieroph@email.com',NULL,'pieroph',NULL,NULL,NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -370,4 +377,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-02-02 10:27:48
+-- Dump completed on 2019-02-02 13:10:22
