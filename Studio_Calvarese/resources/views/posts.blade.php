@@ -5,32 +5,32 @@
             <section>
 
                 <header class="main">
-                    <h1>{{$post['0']->titolo}}</h1>
+                    <h1>{{$posts['0']->titolo}}</h1>
                     <h4>Info post</h4>
                     <ul class="alt">
-                        <li><strong>Categoria:  </strong>{{$category['0']->nome}}</li>
-                        <li><strong>Autore: </strong><span>{{$author['0']->nickname}}</span></li>
-                        <li><strong>Societa: </strong><span>{{$societa['0']->societa}}</span></li>
+                        <li><strong>Categoria:  </strong>{{$posts['0']->categoria}}</li>
+                        <li><strong>Autore: </strong><span>{{$posts['0']->name}}</span></li>
+                        <li><strong>Data: </strong><span>{{$posts['0']->giorno}}</span></li>
 
                     </ul>
                 </header>
 
-                <span class="image fit"><img src="{{asset('images/'.$post['0']->titolo.'/'.$post['0']->image)}}" alt="" width="500" height="400" /></span>
+                <span class="image fit"><img src="{{asset('images/'.$posts['0']->categoria.'/'.$posts['0']->titolo.'/'.$images['cover']->path)}}" alt="img 1" /></span>
 
-                <p>{{$post['1']->descrizione}}</p>
+                <p>{{$posts['0']->paragraph_1}}</p>
                 <hr class="major" />
 
-                <h2>{{$post['1']->sottotitolo}}</h2>
+                <h2>{{$posts['0']->subtitle}}</h2>
 
-                <p><span class="image left"><img src="{{asset('images/'.$post['0']->titolo.'/'.$post['1']->image)}}" height="250" /><hr class="major" /></span>
-                    {{$post['1']->paragrafo}}
+                <p><span class="image left"><img src="{{asset('images/'.$posts['0']->categoria.'/'.$posts['0']->titolo.'/'.$images['left']->path)}}" alt="img left" /><hr class="major" /></span>
+                    {{$posts['0']->paragraph_2}}
                 </p>
                 <hr class="major" />
 
-                <h2>{{$post['1']->conclusione}}</h2>
+                <h2>{{$posts['0']->in_conclusion}}</h2>
 
-                <p><span class="image right"><img src="{{asset('images/'.$post['0']->titolo.'/'.$post['2']->image)}}" alt="" height="250"/><hr class="major" /></span>
-                    {{$post['1']->paragraph_finale}}</p>
+                <p><span class="image right"><img src="{{asset('images/'.$posts['0']->categoria.'/'.$posts['0']->titolo.'/'.$images['right']->path)}}" alt="img" /><hr class="major" /></span>
+                    {{$posts['0']->paragraph_3}}</p>
                 <hr class="major" />
 
 
@@ -39,10 +39,12 @@
                 <hr>
                 <div class="box alt">
                     <div class="row gtr-50 gtr-uniform">
-                <div class="col-4"><span class="image fit"><img src="{{asset('images/'.$post['0']->titolo.'/'.$post['0']->image)}}" alt="{{$post['0']->image}}" height="250"/></span></div>
-                <div class="col-4"><span class="image fit"><img src="{{asset('images/'.$post['0']->titolo.'/'.$post['1']->image)}}" alt="{{$post['1']->image}}" height="250"/></span></div>
-                <div class="col-4"><span class="image fit"><img src="{{asset('images/'.$post['0']->titolo.'/'.$post['2']->image)}}" alt="{{$post['2']->image}}" height="250"/></span></div>
-                    </div>
+                        @foreach($images['various']->chunk(3) as $chunk)
+                            @foreach($chunk as $vary)
+                        <div class="col-4"><span class="image fit"><img src="{{asset('images/'.$posts['0']->categoria.'/'.$posts['0']->titolo.'/'.$vary->path)}}" alt="img gallery" /></span></div>
+                            @endforeach
+                            @endforeach
+                 </div>
                 </div>
 
             </section>

@@ -25,7 +25,7 @@
 
             <!-- Header -->
             <header id="header">
-                <a href="index.html" class="logo"><strong>Calvarese 's</strong> Studio</a>
+                <a href="{{route('home')}}" class="logo"><img src="{{asset('images/logo/Studio Fotografico1.png')}}" width="100%" height="350" alt="logo"></a>
                 <ul class="icons">
                     <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
                     <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>

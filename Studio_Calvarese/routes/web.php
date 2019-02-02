@@ -20,9 +20,7 @@ Route::get('/eventi', function () {
 
 Route::get('/servizi', 'ServicesController@index')->name('servizi');
 
-Route::get('/trofei', function () {
-    return view('infos.trofei');
-});
+Route::get('/trofei', 'PostController@index')->name('post');
 
 Route::get('/chisiamo', 'InfosController@getAboutme')->name('chisiamo');
 
