@@ -14,9 +14,7 @@
 Route::get('/home', 'MainController@index')->name('home');
 
 
-Route::get('/eventi', function () {
-    return view('eventi');
-});
+Route::get('/eventi/{categoria}', 'EventController@getCategory')->name('event');
 
 Route::get('/servizi', 'ServicesController@index')->name('servizi');
 

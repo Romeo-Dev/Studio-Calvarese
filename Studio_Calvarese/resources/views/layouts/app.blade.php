@@ -40,7 +40,7 @@
                        <li><span class="opener">Eventi</span>
                     <ul>
                         @foreach($categories as $category)
-                       <li><a href="{{url('/eventi')}}">{{$category->categoria}}</a></li>
+                       <li><a href="{{ route('event',['categoria'=>$category->categoria]) }}">{{$category->categoria}}</a></li>
                         @endforeach
                     </ul>
                        </li>

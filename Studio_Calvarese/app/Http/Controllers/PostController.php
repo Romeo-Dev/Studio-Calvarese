@@ -22,7 +22,7 @@ class PostController extends Controller
 
             $data['images']= PostController::getImages($save);
             //return $data;
-       return view('posts', $data);
+       return view('posts.posts', $data);
     }
 
     public static function getImages($id){
