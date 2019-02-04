@@ -18,7 +18,9 @@
                         </div>
                         <div class="col-12">
                             <input type="submit" value="Login" class="primary" />
+
                         </div>
+                        <p>Non sei registrato? fallo immediatamente <a href="{{route('registrazione')}}">Registrati</a></p>
                     </div>
                 </form>
             </section>

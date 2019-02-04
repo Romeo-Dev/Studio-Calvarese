@@ -11,6 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
     <link rel="stylesheet" href="{{asset('css/main.css')}}" />
+    <link rel="stylesheet" href="{{asset('css/lightbox.css')}}" />
 
 
 </head>
@@ -23,18 +24,6 @@
     <div id="main">
         <div class="inner">
 
-            <!-- Header -->
-{{--            <header id="header">
-                <ul class="icons">
-                    <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-                    <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-                    <li><a href="#" class="icon fa-snapchat-ghost"><span class="label">Snapchat</span></a></li>
-                    <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-                    <li><a href="#" class="icon fa-medium"><span class="label">Medium</span></a></li>
-                </ul>
-
-            </header>--}}
-           <!--// mettere qui lo yeild(home)-->
         @yield('home')
 
     <!-- Sidebar -->
@@ -73,7 +62,7 @@
 
                             <li href="#" class="icon fa-facebook"><a href="#"> Facebook</a></li>
                             <li href="#" class="icon fa-instagram"><a href="#"> Instagram</a></li>
-                            <li class="fa-envelope-o"><a href="#">information@untitled.tld</a></li>
+                            <li class="fa-envelope-o"><a href="mailto:fotocalvarese@gmail.com">fotocalvarese@gmail.com</a></li>
                             <li class="fa-phone">(000) 000-0000</li>
                             <li class="fa-home">1234 Somewhere Road #8254<br />
                                 Nashville, TN 00000-0000</li>
@@ -147,6 +136,8 @@
 <script src="{{asset('js/breakpoints.min.js')}}"></script>
 <script src="{{asset('js/util.js')}}"></script>
 <script src="{{asset('js/main.js')}}"></script>
+ <script src="{{asset('js/lightbox-plus-jquery.min.js')}}"></script>
+
 </div>
 </body>
 </html>

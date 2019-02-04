@@ -41,7 +41,7 @@
                     <div class="row gtr-50 gtr-uniform">
                         @foreach($images['various']->chunk(3) as $chunk)
                             @foreach($chunk as $vary)
-                        <div class="col-4"><span class="image fit"><img src="{{asset('images/'.$posts['0']->categoria.'/'.$posts['0']->titolo.'/'.$vary->path)}}" alt="img gallery" /></span></div>
+                        <div class="col-4"><a href="{{asset('images/'.$posts['0']->categoria.'/'.$posts['0']->titolo.'/'.$vary->path)}}" data-lightbox="myGallery"><span class="image fit"><img src="{{asset('images/'.$posts['0']->categoria.'/'.$posts['0']->titolo.'/'.$vary->path)}}" alt="img gallery" /></span></a></div>
                             @endforeach
                             @endforeach
                  </div>
