@@ -5,17 +5,17 @@
         <h1 class="major">Trofei</h1>
     </header>
     <!-- Section -->
+    @foreach($trophies as $trophy)
     <section>
-        @foreach($all as $trofeo)
         <dl>
-            <span class="image fit"><img src="{{asset('')}}" alt="" /></span>
-            <dt>Data</dt><dt>Titolo</dt>
+            <span class="image fit"><img src="{{asset('images/Trophies/'.$trophy->trofeo)}}" alt="" /></span>
+            <dt>{{$trophy->conseguimento}}</dt><dt>{{$trophy->title}}</dt>
             <dd>
-                <p>Descrizione</p>
+                <p>{{$trophy->description}}</p>
             </dd>
         </dl>
-        @endforeach
     </section>
+    @endforeach
     </div>
     </div>
 @endsection

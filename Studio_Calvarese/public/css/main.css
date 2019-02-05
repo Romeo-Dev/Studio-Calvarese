@@ -160,6 +160,7 @@ input, select, textarea {
 		a:hover {
 			border-bottom-color: #566D7E;
 			color: #566D7E!important;
+            text-decoration: none;
 		}
 
 			a:hover strong {

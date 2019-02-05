@@ -30,7 +30,7 @@
         <article>
         <span class="icon {{$service->icon}}"></span>
         <div class="content">
-            <p>{{$service->descrizione}}<br><a href="{{route('registrazione')}}"><strong>Registrati per saperne di piu</strong></a></p>
+            <p>{{$service->descrizione}}<br><a href="{{route('registrazione')}}"><h4>Registrati per saperne di piu</h4></a></p>
         </div>
         </article>
         </div>
