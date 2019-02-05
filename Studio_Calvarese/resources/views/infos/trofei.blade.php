@@ -9,7 +9,7 @@
     <section>
         <dl>
             <span class="image fit"><img src="{{asset('images/Trophies/'.$trophy->trofeo)}}" alt="" /></span>
-            <dt>{{$trophy->conseguimento}}</dt><dt>{{$trophy->title}}</dt>
+            <dt>{{date('Y',strtotime($trophy->conseguimento))}}</dt><dt>{{$trophy->title}}</dt>
             <dd>
                 <p>{{$trophy->description}}</p>
             </dd>
