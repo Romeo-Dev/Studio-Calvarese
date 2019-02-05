@@ -19,6 +19,7 @@ class MainController extends Controller
             ->join('categories','category_id','=','categories.id')
             ->where('posizione','=','cover')
             ->orderBy('giorno','desc')
+            ->take(6)
             ->get();
         //return $data;
        return view('layouts.homepage',$data);

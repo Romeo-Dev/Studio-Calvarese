@@ -53,7 +53,7 @@
                 @foreach($chunk as $post)
                     <article style="overflow: hidden">
                         <a href="{{ route('posts',['id'=>$post->id]) }}" class="image"><img src="{{asset('images/'.$post->categoria.'/'.$post->titolo.'/'.$post->path)}}" alt=""  /></a>
-                        <h3>{{$post->titolo}}</h3>
+                        <h3>{{$post->titolo}} <i>({{$post->categoria}})</i></h3>
                         <p>{{str_limit($post->paragraph_1,$limit=250,$end='...')}}</p>
                         <ul class="actions">
                             <li><a href="{{ route('posts',['id'=>$post->id]) }}" class="button">More</a></li>
