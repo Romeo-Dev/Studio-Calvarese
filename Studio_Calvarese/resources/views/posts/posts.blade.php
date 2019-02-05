@@ -15,14 +15,14 @@
                     </ul>
                 </header>
 
-                <span class="image fit"><img src="{{asset('images/'.$posts['0']->categoria.'/'.$posts['0']->titolo.'/'.$images['cover']->path)}}" alt="img 1" /></span>
+                <span class="image fit"><img src="{{asset('images/'.$posts['0']->categoria.'/'.$posts['0']->titolo.'/'.$images['cover']->path)}}" alt="" /></span>
 
                 <p>{{$posts['0']->paragraph_1}}</p>
                 <hr class="major" />
 
                 <h2>{{$posts['0']->subtitle}}</h2>
 
-                <p><span class="image left"><img src="{{asset('images/'.$posts['0']->categoria.'/'.$posts['0']->titolo.'/'.$images['left']->path)}}" alt="img left" /><hr class="major" /></span>
+                <p><span class="image left"><img src="{{asset('images/'.$posts['0']->categoria.'/'.$posts['0']->titolo.'/'.$images['left']->path)}}" alt="" /><hr class="major" /></span>
                     {{$posts['0']->paragraph_2}}
                 </p>
                 <hr class="major" />
