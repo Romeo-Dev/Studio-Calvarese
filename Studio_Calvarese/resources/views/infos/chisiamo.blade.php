@@ -5,11 +5,23 @@
 <!-- Content -->
 <section>
     <span class="image main"><img src="images/pic11.jpg" alt="" /></span>
+    <h3>CHI SIAMO</h3>
+    <p>
 
-    <p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
-    <p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
+    Gianluca e Piero Calvarese sono dei professionisti del settore wedding e con la loro professionalità e la loro passione sapranno interpretare ogni istante rendendolo unico e indimenticabile. Il vostro grande giorno sarà ricordato per sempre grazie a immagini spelndide e senza tempo e a una immancabile simpatia.
 
+    Gianluca Calvarese lavora nel campo della fotografia da oltre venti anni, seguito successivamente da suo figlio Piero appassionato di cinema e attuale videografo, ricercando continuamente nuovi spunti, continuando a studiare e a formarsi per offrire sempre un servizio fotografico impeccabile,
+    <br>capace di suscitare ogni volta forti emozioni.
+    </p>
+
+    <br>
+    <blockquote>
+        <h3>ABOUT US</h3>
+
+    Gianluca and Piero Calvarese are specialized in the wedding sector and with their professionalism and passion they will be able to interpret every moment making it unique and unforgettable. Your big day will be remembered forever thanks to spelndide and timeless images and an unfailing sympathy.
+
+        Gianluca Calvarese has worked in the field of photography for over twenty years, followed by his son Piero, passionate about cinema and current videographer, constantly looking for new ideas, continuing research and training to always offer an impeccable photographic service, able to evoke strong emotions every time.
+    </blockquote>
 
 </section>
 </div>

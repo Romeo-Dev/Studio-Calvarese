@@ -11,9 +11,9 @@
         <div class="content">
 
                 <h1>{{$post->titolo}}</h1>
-                <p><strong>Data: </strong>{{$post->giorno}}</p>
+                <p><strong>Date: </strong>{{date('d F Y',strtotime($post->giorno))}}</p>
             </header>
-            <p>{{$post->paragraph_1}}</p>
+            <p>{{str_limit($post->paragraph_1,$limit=355,$end='...')}}</p>
             <ul class="actions">
                 <li><a href="{{ route('posts',['id'=>$post->id]) }}" class="button big">Learn More</a></li>
             </ul>
