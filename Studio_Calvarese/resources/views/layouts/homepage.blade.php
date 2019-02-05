@@ -3,7 +3,20 @@
 
     <section id="banner">
         <div class="content">
-            <header>
+            <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src="{{asset('images/Matrimoni/Lucia e Stefano/DSC_3754 copia.jpg')}}" alt="First slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="{{asset('images/Matrimoni/Lucia e Stefano/DSC_3814 copia.jpg')}}" alt="Second slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="{{asset('images/Matrimoni/Lucia e Stefano/GDF_7090 copia.jpg')}}" alt="Third slide">
+                    </div>
+                </div>
+            </div>
+            {{--<header>
 
                 <h1>Hi, This is my Web blog <br />
                     Speak a Game</h1>
@@ -16,7 +29,7 @@
         </div>
         <span class="image object">
             <img src="images/home.jpg" alt="" />
-        </span>
+        </span>--}}
     </section>
 
 

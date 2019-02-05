@@ -10,7 +10,7 @@
                     <ul class="alt">
                         <li><strong>Categoria:  </strong>{{$posts['0']->categoria}}</li>
                         <li><strong>Autore: </strong><span>{{$posts['0']->name}} </span><strong>{{$posts['0']->surname}}</strong></li>
-                        <li><strong>Data: </strong><span>{{$posts['0']->giorno}}</span></li>
+                        <li><strong>Date: </strong><span>{{date('d F Y',strtotime($posts['0']->giorno))}}</span></li>
 
                     </ul>
                 </header>
