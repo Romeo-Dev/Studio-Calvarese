@@ -21,6 +21,8 @@ Route::get('/servizi', 'ServicesController@index')->name('servizi');
 
 Route::get('/posts/{id}','PostController@getPost')->name('posts');
 
+Route::get('/trofei', 'InfosController@getTrophy')->name('trofei');
+
 Route::get('/chisiamo', 'InfosController@getAboutme')->name('chisiamo');
 
 Route::get('/contatti', 'InfosController@getContact')->name('contatti');

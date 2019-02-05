@@ -6,36 +6,15 @@
     </header>
     <!-- Section -->
     <section>
-        <div class="features">
-            <article>
-                <span class="icon fa-diamond"></span>
-                <div class="content">
-                    <h3>Portitor ullamcorper</h3>
-                    <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-                </div>
-            </article>
-            <article>
-                <span class="icon fa-paper-plane"></span>
-                <div class="content">
-                    <h3>Sapien veroeros</h3>
-                    <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-                </div>
-            </article>
-            <article>
-                <span class="icon fa-rocket"></span>
-                <div class="content">
-                    <h3>Quam lorem ipsum</h3>
-                    <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-                </div>
-            </article>
-            <article>
-                <span class="icon fa-signal"></span>
-                <div class="content">
-                    <h3>Sed magna finibus</h3>
-                    <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-                </div>
-            </article>
-        </div>
+        @foreach($all as $trofeo)
+        <dl>
+            <span class="image fit"><img src="{{asset('')}}" alt="" /></span>
+            <dt>Data</dt><dt>Titolo</dt>
+            <dd>
+                <p>Descrizione</p>
+            </dd>
+        </dl>
+        @endforeach
     </section>
     </div>
     </div>
