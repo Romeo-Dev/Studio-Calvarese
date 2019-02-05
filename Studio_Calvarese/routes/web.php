@@ -11,8 +11,9 @@
 |
 */
 
-Route::get('/home', 'MainController@index')->name('home');
+Route::get('/', 'MainController@index')->name('home');
 
+Route::get('/home', 'MainController@index')->name('home');
 
 Route::get('/eventi/{categoria}', 'EventController@getCategory')->name('event');
 
