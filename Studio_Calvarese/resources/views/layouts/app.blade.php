@@ -32,9 +32,10 @@
 
             <!-- Menu -->
             <nav id="menu">
-                <header class="major">
-                    <h2>Studio Fotografico Calvarese</h2>
-                </header>
+
+                    <img src="{{asset('images/logo/logoCalv.png')}}" alt="" width="100%" height="20%">
+                <br>
+
                 <ul>
                     <li><a href="{{url('/home')}}">Home</a></li>
                        <li><span class="opener">Eventi</span>

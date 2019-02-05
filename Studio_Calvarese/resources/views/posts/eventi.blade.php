@@ -23,9 +23,9 @@
         </span>
     </section>
     @endforeach
-        <ul class="pagination">
+    <hr>
     {{$all->links('vendor/pagination/simple-default')}}
-        </ul>
+
     </div>
     </div>
     @endsection

@@ -4,6 +4,7 @@
     <section id="banner">
         <div class="content">
             <header>
+
                 <h1>Hi, This is my Web blog <br />
                     Speak a Game</h1>
                 <p>A free Site with login and registration</p>
