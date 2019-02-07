@@ -79,6 +79,6 @@ class RegisterController extends Controller
     }
     protected function redirectTo()
     {
-        return redirect()->route('home');
+        return '/';
     }
 }

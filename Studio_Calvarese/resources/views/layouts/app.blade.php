@@ -49,10 +49,49 @@
                     <li><a href="{{url('/trofei')}}">Trofei</a></li>
                     <li><a href="{{url('/chisiamo')}}">Chi Siamo</a></li>
                     <li><a href="{{url('/contatti')}}">Contatti</a></li>
-                    <li><a href="{{route('login')}}">Login</a></li>
-                    <li><a href="{{route('register')}}">Registrazione</a></li>
 
-                    <hr>
+                    <!-- Authentication Links -->
+                    @guest
+                        <li>
+                            <a  href="{{ route('login') }}">Login</a>
+                        </li>
+                        @if (Route::has('register'))
+                            <li>
+                                <a href="{{ route('register') }}">Register</a>
+                            </li>
+                        @endif
+                    @else
+                        <li>
+                            <span class="opener"> {{ Auth::user()->name }} </span>
+
+                            <ul>
+                                <li>
+                                    <a href="#">Profilo</a>
+                                </li>
+                                <li>
+                                    <a href="#">Gestisci Eventi</a>
+                                </li>
+                                <li>
+                                    <a href="#">Prenotazione Evento</a>
+                                </li>
+                                <li>
+                                    <a href="#">Noleggia Attrezzatura</a>
+                                </li>
+                                @if(Auth::user()->group_id == '1')
+                                    <li><a href="#">My Dash</a></li>
+                                    @endif
+                                <li> <a href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">Logout</a>
+                                </li>
+                            </ul>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </li>
+                        @endguest
+                    <br>
                     <!-- Section -->
                     <section>
                         <header class="major">

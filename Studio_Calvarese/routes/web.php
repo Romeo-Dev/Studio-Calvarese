@@ -31,4 +31,3 @@ Route::get('/contatti', 'InfosController@getContact')->name('contatti');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
