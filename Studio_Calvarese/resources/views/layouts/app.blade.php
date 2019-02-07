@@ -50,7 +50,7 @@
                     <li><a href="{{url('/chisiamo')}}">Chi Siamo</a></li>
                     <li><a href="{{url('/contatti')}}">Contatti</a></li>
                     <li><a href="{{route('login')}}">Login</a></li>
-                    <li><a href="{{route('registrazione')}}">Registrazione</a></li>
+                    <li><a href="{{route('register')}}">Registrazione</a></li>
 
                     <hr>
                     <!-- Section -->

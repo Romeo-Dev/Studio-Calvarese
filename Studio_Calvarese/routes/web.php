@@ -27,6 +27,8 @@ Route::get('/chisiamo', 'InfosController@getAboutme')->name('chisiamo');
 
 Route::get('/contatti', 'InfosController@getContact')->name('contatti');
 
-Route::get('/login', 'LoginController@getLogin')->name('login');
 
-Route::get('/registrazione', 'RegisterController@getRegistration')->name('registrazione');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
