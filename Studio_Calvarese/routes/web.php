@@ -27,7 +27,12 @@ Route::get('/chisiamo', 'InfosController@getAboutme')->name('chisiamo');
 
 Route::get('/contatti', 'InfosController@getContact')->name('contatti');
 
+
 Route::post('/comments','CommentController@commit')->name('comments');
+
+Route::get('/profilo', 'UserController@getProfile')->name('profilo');
+
+
 
 Auth::routes();
 
