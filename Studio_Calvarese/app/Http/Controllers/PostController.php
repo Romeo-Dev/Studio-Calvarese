@@ -14,11 +14,19 @@ class PostController extends Controller
         $save=$id;
         $data['categories']=Category::all();
         $data['posts']=DB::table('posts')
-            ->select('categoria','name','surname','titolo','giorno','paragraph_1','subtitle','paragraph_2','in_conclusion','paragraph_3')
+            ->select('posts.id','categoria','name','surname','titolo','giorno','paragraph_1','subtitle','paragraph_2','in_conclusion','paragraph_3')
             ->join('categories','category_id','=','categories.id')
             ->join('users','user_id','=','users.id')
             ->where('posts.id','=',$id)
             ->get();
+
+        $data['comments']=DB::table('comments')
+            ->select('name','surname','text','timestamp')
+            ->join('users','user_id','=','users.id')
+            ->join('posts','post_id','=','posts.id')
+            ->where('posts.id','=',$id)
+            ->get();
+
 
             $data['images']= PostController::getImages($save);
             //return $data;
