@@ -105,36 +105,6 @@ LOCK TABLES `group_service` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `group_user`
---
-
-DROP TABLE IF EXISTS `group_user`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `group_user` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `user_id` int(10) unsigned NOT NULL,
-  `group_id` int(10) unsigned NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `group_user_user_id_foreign` (`user_id`),
-  KEY `group_user_group_id_foreign` (`group_id`),
-  CONSTRAINT `group_user_group_id_foreign` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`),
-  CONSTRAINT `group_user_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `group_user`
---
-
-LOCK TABLES `group_user` WRITE;
-/*!40000 ALTER TABLE `group_user` DISABLE KEYS */;
-/*!40000 ALTER TABLE `group_user` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `groups`
 --
 
@@ -147,7 +117,7 @@ CREATE TABLE `groups` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -156,6 +126,7 @@ CREATE TABLE `groups` (
 
 LOCK TABLES `groups` WRITE;
 /*!40000 ALTER TABLE `groups` DISABLE KEYS */;
+INSERT INTO `groups` VALUES (1,'admin',NULL,NULL),(2,'normal user',NULL,NULL);
 /*!40000 ALTER TABLE `groups` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -382,9 +353,12 @@ CREATE TABLE `users` (
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
+  `group_id` int(11) unsigned NOT NULL DEFAULT '2',
   PRIMARY KEY (`id`),
-  UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  UNIQUE KEY `users_email_unique` (`email`),
+  KEY `fk_users_1_idx` (`group_id`),
+  CONSTRAINT `fk_users_1` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -393,7 +367,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Piero','Calvarese','pieroph@email.com',NULL,'pieroph',NULL,NULL,NULL),(2,'Gianluca','Calvarese','gianluc@email.com',NULL,'gianlucph',NULL,NULL,NULL);
+INSERT INTO `users` VALUES (1,'Piero','Calvarese','pieroph@email.com',NULL,'pieroph',NULL,NULL,NULL,2),(2,'Gianluca','Calvarese','gianluc@email.com',NULL,'gianlucph',NULL,NULL,NULL,2),(3,'Romeo','De Vincentis','romeo@email.com',NULL,'$2y$10$Njy8GlQZLJjxNP5JTyELOORij80J.Mo.6e97lP.AVZZJDPer2ZGwi','MsKfZnRjIgpQU0POTgFOICzehooA182oJDp8c8VCDOiVKzrYvigorDOZgN26','2019-02-07 10:17:27','2019-02-07 10:17:27',1),(4,'Lorenzo','Iapadre','iap@gmail.com',NULL,'$2y$10$JnB1XCEMMM7yh5Yr5d0JM.QkPPr.TpEKxKIee0bxvOu9AGlSU6zDu','oZTNyi7W4yMwkQil9j1fwnxjEey4TJD5qvJsj8hA7pEaUQBvp8H5ubAIfNr0','2019-02-07 10:27:53','2019-02-07 10:27:53',2);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -406,4 +380,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-02-05 18:27:56
+-- Dump completed on 2019-02-08 10:03:05
