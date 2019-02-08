@@ -66,7 +66,7 @@
 
                             <ul>
                                 <li>
-                                    <a href="#">Profilo</a>
+                                    <a href="{{route('profilo')}}">Profilo</a>
                                 </li>
                                 <li>
                                     <a href="#">Gestisci Eventi</a>
