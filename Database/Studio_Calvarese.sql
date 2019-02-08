@@ -55,6 +55,7 @@ CREATE TABLE `comments` (
   `user_id` int(10) unsigned NOT NULL,
   `post_id` int(10) unsigned NOT NULL,
   `text` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `timestamp` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -62,7 +63,7 @@ CREATE TABLE `comments` (
   KEY `comments_post_id_foreign` (`post_id`),
   CONSTRAINT `comments_post_id_foreign` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`),
   CONSTRAINT `comments_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -71,6 +72,7 @@ CREATE TABLE `comments` (
 
 LOCK TABLES `comments` WRITE;
 /*!40000 ALTER TABLE `comments` DISABLE KEYS */;
+INSERT INTO `comments` VALUES (1,3,5,'Lorem ipsum dolor sit amet, ex quo everti interesset, ne eos deterruisset mediocritatem. His in facilisi mandamus, ius possim civibus erroribus ne, consul interesset ea vis. Ut prima saepe suavitate pro, suas habemus tincidunt ex qui. Quas simul no mei, quot dictas perfecto vis no. Est te diceret mentitum contentiones, iusto iisque diceret te mea, sed modus graeci oportere et. Eu diam salutatus disputando vix, eu pri viri ornatus, populo aliquid te usu.','2019-02-08 09:42:28.719018',NULL,NULL),(2,3,6,'Has platonem assentior no, ei summo perfecto inciderint vix, ne eum esse apeirian. Eos summo latine sapientem ut. Populo scriptorem conclusionemque ea est, ne mel tritani nostrud assueverit, habeo corpora sensibus in vix. Id melius salutatus pro, noster constituto est an.','2019-02-08 09:42:28.719018',NULL,NULL),(3,4,5,'Mei eu mediocrem pertinacia, dicit maiorum corrumpit ex ius, cibo fastidii sea ei. Et nostro docendi est, usu in melius vocent iisque, possim pertinacia cum ad. Saperet petentium per ei. Mea facilisis persecuti voluptatibus ut, vis utinam consequuntur ne. Nam ex falli laudem aperiri, te vix dicam iudico ullamcorper.','2019-02-08 09:42:28.719018',NULL,NULL),(4,1,5,'Ut vide nostrud debitis pri, congue option alienum ei mel. Id quo augue harum eripuit, at nominavi ullamcorper eum. Te nulla forensibus mnesarchum per. Vim errem legimus constituam ei, veniam gloriatur ad sit, eu mea facer novum partiendo. Cu qui voluptua convenire.','2019-02-08 09:42:28.719018',NULL,NULL),(5,2,5,'Ne per diam prompta principes. Et usu diam intellegat instructior, ei feugait dignissim abhorreant eum. Quodsi aperiam pro ne, agam fuisset assueverit duo cu, te omnes nonumy doming vix. Soleat fabulas imperdiet eos et, an usu tale suas, ea sed liber oporteat. Mei ex noluisse atomorum.\n','2019-02-08 09:42:28.719018',NULL,NULL),(6,4,5,'primo commento faccio commit','2019-02-08 11:26:11.601421','2019-02-08 10:26:11','2019-02-08 10:26:11');
 /*!40000 ALTER TABLE `comments` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -367,7 +369,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Piero','Calvarese','pieroph@email.com',NULL,'pieroph',NULL,NULL,NULL,2),(2,'Gianluca','Calvarese','gianluc@email.com',NULL,'gianlucph',NULL,NULL,NULL,2),(3,'Romeo','De Vincentis','romeo@email.com',NULL,'$2y$10$Njy8GlQZLJjxNP5JTyELOORij80J.Mo.6e97lP.AVZZJDPer2ZGwi','MsKfZnRjIgpQU0POTgFOICzehooA182oJDp8c8VCDOiVKzrYvigorDOZgN26','2019-02-07 10:17:27','2019-02-07 10:17:27',1),(4,'Lorenzo','Iapadre','iap@gmail.com',NULL,'$2y$10$JnB1XCEMMM7yh5Yr5d0JM.QkPPr.TpEKxKIee0bxvOu9AGlSU6zDu','oZTNyi7W4yMwkQil9j1fwnxjEey4TJD5qvJsj8hA7pEaUQBvp8H5ubAIfNr0','2019-02-07 10:27:53','2019-02-07 10:27:53',2);
+INSERT INTO `users` VALUES (1,'Piero','Calvarese','pieroph@email.com',NULL,'pieroph',NULL,NULL,NULL,2),(2,'Gianluca','Calvarese','gianluc@email.com',NULL,'gianlucph',NULL,NULL,NULL,2),(3,'Romeo','De Vincentis','romeo@email.com',NULL,'$2y$10$Njy8GlQZLJjxNP5JTyELOORij80J.Mo.6e97lP.AVZZJDPer2ZGwi','zZzC2rczfJvc0x1bYO1xJ5pPm6agEasU7Cyu9Oj326ej0Y8zxu5BcMPdELUi','2019-02-07 10:17:27','2019-02-07 10:17:27',1),(4,'Lorenzo','Iapadre','iap@gmail.com',NULL,'$2y$10$JnB1XCEMMM7yh5Yr5d0JM.QkPPr.TpEKxKIee0bxvOu9AGlSU6zDu','v7cs2ASp4Qq9WeLqzWxnDB3cciEfbeMDj7kudeq1rdMQEDAgKW8ZXGNcs0Gm','2019-02-07 10:27:53','2019-02-07 10:27:53',2);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -380,4 +382,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-02-08 10:03:05
+-- Dump completed on 2019-02-08 12:37:03
