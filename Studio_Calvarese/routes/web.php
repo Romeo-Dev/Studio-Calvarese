@@ -32,7 +32,7 @@ Route::post('/comments','CommentController@commit')->name('comments');
 
 Route::get('/profilo', 'UserController@getProfile')->name('profilo');
 
-
+Route::get('/gestisciEvento','EventController@getEventByAuth')->name('gestioneEvento');
 
 Auth::routes();
 

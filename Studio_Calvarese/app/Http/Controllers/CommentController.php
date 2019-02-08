@@ -14,7 +14,7 @@ class CommentController extends Controller
         $Comment->post_id = $request->post_id;
         $Comment->text = $request->text;
         $Comment->save();
-        return redirect('/');
+        return redirect('posts/'.$Comment->post_id.'#comment');
 
     }
 }

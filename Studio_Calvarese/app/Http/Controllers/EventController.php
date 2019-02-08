@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Category;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class EventController extends Controller
@@ -19,9 +20,22 @@ class EventController extends Controller
             ->join('images','post_id','=','posts.id')
             ->where('categoria','=',$categoria)
             ->where('posizione','=','cover')
+            ->where('pubblicato','=','si')
             ->simplePaginate(3);
 
         //return $data;
         return view('posts.eventi', $data);
+    }
+
+    public function getEventByAuth(){
+        $data['categories']=Category::all();
+        $id =Auth::id();
+        $data['events']=DB::table('posts')
+            ->select('posts.id','titolo','categoria')
+            ->join('categories','category_id','=','categories.id')
+            ->where('user_id','=',$id)
+            ->get();
+
+        return view('services.gestioneEventi',$data);
     }
 }

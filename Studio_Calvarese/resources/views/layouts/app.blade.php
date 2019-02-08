@@ -65,11 +65,12 @@
                             <span class="opener"> {{ Auth::user()->name }} </span>
 
                             <ul>
+                                @if(Auth::user()->group_id == '2')
                                 <li>
                                     <a href="{{route('profilo')}}">Profilo</a>
                                 </li>
                                 <li>
-                                    <a href="#">Gestisci Eventi</a>
+                                    <a href="{{route('gestioneEvento')}}">Gestisci Eventi</a>
                                 </li>
                                 <li>
                                     <a href="#">Prenotazione Evento</a>
@@ -77,6 +78,7 @@
                                 <li>
                                     <a href="#">Noleggia Attrezzatura</a>
                                 </li>
+                                @endauth
                                 @if(Auth::user()->group_id == '1')
                                     <li><a href="#">My Dash</a></li>
                                     @endif

@@ -10,7 +10,6 @@
                 <br>
                     <ul class="alt">
                         <li><strong>Categoria:  </strong>{{$posts['0']->categoria}}</li>
-                        <li><strong>Autore: </strong><span>{{$posts['0']->name}} </span><strong>{{$posts['0']->surname}}</strong></li>
                         <li><strong>Date: </strong><span>{{date('d F Y',strtotime($posts['0']->giorno))}}</span></li>
 
                     </ul>
@@ -49,7 +48,7 @@
                 </div>
 
                 <hr>
-                <h2>Commenti</h2>
+                <h2 id="comment">Commenti</h2>
 
                 <dl>
                     @foreach($comments as $comment)

@@ -18,6 +18,7 @@ class PostController extends Controller
             ->join('categories','category_id','=','categories.id')
             ->join('users','user_id','=','users.id')
             ->where('posts.id','=',$id)
+            ->where('posts.pubblicato','=','si')
             ->get();
 
         $data['comments']=DB::table('comments')
