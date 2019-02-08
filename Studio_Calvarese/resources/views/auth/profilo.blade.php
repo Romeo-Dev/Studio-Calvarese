@@ -4,7 +4,7 @@
     <header id="header"><h1 class="major">Info Profilo</h1></header>
 
     <section>
-        <form method="POST" action="{{ route('register') }}">
+        <form method="POST" action="{{ route('agg_profilo') }}">
             @csrf
             <div class="row gtr-uniform">
                 <div class="col-6 col-12-xsmall">
@@ -19,7 +19,7 @@
 
             <div class="row gtr-uniform">
                 <div class="col-6 col-12-xsmall">
-                    <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" placeholder="Cambia Email" >
+                    <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="new_email" value="{{ old('email') }}" placeholder="Cambia Email" >
                     @if ($errors->has('email'))
                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('email') }}</strong>
@@ -31,7 +31,7 @@
 
             <div class="row gtr-uniform">
                 <div class="col-6 col-12-xsmall">
-                    <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" placeholder="Cambia Password">
+                    <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="new_password" placeholder="Cambia Password">
                     @if ($errors->has('password'))
                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('password') }}</strong>
