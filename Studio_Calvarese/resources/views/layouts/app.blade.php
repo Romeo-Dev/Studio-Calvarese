@@ -73,7 +73,7 @@
                                     <a href="{{route('gestioneEvento')}}">Gestisci Eventi</a>
                                 </li>
                                 <li>
-                                    <a href="#">Prenotazione Evento</a>
+                                    <a href="#">Prenotazione Appuntamento</a>
                                 </li>
                                 <li>
                                     <a href="#">Noleggia Attrezzatura</a>

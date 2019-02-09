@@ -5,7 +5,7 @@
         <h1 class="major">Contatti</h1>
     </header>
     <section>
-        <p>Lo Studio Fotografico Calvarese si trova in <strong>Via Pace 10</strong> a <strong>San Benedetto dei Marsi (AQ)</strong>, puoi contattarci al numero telefonico 0863867767 oppure compilando il seguente form:</p>
+        <p>Lo Studio Fotografico Calvarese si trova in <strong>Via Pace 10</strong> a <strong>San Benedetto dei Marsi (AQ)</strong>, puoi contattarci al numero telefonico <strong>0863 867 767</strong> oppure compilando il seguente form:</p>
         <ul class="contact">
             <li href="#" class="icon fa-facebook"><a href="https://www.facebook.com/StudiofotograficoCalvarese/" target="_blank"><h5> Facebook</h5></a></li>
             <li href="#" class="icon fa-instagram"><a href="https://www.instagram.com/studio_fotografico_calvarese/?hl=it&fbclid=IwAR24JO5EwH9-IKbDrFygLfcLsO6iBnE3N4SYsCLl9vTZHDv8MJO838K9kLs" target="_blank"><h5> Instagram</h5></a></li>
@@ -18,18 +18,44 @@
 
     <!-- Form -->
     <h3>Lascia un Messaggio</h3>
+        @auth
+            <form method="post" action="{{route('sendMessageByAuth')}}">
+                @csrf
+                <div class="row gtr-uniform">
+                    <input type="hidden" name="name" id="name" value="{{Auth::user()->name}}">
+                    <input type="hidden" name="surname" id="surname" value="{{Auth::user()->surname}}">
+                    <input type="hidden" name="email" id="email" value="{{Auth::user()->email}}">
+                    <!-- Break -->
+                    <div class="col-12">
+                        <textarea name="message" id="message" placeholder="Enter your message" rows="6" required></textarea>
+                    </div>
+                    <!-- Break -->
+                    <div class="col-12">
+                        <ul class="actions">
+                            <li><input type="submit" value="Send Message" class="primary" /></li>
+                            <li><input type="reset" value="Reset" /></li>
+                        </ul>
+                    </div>
+                </div>
+            </form>
+        @endauth
 
-    <form method="post" action="#">
+    @guest
+    <form method="post" action="{{route('sendMessage')}}">
+        @csrf
         <div class="row gtr-uniform">
             <div class="col-6 col-12-xsmall">
-                <input type="text" name="demo-name" id="demo-name" value="" placeholder="Name" />
+                <input type="text" name="nome" id="nome" value="" placeholder="Name"  required/>
             </div>
             <div class="col-6 col-12-xsmall">
-                <input type="email" name="demo-email" id="demo-email" value="" placeholder="Email" />
+                <input type="text" name="cognome" id="cognome" value="" placeholder="Cognome"  required/>
+            </div>
+            <div class="col-6 col-12-xsmall">
+                <input type="email" name="email" id="email" value="" placeholder="Email" required/>
             </div>
             <!-- Break -->
             <div class="col-12">
-                <textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
+                <textarea name="message" id="message" placeholder="Enter your message" rows="6" required></textarea>
             </div>
             <!-- Break -->
             <div class="col-12">
@@ -40,6 +66,7 @@
             </div>
         </div>
     </form>
+    @endguest
     </div>
     </div>
 @endsection

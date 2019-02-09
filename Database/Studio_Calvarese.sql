@@ -181,7 +181,7 @@ CREATE TABLE `messages` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -190,6 +190,7 @@ CREATE TABLE `messages` (
 
 LOCK TABLES `messages` WRITE;
 /*!40000 ALTER TABLE `messages` DISABLE KEYS */;
+INSERT INTO `messages` VALUES (1,'Romeo','De Vincentis','romeo@email.com','Questo e il primo messaggio inviato dal sito di piero per controllare la validita e la fruibilita e l efficenza del sito','no','2019-02-09 15:46:33','2019-02-09 14:46:33','2019-02-09 14:46:33'),(2,'Lorenzo','Iapadre','iap@gmail.com','Questo e il primo messaggio da utente autenticato gestito tramite if e else  in base al guest speriamo funzioni','no','2019-02-09 16:08:04','2019-02-09 15:08:04','2019-02-09 15:08:04'),(3,'Romeo','De Vincentis','romeo@email.com','Provo a inviarmi dell email da solo per vedere il giusto e corretto funzionamento  dei message','no','2019-02-09 16:21:24','2019-02-09 15:21:24','2019-02-09 15:21:24');
 /*!40000 ALTER TABLE `messages` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -370,7 +371,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Piero','Calvarese','pieroph@email.com',NULL,'pieroph',NULL,NULL,NULL,2),(2,'Gianluca','Calvarese','gianluc@email.com',NULL,'gianlucph',NULL,NULL,NULL,2),(3,'Romeo','De Vincentis','romeo@email.com',NULL,'$2y$10$Njy8GlQZLJjxNP5JTyELOORij80J.Mo.6e97lP.AVZZJDPer2ZGwi','LEONCJ12cT0fD4SCVV9iJPuK7jFhQTjkXbI7aQ3aSgLewjiMGSW6oph2YNKs','2019-02-07 10:17:27','2019-02-07 10:17:27',1),(4,'Lorenzo','Iapadre','iap@gmail.com',NULL,'$2y$10$JnB1XCEMMM7yh5Yr5d0JM.QkPPr.TpEKxKIee0bxvOu9AGlSU6zDu','v7cs2ASp4Qq9WeLqzWxnDB3cciEfbeMDj7kudeq1rdMQEDAgKW8ZXGNcs0Gm','2019-02-07 10:27:53','2019-02-07 10:27:53',2);
+INSERT INTO `users` VALUES (1,'Piero','Calvarese','pieroph@email.com',NULL,'pieroph',NULL,NULL,NULL,2),(2,'Gianluca','Calvarese','gianluc@email.com',NULL,'gianlucph',NULL,NULL,NULL,2),(3,'Romeo','De Vincentis','romeo@email.com',NULL,'$2y$10$Njy8GlQZLJjxNP5JTyELOORij80J.Mo.6e97lP.AVZZJDPer2ZGwi','BP9NSRhyXqlQlYKd6akLBvG7MX90pgM76xaUNXe0zHtElkhhwtQjwumHOWBY','2019-02-07 10:17:27','2019-02-07 10:17:27',1),(4,'Lorenzo','Iapadre','iap@gmail.com',NULL,'$2y$10$JnB1XCEMMM7yh5Yr5d0JM.QkPPr.TpEKxKIee0bxvOu9AGlSU6zDu','ENn5kYxQmbjvx9bB94tUW7RnxKVXFAWRUz8HfrSnBEjJMeebrN0INNzVfp6A','2019-02-07 10:27:53','2019-02-07 10:27:53',2);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -383,4 +384,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-02-09 12:09:49
+-- Dump completed on 2019-02-09 18:02:25

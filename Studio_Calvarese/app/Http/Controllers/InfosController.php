@@ -6,6 +6,7 @@ use App\Trophy;
 use Illuminate\Http\Request;
 use App\Category;
 use Illuminate\Support\Facades\DB;
+use App\Message;
 
 class InfosController extends Controller
 {
@@ -29,4 +30,27 @@ class InfosController extends Controller
         return view('infos.trofei',$data);
     }
 
+    public function send(Request $request){
+        $Message = new Message();
+        $Message->nome =$request->nome;
+
+        $Message->cognome = $request->cognome;
+        $Message->email = $request->email;
+        $Message->text = $request->message;
+        $Message->save();
+        return redirect('/');
+    }
+
+    public function sendByAuth(Request $request){
+        $Message = new Message();
+        $Message->nome =$request->name;
+
+        $Message->cognome = $request->surname;
+        $Message->email = $request->email;
+        $Message->text = $request->message;
+        $Message->save();
+        return redirect('/');
+
+    }
+    
 }
