@@ -37,7 +37,13 @@ Route::get('/gestisciEvento','EventController@getEventByAuth')->name('gestioneEv
 
 Route::post('/profilo', 'UserController@updateProfile')->name('agg_profilo');
 
+
 Route::get('/gestisciEvento/{id}','EventController@setEventPublication')->name('publicPost');
+
+Route::post('/send','InfosController@send')->name('sendMessage');
+Route::post('/sendByAuth','InfosController@sendByAuth')->name('sendMessageByAuth');
+
+
 
 Auth::routes();
 
