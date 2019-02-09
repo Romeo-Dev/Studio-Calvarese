@@ -30,7 +30,7 @@
                     <td><a href="#"class="button"><span class="icon fas fa-address-book"></span> Impaginato</a></td>
                     <td><a href="#"class="button"><span class="icon fas fa-image"></span> Stampe</a></td>
                     @if($event->pubblicato == 'no')
-                    <td><a href="#"class="button primary"><span class="icon fas fa-align-center"> </span> Rendi pubblico</a></td>
+                    <td><a href="{{route('publicPost',['id'=>$event->id])}}" class="button primary"><span class="icon fas fa-align-center"> </span> Rendi pubblico</a></td>
                     @else
                         <td><a href="#"class="button primary disabled"><span class="icon fas fa-align-center"> </span> Rendi pubblico</a></td>
                     @endif
@@ -58,13 +58,11 @@
 
         <h3>Rendi Pubblico</h3>
         <blockquote>
-            Lorem ipsum dolor vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Lorem ipsum dolor. Lorem ipsum dolor vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus.
+            Questa funzionalità permette di rendere pubblico e visibile l'evento da te scelto a tutti gli utenti (ed anche semplici visitatori) del sito,
+            garantendo così un'esperienza senza eguali, ricca di meravigliosi momenti ed indimenticabili scatti fotografici.
+            E' possibile pubblicare SOLO gli eventi appartenenti all'utente loggato.
         </blockquote>
     </section>
-
-
-
-
 
     </div>
     </div>

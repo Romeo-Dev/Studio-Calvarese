@@ -38,4 +38,12 @@ class EventController extends Controller
 
         return view('services.gestioneEventi',$data);
     }
+
+    public function setEventPublication($id){
+
+        DB::table('posts')
+            ->where('id', $id)
+            ->update(['pubblicato' => 'si']);
+        return redirect('/gestisciEvento');
+    }
 }
