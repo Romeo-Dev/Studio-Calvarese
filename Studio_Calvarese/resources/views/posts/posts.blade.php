@@ -52,7 +52,7 @@
 
                 <dl>
                     @foreach($comments as $comment)
-                    <dt><b><i>{{$comment->name}}</i> {{$comment->surname}} </b><br>Data: {{$comment->timestamp}}</dt>
+                    <dt><b><i>{{$comment->name}}</i> {{$comment->surname}} </b><br>Data: {{date('d F Y',strtotime($comment->timestamp))}}</dt>
                     <dd>
                         <div class="box">
                             <p>{{$comment->text}}</p>

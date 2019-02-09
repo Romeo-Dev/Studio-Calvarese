@@ -14,6 +14,7 @@
             <tr>
                 <th>Nome Evento</th>
                 <th>Categoria</th>
+                <th>Data</th>
                 <th>Gestione</th>
             </tr>
             </thead>
@@ -22,6 +23,7 @@
                 @foreach($events as $event)
                 <td>{{$event->titolo}}</td>
                 <td>{{$event->categoria}}</td>
+                    <td>{{date('d F Y',strtotime($event->giorno))}}</td>
                 <td><a href="#"class="button"><span class="icon fas fa-address-book"></span> Impaginato</a>
                     <a href="#"class="button"><span class="icon fas fa-image"></span> Stampe</a>
                     <a href="#"class="button primary"><span class="icon fas fa-align-center"> </span> Rendi pubblico</a>
