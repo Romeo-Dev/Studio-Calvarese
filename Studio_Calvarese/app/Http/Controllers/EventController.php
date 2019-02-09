@@ -31,7 +31,7 @@ class EventController extends Controller
         $data['categories']=Category::all();
         $id =Auth::id();
         $data['events']=DB::table('posts')
-            ->select('posts.id','titolo','categoria','giorno')
+            ->select('posts.id','titolo','categoria','giorno','pubblicato')
             ->join('categories','category_id','=','categories.id')
             ->where('user_id','=',$id)
             ->get();
