@@ -31,6 +31,8 @@
                     <td><a href="#"class="button"><span class="icon fas fa-image"></span> Stampe</a></td>
                     @if($event->pubblicato == 'no')
                     <td><a href="#"class="button primary"><span class="icon fas fa-align-center"> </span> Rendi pubblico</a></td>
+                    @else
+                        <td><a href="#"class="button primary disabled"><span class="icon fas fa-align-center"> </span> Rendi pubblico</a></td>
                     @endif
             </tr>
             @endforeach
