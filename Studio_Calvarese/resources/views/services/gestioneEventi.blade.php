@@ -27,8 +27,12 @@
                 <td>{{$event->titolo}}</td>
                 <td>{{$event->categoria}}</td>
                     <td>{{date('d F Y',strtotime($event->giorno))}}</td>
-                    <td><a href="#"class="button"><span class="icon fas fa-address-book"></span> Impaginato</a></td>
-                    <td><a href="#"class="button"><span class="icon fas fa-image"></span> Stampe</a></td>
+                    @if($event->impaginato != 'NULL')
+                    <td><a href="{{asset('images/'.$event->categoria.'/'.$event->titolo.'/'.$event->impaginato)}}"class="button"><span class="icon fas fa-address-book"></span> Impaginato</a></td>
+                    @else
+                        <td><a href="#"class="button disabled"><span class="icon fas fa-address-book"></span> Impaginato</a></td>
+                        @endif
+                        <td><a href="{{ route('stampe',['idst'=>$event->id]) }}"class="button"><span class="icon fas fa-image"></span> Stampe</a></td>
                     @if($event->pubblicato == 'no')
                     <td><a href="{{route('publicPost',['id'=>$event->id])}}" class="button primary"><span class="icon fas fa-align-center"> </span> Rendi pubblico</a></td>
                     @else
@@ -48,7 +52,8 @@
 
         <h3>Impaginato</h3>
         <blockquote>
-            Lorem ipsum dolor vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Lorem ipsum dolor. Lorem ipsum dolor vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus.
+          Il bottone impaginato consente ,se abilitato, di scaricare l impaginato creato da Piero. Se il bottone è disabilitato
+            vuol dire che l impaginato non e ancora pronto, appena sara disponibile il bottone tornera abilitato.
         </blockquote>
 
         <h3>Stampe</h3>

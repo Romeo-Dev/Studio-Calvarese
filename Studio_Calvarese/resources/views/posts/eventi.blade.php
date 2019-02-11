@@ -7,6 +7,7 @@
         </header>
 
     @foreach($all as $post)
+        @if($post->paragraph_1 != null)
     <section id="banner">
         <div class="content">
 
@@ -22,6 +23,7 @@
             <a href="{{ route('posts',['id'=>$post->id]) }}"><img src="{{asset('images/'.$post->categoria.'/'.$post->titolo.'/'.$post->path)}}" alt="" /></a>
         </span>
     </section>
+    @endif
     @endforeach
     <hr>
     {{$all->links('vendor/pagination/simple-default')}}

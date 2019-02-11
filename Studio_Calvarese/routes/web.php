@@ -43,7 +43,8 @@ Route::get('/gestisciEvento/{id}','EventController@setEventPublication')->name('
 Route::post('/send','InfosController@send')->name('sendMessage');
 Route::post('/sendByAuth','InfosController@sendByAuth')->name('sendMessageByAuth');
 
-
+Route::get('/stampe/{idst}','StampeController@getStampe')->name('stampe');
+Route::post('/sendStampe','StampeController@updateByAuth')->name('sendStamp');
 
 Auth::routes();
 

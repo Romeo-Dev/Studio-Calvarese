@@ -16,20 +16,7 @@
                     </div>
                 </div>
             </div>
-            {{--<header>
 
-                <h1>Hi, This is my Web blog <br />
-                    Speak a Game</h1>
-                <p>A free Site with login and registration</p>
-            </header>
-            <p>Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin aliquam facilisis ante interdum congue. Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet egestas mauris. Ut magna finibus nisi nec lacinia. Nam maximus erat id euismod egestas. Pellentesque sapien ac quam. Lorem ipsum dolor sit nullam.</p>
-            <ul class="actions">
-                <li><a href="#" class="button big">Learn More</a></li>
-            </ul>
-        </div>
-        <span class="image object">
-            <img src="images/home.jpg" alt="" />
-        </span>--}}
     </section>
 
 
@@ -64,6 +51,7 @@
         <div class="posts">
             @foreach($posts->chunk(3) as $chunk)
                 @foreach($chunk as $post)
+                    @if($post->paragraph_1 != null)
                     <article style="overflow: hidden">
                         <a href="{{ route('posts',['id'=>$post->id]) }}" class="image"><img src="{{asset('images/'.$post->categoria.'/'.$post->titolo.'/'.$post->path)}}" alt=""  /></a>
                         <h3>{{$post->titolo}} <i>({{$post->categoria}})</i></h3>
@@ -72,6 +60,7 @@
                             <li><a href="{{ route('posts',['id'=>$post->id]) }}" class="button">More</a></li>
                         </ul>
                     </article>
+                    @endif
                 @endforeach
             @endforeach
         </div>
