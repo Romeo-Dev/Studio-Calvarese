@@ -35,7 +35,7 @@ class EventController extends Controller
             ->join('categories','category_id','=','categories.id')
             ->where('user_id','=',$id)
             ->get();
-
+      //return $data;
         return view('services.gestioneEventi',$data);
     }
 

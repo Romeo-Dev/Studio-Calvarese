@@ -20,13 +20,30 @@ class StampeController extends Controller
             ->get();
 
         //return $data;
+        if (sizeof($data['stampe'])>0)
         return view('services.stampeEvento',$data);
+        else{
+
+            return redirect()->route('gestioneEvento',$data)->with('alert','Non ci sono piu immagini disponibili per la stampa');
+        }
 
     }
 
 
     public function updateByAuth(Request $request){
 
-            return $request;
+        $stato = $request->get('checked');
+
+        if ( is_array($stato) && sizeof($stato)>0) {
+            for ($i = 0; $i < sizeof($stato); $i++) {
+
+                DB::table('images')
+                    ->where('id', '=', $stato[$i])
+                    ->update(['stato' => 'stampe']);
+            }
+            return redirect('/gestisciEvento')->with('alertsucc', 'Stampe mandate con successo');
+        }else {
+            return redirect('/gestisciEvento')->with('alertdanger','Non hai selezionato nessun immagine da stampare');
+        }
     }
 }

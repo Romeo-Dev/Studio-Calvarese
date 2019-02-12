@@ -25,9 +25,14 @@
             <tbody>
             <tr>
                 @foreach($stampe as $stampa)
-                <td><img src="{{asset('images/'.$stampa->categoria.'/'.$stampa->titolo.'/'.$stampa->path)}}" alt="" width="50%" height="50%"></td>
-                <td><input type="checkbox" id="" name="" value="yes">
-                    <label for="">Stampe</label>
+                <td><div class="col-4">
+                        <h3><a href="{{asset('images/'.$stampa->categoria.'/'.$stampa->titolo.'/'.$stampa->path)}}" data-lightbox="daStampare">
+                            <img src="{{asset('images/'.$stampa->categoria.'/'.$stampa->titolo.'/'.$stampa->path)}}" alt="" width="50%" height="50%">
+                        </a></h3>
+                    </div>
+                </td>
+                <td> <input type="checkbox" name="checked[]" value="{{$stampa->id}}" id="{{$stampa->id}}">
+                    <label for="{{$stampa->id}}">Stampe</label>
                 </td>
             </tr>
             @endforeach

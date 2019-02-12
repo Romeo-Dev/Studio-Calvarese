@@ -1,6 +1,19 @@
 @extends('layouts.app')
 @section('home')
 
+    @if(session('alertdanger'))
+    <div class="alert alert-danger" role="alert">
+        {{session('alertdanger')}}
+    </div>
+        @elseif(session('alertsucc'))
+        <div class="alert alert-success" role="alert">
+            {{session('alertsucc')}}
+        </div>
+        @elseif(session('alert'))
+        <div class="alert alert-warning" role="alert">
+            {{session('alert')}}
+        </div>
+    @endif
 
     <header id="header">
         <h1 class="major">Gestione Eventi</h1>
@@ -33,7 +46,7 @@
                         <td><a href="#"class="button disabled"><span class="icon fas fa-address-book"></span> Impaginato</a></td>
                         @endif
                         <td><a href="{{ route('stampe',['idst'=>$event->id]) }}"class="button"><span class="icon fas fa-image"></span> Stampe</a></td>
-                    @if($event->pubblicato == 'no')
+                        @if($event->pubblicato == 'no')
                     <td><a href="{{route('publicPost',['id'=>$event->id])}}" class="button primary"><span class="icon fas fa-align-center"> </span> Rendi pubblico</a></td>
                     @else
                         <td><a href="#"class="button primary disabled"><span class="icon fas fa-align-center"> </span> Rendi pubblico</a></td>
