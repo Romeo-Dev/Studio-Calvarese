@@ -56,10 +56,15 @@ Route::get('/dash',function (){
    return view('dashboard.empty');
 });
 
+
 Route::get('/dash/services','ServicesController@browse')->name('serviceByAdm');
 Route::get('/dash/services/{id}','ServicesController@delete')->name('deleteservice');
 Route::post('/dash/services','ServicesController@store')->name('insertservice');
 
+
+
+Route::get('/profiloadmin', 'UserController@getProfiloAdmin')->name('profiloadmin');
+Route::post('/profiloadmin', 'UserController@updateProfile')->name('agg_profiloadmin');
 
 Auth::routes();
 

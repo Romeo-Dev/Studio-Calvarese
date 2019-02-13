@@ -16,10 +16,25 @@ class UserController extends Controller
         return view('auth.profilo',$data);
     }
 
+    public function getProfiloAdmin(){
+        return view('dashboard.profiloadmin');
+    }
+
     public function updateProfile(Request $request){
-        $this->updateEmail($request->new_email);
-        $this->updatePassword($request->new_password);
-        return redirect('/profilo');
+
+        if ($request->new_email != null || $request->new_password != null) {
+            $this->updateEmail($request->new_email);
+            $this->updatePassword($request->new_password);
+
+            if (Auth::user()->group_id == '1')
+                return redirect('/profiloadmin')->with('alert', 'Profilo Aggiornato con successo');
+            else
+                return redirect('/profilo');
+        }elseif (Auth::user()->group_id == '1')
+            return redirect('/profiloadmin')->with('alert', 'Nessun Campo da aggiornare');
+        else
+            return redirect('/profilo');
+
     }
 
     public function updateEmail($email){
