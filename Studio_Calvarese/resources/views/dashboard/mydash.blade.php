@@ -32,22 +32,21 @@ Website: http://www.webthemez.com/
 </head>
 
 <body>
-<bo id="wrapper">
-    <nav class="navbar navbar-default top-navbar" role="navigation">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+    <bo id="wrapper">
+        <nav class="navbar navbar-default top-navbar" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#" id="logoC"><img src="{{asset('images/logo/logoCalvDash.png')}}"alt="" width="100%" height="100%"></a>
 
-            <a class="navbar-brand" href="#" id="logoC"><img src="{{asset('images/logo/logoCalvDash.png')}}"alt="" width="100%" height="100%"></a>
-
-            <div id="sideNav" href="">
-                <i class="fa fa-bars icon"></i>
+                <div id="sideNav" href="">
+                    <i class="fa fa-bars icon"></i>
+                </div>
             </div>
-        </div>
 
         <ul class="nav navbar-top-links navbar-right">
             <li class="dropdown">
@@ -59,7 +58,7 @@ Website: http://www.webthemez.com/
                         <a href="#">
                             <div>
                                 <strong>John Doe</strong>
-                                <span class="pull-right text-muted">
+                                    <span class="pull-right text-muted">
                                         <em>Today</em>
                                     </span>
                             </div>
@@ -71,7 +70,7 @@ Website: http://www.webthemez.com/
                         <a href="#">
                             <div>
                                 <strong>John Smith</strong>
-                                <span class="pull-right text-muted">
+                                    <span class="pull-right text-muted">
                                         <em>Yesterday</em>
                                     </span>
                             </div>
@@ -167,7 +166,7 @@ Website: http://www.webthemez.com/
                     <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-user">
-                    <li><a href="#"><i class="fas fa-user"></i> {{Auth::user()->name}}</a>
+                    <li><a href="{{route('profiloadmin')}}"><i class="fas fa-user"></i> {{Auth::user()->name}}</a>
                     </li>
                     <li><a href="{{route('home')}}"><i class="fas fa-home"></i> Home</a>
                     </li>
@@ -266,6 +265,7 @@ Website: http://www.webthemez.com/
     <!-- Chart Js -->
     <script type="text/javascript" src="assets/js/Chart.min.js"></script>
     <script type="text/javascript" src="assets/js/chartjs.js"></script>
+    </bo>
 
 </body>
 

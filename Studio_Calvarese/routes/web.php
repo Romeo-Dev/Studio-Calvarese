@@ -56,7 +56,7 @@ Route::get('/dash',function (){
    return view('dashboard.empty');
 });
 
-
-
+Route::get('/profiloadmin', 'UserController@getProfiloAdmin')->name('profiloadmin');
+Route::post('/profiloadmin', 'UserController@updateProfile')->name('agg_profiloadmin');
 Auth::routes();
 

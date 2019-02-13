@@ -16,9 +16,17 @@ class UserController extends Controller
         return view('auth.profilo',$data);
     }
 
+    public function getProfiloAdmin(){
+        return view('dashboard.profiloadmin');
+    }
+
     public function updateProfile(Request $request){
+        return $request;
         $this->updateEmail($request->new_email);
         $this->updatePassword($request->new_password);
+
+        if (Auth::user()->group_id == '1')
+            return redirect('/profiloadmin');
         return redirect('/profilo');
     }
 
