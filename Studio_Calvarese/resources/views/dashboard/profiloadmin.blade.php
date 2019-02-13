@@ -24,7 +24,7 @@
                         <div class="panel-body">
                             <form method="POST" action="{{ route('agg_profiloadmin') }}">
                                 <div class="form-group">
-                                    <label for="email">Cambia Email</label>
+                                    <label for="new_email">Cambia Email</label>
                                     <input type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="new_email" id="email" placeholder="Email">
                                     @if ($errors->has('email'))
                                         <span class="invalid-feedback" role="alert">
@@ -33,7 +33,7 @@
                                     @endif
                                 </div>
                                 <div class="form-group">
-                                    <label for="password">Cambia Password</label>
+                                    <label for="new_password">Cambia Password</label>
                                     <input type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="new_password" id="password" placeholder="Password">
                                     @if ($errors->has('password'))
                                         <span class="invalid-feedback" role="alert">
