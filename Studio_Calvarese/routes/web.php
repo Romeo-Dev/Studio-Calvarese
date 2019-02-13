@@ -11,6 +11,8 @@
 |
 */
 
+//-----------------Route Frontend
+
 Route::get('/', 'MainController@index')->name('home');
 
 Route::get('/home', 'MainController@index')->name('home');
@@ -45,6 +47,16 @@ Route::post('/sendByAuth','InfosController@sendByAuth')->name('sendMessageByAuth
 
 Route::get('/stampe/{idst}','StampeController@getStampe')->name('stampe');
 Route::post('/sendStampe','StampeController@updateByAuth')->name('sendStamp');
+
+
+
+// -------------------------------------Route Backoffice
+
+Route::get('/dash',function (){
+   return view('dashboard.empty');
+});
+
+
 
 Auth::routes();
 
