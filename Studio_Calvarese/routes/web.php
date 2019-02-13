@@ -56,6 +56,9 @@ Route::get('/dash',function (){
    return view('dashboard.empty');
 });
 
+Route::get('/dash/services','ServicesController@browse')->name('serviceByAdm');
+Route::get('/dash/services/{id}','ServicesController@delete')->name('deleteservice');
+Route::post('/dash/services','ServicesController@store')->name('insertservice');
 
 
 Auth::routes();

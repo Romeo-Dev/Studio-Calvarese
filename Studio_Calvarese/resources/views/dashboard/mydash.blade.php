@@ -172,9 +172,17 @@ Website: http://www.webthemez.com/
                     <li><a href="{{route('home')}}"><i class="fas fa-home"></i> Home</a>
                     </li>
                     <li class="divider"></li>
-                    <li><a href="#"><i class="fas fa-power-off"></i> Logout</a>
+
+                    <li> <a href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"><i class="fas fa-power-off"> Logout</i></a>
                     </li>
+
                 </ul>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
                 <!-- /.dropdown-user -->
             </li>
             <!-- /.dropdown -->
@@ -209,7 +217,7 @@ Website: http://www.webthemez.com/
                 </li>
 
                 <li>
-                    <a href="#"><i class="fa fa-table"></i>Servizi</a>
+                    <a href="{{route('serviceByAdm')}}"><i class="fa fa-table"></i>Servizi</a>
                 </li>
                 <li>
                     <a href="#"><i class="fas fa-award"></i> Trofei</a>
@@ -246,26 +254,18 @@ Website: http://www.webthemez.com/
     <script src="{{asset('mydash/assets/js/jquery-1.10.2.js')}}"></script>
     <!-- Bootstrap Js -->
     <script src="{{asset('mydash/assets/js/bootstrap.min.js')}}"></script>
-
     <!-- Metis Menu Js -->
     <script src="{{asset('mydash/assets/js/jquery.metisMenu.js')}}"></script>
-    <!-- Morris Chart Js -->
-    <script src="{{asset('mydash/assets/js/morris/raphael-2.1.0.min.js')}}"></script>
-    <script src="{{asset('mydash/assets/js/morris/morris.js')}}"></script>
-
-
-    <script src="{{asset('mydash/assets/js/easypiechart.js')}}"></script>
-    <script src="{{asset('mydash/assets/js/easypiechart-data.js')}}"></script>
-
-    <script src="{{asset('mydash/assets/js/Lightweight-Chart/jquery.chart.js')}}"></script>
-
+    <!--Data table -->
+    <script src="{{asset('mydash/assets/js/dataTables/jquery.dataTables.js')}}"></script>
+    <script src="{{asset('mydash/assets/js/dataTables/dataTables.bootstrap.js')}}"></script>
+    <script>
+        $(document).ready(function () {
+            $('#dataTables-example').dataTable();
+        });
+    </script>
     <!-- Custom Js -->
     <script src="{{asset('mydash/assets/js/custom-scripts.js')}}"></script>
-
-
-    <!-- Chart Js -->
-    <script type="text/javascript" src="assets/js/Chart.min.js"></script>
-    <script type="text/javascript" src="assets/js/chartjs.js"></script>
 
 </body>
 
