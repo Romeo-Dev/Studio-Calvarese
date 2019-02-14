@@ -234,16 +234,9 @@ Website: http://www.webthemez.com/
                 </li>
                 <li>
                     <a href="{{route('commentsByAdmin')}}"><i class="fas fa-comments"></i>Commenti</a>
+                    
+                </li>
 
-                    <a href="#"><i class="fas fa-comment-alt"></i> Messaggi</a>
-                </li>
-                <li>
-                    <a href="#"><i class="fas fa-comments"></i> Commenti</a>
-                </li>
-                <li>
-                    <a href="#"><i class="fas fa-bug"></i> Icone</a>
-
-                </li>
 
             </ul>
 
