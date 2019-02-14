@@ -40,7 +40,7 @@
                                         <td>{{$service->descrizione}}</td>
                                         <td>{{$service->icon}}</td>
                                         <td>
-                                            <a href="" class="btn btn-primary large" style="width: 100%;margin-bottom: 4px;"><i class="fas fa-edit"> Edita</i></a>
+                                            <a href="{{route('editservice',['id'=>$service->id])}}" class="btn btn-primary large" style="width: 100%;margin-bottom: 4px;"><i class="fas fa-edit"> Edita</i></a>
                                             <br>
                                             <a href="{{route('deleteservice',['id'=>$service->id])}}" class="btn btn-danger large" style="width: 100%;"><i class="fas fa-trash-restore"> Elimina</i></a>
                                         </td>
@@ -65,7 +65,7 @@
                             </div>
                         </div>
                         <div class="panel-body">
-                            <form action="{{route('insertservice')}}" method="post">
+                            <form action="{{url('/dash/services')}}" method="post">
                                 @csrf
                                 <div class="form-group">
                                     <label for="servizio">Nome Servizio</label>
@@ -78,7 +78,7 @@
                                 <br>
                                 <div class="form-group">
                                     <label for="icona" >Nome Icona</label>
-                                    <p style="padding-top: 1px;">L icona da scegliere puo essere presa direttamente dal link <a href="https://fontawesome.com/" target="_blank">clicca qui.</a>
+                                    <p style="padding-top: 1px;">L icona da scegliere puo essere presa direttamente dal link <a href="https://fontawesome.com/icon" target="_blank">clicca qui.</a>
                                         <br><strong>*(prendere e compilare il campo solo con il nome dell icona)</strong></p>
                                     <input type="text" class="form-control" id="icona" placeholder="Nome dell icona" name="icon" required>
                                 </div>

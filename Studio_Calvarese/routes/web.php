@@ -56,16 +56,22 @@ Route::get('/dash',function (){
    return view('dashboard.empty');
 });
 
-
+    //--------------------------------Rotte di Servizio by Admin
 Route::get('/dash/services','ServicesController@browse')->name('serviceByAdm');
 Route::get('/dash/services/{id}','ServicesController@delete')->name('deleteservice');
 Route::post('/dash/services','ServicesController@store')->name('insertservice');
+
 
 Route::get('/dash/comments','CommentController@browse')->name('commentsByAdmin');
 Route::get('/dash/comments/{id}','CommentController@delete')->name('deletecomment');
 
 Route::get('/dash/profiloadmin', 'UserController@getProfiloAdmin')->name('profiloadmin');
 Route::post('/dash/profiloadmin', 'UserController@updateProfile')->name('agg_profiloadmin');
+
+Route::get('/dash/services/edit/{id}','ServicesController@edit')->name('editservice');
+Route::post('/dash/services','ServicesController@update')->name('updateservice');
+//-------------------------------------------------------------------------------
+
 
 Route::get('/dash/messages','InfosController@browse')->name('messagesByAdmin');
 Route::get('/dash/messages/{id}','InfosController@delete')->name('deletemessage');
