@@ -222,19 +222,16 @@ Website: http://www.webthemez.com/
                     <a href="#"><i class="fas fa-award"></i> Trofei</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fas fa-users"></i>Utenti</a>
+                    <a href="#"><i class="fas fa-users"></i> Utenti</a>
                 </li>
                 <li>
                     <a href="#"><i class="fas fa-calendar-alt"></i>Prenotazioni</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fas fa-comment-alt"></i>Messaggi</a>
+                    <a href="{{route('messagesByAdmin')}}"><i class="fas fa-comment-alt"></i>Messaggi</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fas fa-comments"></i>Commenti</a>
-                </li>
-                <li>
-                    <a href="#"><i class="fas fa-bug"></i>Icone</a>
+                    <a href="{{route('commentsByAdmin')}}"><i class="fas fa-comments"></i>Commenti</a>
                 </li>
 
             </ul>
@@ -242,6 +239,7 @@ Website: http://www.webthemez.com/
         </div>
 
     </nav>
+    </div>
     <!-- /. NAV SIDE  -->
 
     @yield('content')

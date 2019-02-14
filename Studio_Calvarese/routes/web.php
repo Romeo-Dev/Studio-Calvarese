@@ -61,10 +61,14 @@ Route::get('/dash/services','ServicesController@browse')->name('serviceByAdm');
 Route::get('/dash/services/{id}','ServicesController@delete')->name('deleteservice');
 Route::post('/dash/services','ServicesController@store')->name('insertservice');
 
+Route::get('/dash/comments','CommentController@browse')->name('commentsByAdmin');
+Route::get('/dash/comments/{id}','CommentController@delete')->name('deletecomment');
 
+Route::get('/dash/profiloadmin', 'UserController@getProfiloAdmin')->name('profiloadmin');
+Route::post('/dash/profiloadmin', 'UserController@updateProfile')->name('agg_profiloadmin');
 
-Route::get('/profiloadmin', 'UserController@getProfiloAdmin')->name('profiloadmin');
-Route::post('/profiloadmin', 'UserController@updateProfile')->name('agg_profiloadmin');
+Route::get('/dash/messages','InfosController@browse')->name('messagesByAdmin');
+Route::get('/dash/messages/{id}','InfosController@delete')->name('deletemessage');
 
 Auth::routes();
 

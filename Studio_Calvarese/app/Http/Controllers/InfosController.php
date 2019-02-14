@@ -52,5 +52,18 @@ class InfosController extends Controller
         return redirect('/');
 
     }
+
+    public function browse(){
+        $data['messages']=DB::table('messages')->where('risposta','=','no')->orderby('timestamp','DESC')->get();
+        return view('dashboard.messagesdash',$data);
+    }
+
+    public function delete($id){
+        DB::table('messages')
+            ->where('id','=',$id)
+            ->update(['risposta' => 'si']);
+
+        return redirect('/dash/messages')->with('alert','Commento cancellato con successo');
+    }
     
 }
