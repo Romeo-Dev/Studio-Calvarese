@@ -28,6 +28,7 @@ Website: http://www.webthemez.com/
 
     <style>
         #logoC{margin-top: 0px;padding-top: 5px;padding-bottom: 5px;}
+        #editForm{padding: 5%;}
     </style>
 </head>
 
@@ -196,7 +197,7 @@ Website: http://www.webthemez.com/
                     <a class="active-menu" href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fas fa-align-justify"></i>Categorie</a>
+                    <a href="#"><i class="fas fa-align-justify"></i> Categorie</a>
                 </li>
 
                 <!--<li>
@@ -212,29 +213,29 @@ Website: http://www.webthemez.com/
                 </li> -->
 
                 <li>
-                    <a href="#"><i class="fa fa-calendar-plus"></i>Eventi</a>
+                    <a href="#"><i class="fa fa-calendar-plus"></i> Eventi</a>
                 </li>
 
                 <li>
-                    <a href="{{route('serviceByAdm')}}"><i class="fa fa-table"></i>Servizi</a>
+                    <a href="{{route('serviceByAdm')}}"><i class="fa fa-table"></i> Servizi</a>
                 </li>
                 <li>
                     <a href="#"><i class="fas fa-award"></i> Trofei</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fas fa-users"></i>Utenti</a>
+                    <a href="#"><i class="fas fa-users"></i> Utenti</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fas fa-calendar-alt"></i>Prenotazioni</a>
+                    <a href="#"><i class="fas fa-calendar-alt"></i> Prenotazioni</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fas fa-comment-alt"></i>Messaggi</a>
+                    <a href="#"><i class="fas fa-comment-alt"></i> Messaggi</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fas fa-comments"></i>Commenti</a>
+                    <a href="#"><i class="fas fa-comments"></i> Commenti</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fas fa-bug"></i>Icone</a>
+                    <a href="#"><i class="fas fa-bug"></i> Icone</a>
                 </li>
 
             </ul>

@@ -39,4 +39,39 @@ class ServicesController extends Controller
         return redirect('/dash/services')->with('alert','Servizio inserito con successo');
 
     }
+
+    public function edit($id){
+        $data['service']=Services::find($id);
+
+        return view('dashboard.editservice',$data);
+    }
+    public function update(Request $request){
+        $this->updateServizio($request->service,$request->id);
+        $this->updateDesc($request->descrizione,$request->id);
+        $this->updateIcon($request->icon,$request->id);
+
+        return redirect('/dash/services')->with('alert','Servizio aggiornato con successo');
+
+    }
+    public function updateServizio($nome,$id){
+        if ($nome == null)
+            return;
+        DB::table('services')
+            ->where('id','=',$id)
+            ->update(['service' => $nome]);
+    }
+    public function updateDesc($desc,$id){
+        if ($desc == null)
+            return ;
+        DB::table('services')
+            ->where('id','=',$id)
+            ->update(['descrizione' => $desc]);
+    }
+    public function updateIcon($icon,$id){
+        if ($icon == null)
+            return;
+        DB::table('services')
+            ->where('id','=',$id)
+            ->update(['icon' => $icon]);
+    }
 }
