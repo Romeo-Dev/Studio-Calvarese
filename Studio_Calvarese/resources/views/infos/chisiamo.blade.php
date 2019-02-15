@@ -4,7 +4,7 @@
     <header id="header"><h1 class="major">Chi Siamo</h1></header>
 <!-- Content -->
 <section>
-    <span class="image main"><img src="images/pic11.jpg" alt="" /></span>
+    <span class="image main"><img src="storage/images/pic11.jpg" alt="" /></span>
     <h3>CHI SIAMO</h3>
     <p>
 

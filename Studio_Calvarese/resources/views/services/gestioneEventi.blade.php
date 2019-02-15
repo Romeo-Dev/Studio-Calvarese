@@ -41,7 +41,7 @@
                 <td>{{$event->categoria}}</td>
                     <td>{{date('d F Y',strtotime($event->giorno))}}</td>
                     @if($event->impaginato != 'NULL')
-                    <td><a href="{{asset('images/'.$event->categoria.'/'.$event->titolo.'/'.$event->impaginato)}}"class="button"><span class="icon fas fa-address-book"></span> Impaginato</a></td>
+                    <td><a href="{{asset('storage/images/'.$event->categoria.'/'.$event->titolo.'/'.$event->impaginato)}}"class="button"><span class="icon fas fa-address-book"></span> Impaginato</a></td>
                     @else
                         <td><a href="#"class="button disabled"><span class="icon fas fa-address-book"></span> Impaginato</a></td>
                         @endif

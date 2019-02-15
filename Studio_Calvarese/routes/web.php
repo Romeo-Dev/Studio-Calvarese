@@ -76,6 +76,7 @@ Route::post('/dash/services','ServicesController@update')->name('updateservice')
 Route::get('/dash/messages','InfosController@browse')->name('messagesByAdmin');
 Route::get('/dash/messages/{id}','InfosController@delete')->name('deletemessage');
 
+
 //--------------------------------Categorie Dashboard
 
 Route::get('/dash/categories','CategoryController@index')->name('categoryByAdm');
@@ -83,6 +84,12 @@ Route::post('/dash/categories','CategoryController@store')->name('storecat');
 Route::get('/dash/categories/{id}','CategoryController@destroy')->name('deletecat');
 Route::get('/dash/categories/edit/{id}','CategoryController@edit')->name('editcat');
 Route::post('/dash/categories/update','CategoryController@update')->name('updatecat');
+
+//---------------------------------Trofei Dashboard
+Route::get('/dash/trophies','InfosController@getTrophyByAdmin')->name('trophyByAdmin');
+Route::get('/dash/trophies/{id}','InfosController@deleteTrophy')->name('deletetrophy');
+Route::post('/dash/trophies','InfosController@storeTrophy')->name('insertrophy');
+
 
 Auth::routes();
 

@@ -20,7 +20,7 @@
             </ul>
         </div>
         <span class="image object">
-            <a href="{{ route('posts',['id'=>$post->id]) }}"><img src="{{asset('images/'.$post->categoria.'/'.$post->titolo.'/'.$post->path)}}" alt="" /></a>
+            <a href="{{ route('posts',['id'=>$post->id]) }}"><img src="{{asset('storage/images/'.$post->categoria.'/'.$post->titolo.'/'.$post->path)}}" alt="" /></a>
         </span>
     </section>
     @endif

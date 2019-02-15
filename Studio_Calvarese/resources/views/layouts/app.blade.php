@@ -33,7 +33,7 @@
             <!-- Menu -->
             <nav id="menu">
 
-                    <img src="{{asset('images/logo/logoCalv.png')}}" alt="" width="100%" height="20%">
+                    <img src="{{asset('storage/images/logo/logoCalv.png')}}" alt="" width="100%" height="20%">
                 <br>
 
                 <ul>
