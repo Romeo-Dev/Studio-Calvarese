@@ -197,7 +197,7 @@ Website: http://www.webthemez.com/
                     <a class="active-menu" href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fas fa-align-justify"></i> Categorie</a>
+                    <a href="{{route('categoryByAdm')}}"><i class="fas fa-align-justify"></i> Categorie</a>
                 </li>
 
                 <!--<li>
@@ -234,7 +234,7 @@ Website: http://www.webthemez.com/
                 </li>
                 <li>
                     <a href="{{route('commentsByAdmin')}}"><i class="fas fa-comments"></i>Commenti</a>
-                    
+
                 </li>
 
 

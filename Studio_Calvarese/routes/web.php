@@ -72,9 +72,17 @@ Route::get('/dash/services/edit/{id}','ServicesController@edit')->name('editserv
 Route::post('/dash/services','ServicesController@update')->name('updateservice');
 //-------------------------------------------------------------------------------
 
-
+//---------------------------------Message Dashboard
 Route::get('/dash/messages','InfosController@browse')->name('messagesByAdmin');
 Route::get('/dash/messages/{id}','InfosController@delete')->name('deletemessage');
+
+//--------------------------------Categorie Dashboard
+
+Route::get('/dash/categories','CategoryController@index')->name('categoryByAdm');
+Route::post('/dash/categories','CategoryController@store')->name('storecat');
+Route::get('/dash/categories/{id}','CategoryController@destroy')->name('deletecat');
+Route::get('/dash/categories/edit/{id}','CategoryController@edit')->name('editcat');
+Route::post('/dash/categories/update','CategoryController@update')->name('updatecat');
 
 Auth::routes();
 
