@@ -42,7 +42,7 @@ Website: http://www.webthemez.com/
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#" id="logoC"><img src="{{asset('images/logo/logoCalvDash.png')}}"alt="" width="100%" height="100%"></a>
+                <a class="navbar-brand" href="#" id="logoC"><img src="{{asset('storage/images/logo/logoCalvDash.png')}}"alt="" width="100%" height="100%"></a>
 
                 <div id="sideNav" href="">
                     <i class="fa fa-bars icon"></i>
@@ -220,7 +220,7 @@ Website: http://www.webthemez.com/
                     <a href="{{route('serviceByAdm')}}"><i class="fa fa-table"></i> Servizi</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fas fa-award"></i> Trofei</a>
+                    <a href="{{route('trophyByAdmin')}}"><i class="fas fa-award"></i> Trofei</a>
                 </li>
                 <li>
                     <a href="#"><i class="fas fa-users"></i> Utenti</a>

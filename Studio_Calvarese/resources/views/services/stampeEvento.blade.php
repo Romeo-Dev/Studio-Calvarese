@@ -26,8 +26,8 @@
             <tr>
                 @foreach($stampe as $stampa)
                 <td><div class="col-4">
-                        <h3><a href="{{asset('images/'.$stampa->categoria.'/'.$stampa->titolo.'/'.$stampa->path)}}" data-lightbox="daStampare">
-                            <img src="{{asset('images/'.$stampa->categoria.'/'.$stampa->titolo.'/'.$stampa->path)}}" alt="" width="50%" height="50%">
+                        <h3><a href="{{asset('storage/images/'.$stampa->categoria.'/'.$stampa->titolo.'/'.$stampa->path)}}" data-lightbox="daStampare">
+                            <img src="{{asset('storage/images/'.$stampa->categoria.'/'.$stampa->titolo.'/'.$stampa->path)}}" alt="" width="50%" height="50%">
                         </a></h3>
                     </div>
                 </td>

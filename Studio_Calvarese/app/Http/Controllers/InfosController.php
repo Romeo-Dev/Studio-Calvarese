@@ -8,6 +8,7 @@ use App\Category;
 use Illuminate\Support\Facades\DB;
 use App\Message;
 
+
 class InfosController extends Controller
 {
     public function getContact(){
@@ -29,6 +30,38 @@ class InfosController extends Controller
         ->get();
         return view('infos.trofei',$data);
     }
+
+    public function getTrophyByAdmin(){
+        $data['trophies']=DB::table('trophies')
+            ->orderBy('conseguimento','desc')
+            ->get();
+        return view('dashboard.trophydash',$data);
+    }
+
+    public function storeTrophy(Request $request){
+
+        $percorso = $request->path;
+        $image=$request->file($request->trofeo);
+        $copia = '/app/public/images/Trophies/';
+        $image->move($percorso,$copia);
+
+        $Trophy = new Trophy();
+        $Trophy->title = $request->title;
+        $Trophy->trofeo = $request->trofeo;
+        $Trophy->conseguimento = $request->date;
+        $Trophy->description = $request->descrizione;
+        $Trophy->save();
+        return redirect('/dash/trophies')->with('alert','Trofeo inserito con successo');
+    }
+
+    public function deleteTrophy($id){
+        DB::table('trophies')
+            ->where('id','=',$id)
+            ->delete();
+        return redirect('/dash/trophies')->with('alert','Trofeo cancellato con successo');
+    }
+
+
 
     public function send(Request $request){
         $Message = new Message();

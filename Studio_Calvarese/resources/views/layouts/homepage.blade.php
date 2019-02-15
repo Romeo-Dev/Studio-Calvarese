@@ -6,13 +6,13 @@
             <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img class="d-block w-100" src="{{asset('images/Matrimoni/Lucia e Stefano/DSC_3754 copia.jpg')}}" alt="First slide">
+                        <img class="d-block w-100" src="{{asset('storage/images/Matrimoni/Lucia e Stefano/DSC_3754 copia.jpg')}}" alt="First slide">
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="{{asset('images/Matrimoni/Lucia e Stefano/DSC_3814 copia.jpg')}}" alt="Second slide">
+                        <img class="d-block w-100" src="{{asset('storage/images/Matrimoni/Lucia e Stefano/DSC_3814 copia.jpg')}}" alt="Second slide">
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="{{asset('images/Matrimoni/Lucia e Stefano/GDF_7090 copia.jpg')}}" alt="Third slide">
+                        <img class="d-block w-100" src="{{asset('storage/images/Matrimoni/Lucia e Stefano/GDF_7090 copia.jpg')}}" alt="Third slide">
                     </div>
                 </div>
             </div>
@@ -53,7 +53,7 @@
                 @foreach($chunk as $post)
                     @if($post->paragraph_1 != null)
                     <article style="overflow: hidden">
-                        <a href="{{ route('posts',['id'=>$post->id]) }}" class="image"><img src="{{asset('images/'.$post->categoria.'/'.$post->titolo.'/'.$post->path)}}" alt=""  /></a>
+                        <a href="{{ route('posts',['id'=>$post->id]) }}" class="image"><img src="{{asset('storage/images/'.$post->categoria.'/'.$post->titolo.'/'.$post->path)}}" alt=""  /></a>
                         <h3>{{$post->titolo}} <i>({{$post->categoria}})</i></h3>
                         <p>{{str_limit($post->paragraph_1,$limit=250,$end='...')}}</p>
                         <ul class="actions">

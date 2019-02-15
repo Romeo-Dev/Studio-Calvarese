@@ -8,7 +8,7 @@
     @foreach($trophies as $trophy)
     <section>
         <dl>
-            <span class="image fit"><img src="{{asset('images/Trophies/'.$trophy->trofeo)}}" alt="" /></span>
+            <span class="image fit"><img src="{{asset('storage/images/Trophies/'.$trophy->trofeo)}}" alt="" /></span>
             <dt>{{date('Y',strtotime($trophy->conseguimento))}}</dt><dt>{{$trophy->title}}</dt>
             <dd>
                 <p>{{$trophy->description}}</p>
