@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 use App\Category;
 use Illuminate\Support\Facades\DB;
 use App\Message;
-
+use Illuminate\Support\Facades\Storage;
+use File;
 
 class InfosController extends Controller
 {
@@ -40,14 +41,19 @@ class InfosController extends Controller
 
     public function storeTrophy(Request $request){
 
-        $percorso = $request->path;
-        $image=$request->file($request->trofeo);
-        $copia = '/app/public/images/Trophies/';
-        $image->move($percorso,$copia);
+
+        if ($request->hasFile('trofeo')) {
+
+            $cover = $request->file('trofeo');
+            $extension = $cover->getClientOriginalExtension();
+            Storage::disk('public')->put('images/Trophies/'.$cover->getFilename().'.'.$extension,  File::get($cover));
+
+        }else
+            return redirect()->back()->with('alert','Nessun file inserito');
 
         $Trophy = new Trophy();
         $Trophy->title = $request->title;
-        $Trophy->trofeo = $request->trofeo;
+        $Trophy->trofeo = $cover->getFilename().'.'.$extension;
         $Trophy->conseguimento = $request->date;
         $Trophy->description = $request->descrizione;
         $Trophy->save();

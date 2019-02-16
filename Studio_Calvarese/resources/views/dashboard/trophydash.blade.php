@@ -72,10 +72,6 @@
                                         <input type="text" class="form-control" placeholder="Titolo del trofeo" name="title" required>
                                     </div>
                                     <div class="form-group">
-                                        <label>Path Assoluto</label>
-                                        <input type="text" class="form-control" placeholder="Titolo del trofeo" name="path" required>
-                                    </div>
-                                    <div class="form-group">
                                         <label>Foto Trofeo</label>
                                         <input type="file" id="exampleInputFile" name="trofeo">
                                     </div>
