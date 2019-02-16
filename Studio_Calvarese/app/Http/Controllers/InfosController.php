@@ -60,10 +60,13 @@ class InfosController extends Controller
         return redirect('/dash/trophies')->with('alert','Trofeo inserito con successo');
     }
 
-    public function deleteTrophy($id){
+    public function deleteTrophy($id ,$trofeo){
         DB::table('trophies')
             ->where('id','=',$id)
             ->delete();
+
+        Storage::disk('public')->delete('images/Trophies/'.$trofeo);
+
         return redirect('/dash/trophies')->with('alert','Trofeo cancellato con successo');
     }
 
@@ -104,5 +107,48 @@ class InfosController extends Controller
 
         return redirect('/dash/messages')->with('alert','Commento cancellato con successo');
     }
-    
+
+
+    Public function  editTrophy($id){
+        $data['trophy'] = Trophy::all()->find($id);
+        return view('dashboard.editTrophy',$data);
+    }
+
+
+    //------------------------update trophy
+    public function update(Request $request){
+        if ($request->title == null && $request->descrizione == null && $request->data == null) {
+            return redirect()->back()->with('alert','Nessun campo aggiornato form vuota');
+        }else {
+
+            $this->updateTitolo($request->title, $request->id);
+            $this->updateDesc($request->descrizione, $request->id);
+            $this->updateIcon($request->data, $request->id);
+
+            return redirect('/dash/trophies')->with('alert', 'Servizio aggiornato con successo');
+        }
+
+    }
+    public function updateTitolo($title,$id){
+        if ($title == null)
+            return;
+        DB::table('trophies')
+            ->where('id','=',$id)
+            ->update(['title' => $title]);
+    }
+    public function updateDesc($desc,$id){
+        if ($desc == null)
+            return ;
+        DB::table('trophies')
+            ->where('id','=',$id)
+            ->update(['description' => $desc]);
+    }
+    public function updateIcon($data,$id){
+        if ($data == null)
+            return;
+        DB::table('trophies')
+            ->where('id','=',$id)
+            ->update(['conseguimento' => $data]);
+    }
+
 }

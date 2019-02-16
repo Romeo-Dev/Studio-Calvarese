@@ -4,7 +4,7 @@
     <div id="page-wrapper" >
         <div class="header">
             <h1 class="page-header">
-                Trofei <small><a href="#servizio" class="btn btn-success"><i class="fas fa-plus-circle"> Nuovo Trofeo</i></a></small>
+                Trofei <small><a href="#trofeo" class="btn btn-success"><i class="fas fa-plus-circle"> Nuovo Trofeo</i></a></small>
                 @if(session('alert'))
                     <div class="alert alert-success">
                         {{session('alert')}}
@@ -40,9 +40,9 @@
                                                 <td>{{$trophy->description}}</td>
                                                 <td>{{date('d F Y',strtotime($trophy->conseguimento))}}</td>
                                                 <td>
-                                                    <a {{--href="{{route('editrophy',['id'=>$trophy->id])}}"--}} class="btn btn-primary large" style="width: 100%;margin-bottom: 4px;"><i class="fas fa-edit"> Edita</i></a>
+                                                    <a href="{{route('editTrophy',['id'=>$trophy->id])}}" class="btn btn-primary large" style="width: 100%;margin-bottom: 4px;"><i class="fas fa-edit"> Edita</i></a>
                                                     <br>
-                                                    <a href="{{route('deletetrophy',['id'=>$trophy->id])}}" class="btn btn-danger large" style="width: 100%;"><i class="fas fa-trash-restore"> Elimina</i></a>
+                                                    <a href="{{route('deletetrophy',['id'=>$trophy->id , 'trofeo'=>$trophy->trofeo])}}" class="btn btn-danger large" style="width: 100%;"><i class="fas fa-trash-restore"> Elimina</i></a>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -68,7 +68,7 @@
                                 <form action="{{route('insertrophy')}}" method="post" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group">
-                                        <label>Nome Trofeo</label>
+                                        <label id="trofeo">Nome Trofeo</label>
                                         <input type="text" class="form-control" placeholder="Titolo del trofeo" name="title" required>
                                     </div>
                                     <div class="form-group">

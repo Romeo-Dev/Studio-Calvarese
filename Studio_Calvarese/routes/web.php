@@ -87,8 +87,10 @@ Route::post('/dash/categories/update','CategoryController@update')->name('update
 
 //---------------------------------Trofei Dashboard
 Route::get('/dash/trophies','InfosController@getTrophyByAdmin')->name('trophyByAdmin');
-Route::get('/dash/trophies/{id}','InfosController@deleteTrophy')->name('deletetrophy');
+Route::get('/dash/trophies/{id}/{trofeo}','InfosController@deleteTrophy')->name('deletetrophy');
 Route::post('/dash/trophies','InfosController@storeTrophy')->name('insertrophy');
+Route::get('/dash/tropheis/edit/{id}','InfosController@editTrophy')->name('editTrophy');
+Route::post('/dash/trophies/update','InfosController@update')->name('updateTrophy');
 
 
 Auth::routes();
