@@ -61,7 +61,7 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <div class="card-title">
-                                    <div class="title">Aggiungi Trofeo</div>
+                                    <div class="title" id="#trofeo">Aggiungi Trofeo</div>
                                 </div>
                             </div>
                             <div class="panel-body">

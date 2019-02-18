@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Category;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Post;
 
 class EventController extends Controller
 {
@@ -46,4 +47,30 @@ class EventController extends Controller
             ->update(['pubblicato' => 'si']);
         return redirect('/gestisciEvento');
     }
+
+    public function getEventsByAdmin(){
+        $data['categories']=Category::all();
+        $data['events']=DB::table('posts')
+            ->select('posts.id','titolo','categoria','email','giorno','pubblicato','impaginato')
+            ->join('categories','category_id','=','categories.id')
+            ->join('users','user_id','=','users.id')
+            ->get();
+        return view('dashboard.eventsdash',$data);
+    }
+
+    public function deletePublishedEvent($id){
+        DB::table('posts')
+            ->where('id','=',$id)
+            ->update(['pubblicato' => 'no']);
+
+        return redirect('/dash/events')->with('alert','Evento cancellato con successo');
+    }
+
+    public function editEvent($id){
+        $data['categories']=Category::all();
+        $data['event'] = Post::all()->find($id);
+        return view('dashboard.editEvent',$data);
+    }
+
+
 }

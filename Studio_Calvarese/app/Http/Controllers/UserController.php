@@ -53,4 +53,22 @@ class UserController extends Controller
             ->where('id', Auth::user()->id)
             ->update(['password' => $pwd]);
     }
+
+    public function getUsersByAdmin(){
+        $data['users']=DB::table('users')
+            ->get();
+        return view('dashboard.usersdash',$data);
+    }
+
+    public function getEventsByUser($id){
+        $data['user']=User::find($id);
+
+        $data['events']=DB::table('posts')
+            ->select('posts.id','titolo','categoria','giorno','pubblicato','impaginato')
+            ->join('categories','category_id','=','categories.id')
+            ->where('user_id','=',$id)
+            ->get();
+        return view('dashboard.eventsbyuser',$data);
+    }
+
 }

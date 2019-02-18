@@ -8,7 +8,9 @@ use App\Category;
 use Illuminate\Support\Facades\DB;
 use App\Message;
 use Illuminate\Support\Facades\Storage;
+
 use File;
+
 
 class InfosController extends Controller
 {
@@ -40,8 +42,6 @@ class InfosController extends Controller
     }
 
     public function storeTrophy(Request $request){
-
-
         if ($request->hasFile('trofeo')) {
 
             $cover = $request->file('trofeo');
@@ -50,6 +50,7 @@ class InfosController extends Controller
 
         }else
             return redirect()->back()->with('alert','Nessun file inserito');
+
 
         $Trophy = new Trophy();
         $Trophy->title = $request->title;

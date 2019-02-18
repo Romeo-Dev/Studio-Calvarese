@@ -38,7 +38,7 @@
                 @endforeach
             @endforeach
                 <br>
-                <a href="{{route('servizi')}}" class="button fit icon fa fa-arrow-circle-right">Learn more..</a>
+                <a href="{{route('servizi')}}" class="button fit icon fa fa-arrow-circle-right" style="padding-top:18px;" >Learn more...</a>
         </div>
     </section>
 

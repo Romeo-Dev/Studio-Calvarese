@@ -22,8 +22,7 @@
                         <p>{{$service->descrizione}}</p>
                         <p>Icon:  <button class="btn btn-lg btn-warning"><i class="{{$service->icon}}"></i></button></p>
                     </div>
-                    <div class="panel-footer">
-                    </div>
+
                 </div>
                 </div>
                 <div class="col-md-6">
@@ -59,8 +58,6 @@
                 </div>
                 </div>
             </div>
-
-
         </div>
-</div>
+    </div>
 @endsection

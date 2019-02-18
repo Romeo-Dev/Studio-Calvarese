@@ -48,7 +48,7 @@
                 <input type="text" name="nome" id="nome" value="" placeholder="Name"  required/>
             </div>
             <div class="col-6 col-12-xsmall">
-                <input type="text" name="cognome" id="cognome" value="" placeholder="Cognome"  required/>
+                <input type="text" name="cognome" id="cognome" value="" placeholder="Surname"  required/>
             </div>
             <div class="col-6 col-12-xsmall">
                 <input type="email" name="email" id="email" value="" placeholder="Email" required/>

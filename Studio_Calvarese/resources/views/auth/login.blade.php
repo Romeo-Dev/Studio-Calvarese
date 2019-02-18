@@ -41,7 +41,7 @@
                         <div class="row gtr-uniform">
                             <div class="col-6 col-12-xsmall">
                         @if (Route::has('password.request'))
-                                    <a href="{{ route('password.request') }}"><h5>Forgot your Password?</h5></a>
+                                   {{-- <a href="{{ route('password.request') }}"><h5>Forgot your Password?</h5></a>--}}
                         @endif
                         </div>
                             </div>

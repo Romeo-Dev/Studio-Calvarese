@@ -213,7 +213,7 @@ Website: http://www.webthemez.com/
                 </li> -->
 
                 <li>
-                    <a href="#"><i class="fa fa-calendar-plus"></i> Eventi</a>
+                    <a href="{{route('eventsByAdmin')}}"><i class="fa fa-calendar-plus"></i> Eventi</a>
                 </li>
 
                 <li>
@@ -223,7 +223,7 @@ Website: http://www.webthemez.com/
                     <a href="{{route('trophyByAdmin')}}"><i class="fas fa-award"></i> Trofei</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fas fa-users"></i> Utenti</a>
+                    <a href="{{route('usersByAdmin')}}"><i class="fas fa-users"></i> Utenti</a>
                 </li>
                 <li>
                     <a href="#"><i class="fas fa-calendar-alt"></i> Prenotazioni</a>

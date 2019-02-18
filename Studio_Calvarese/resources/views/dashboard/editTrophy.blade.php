@@ -4,7 +4,7 @@
     <div id="page-wrapper" >
         <div class="header">
             <h1 class="page-header">
-                Edita Servizio
+                Edita Trofeo
                 @if(session('alert'))
                     <div class="alert alert-warning">
                         {{session('alert')}}
@@ -29,7 +29,7 @@
                 <div class="col-md-6">
                     <div class="panel panel-info">
                         <div class="panel-heading">
-                            <h2>Edita Servizio</h2>
+                            <h2>Edita Trofeo</h2>
                         </div>
                         <form action="{{route('updateTrophy')}}" method="post" id="editForm">
                             @csrf
