@@ -98,7 +98,7 @@ Route::get('/dash/users/{id}','UserController@getEventsByUser')->name('eventsByU
 Route::get('/dash/events','EventController@getEventsByAdmin')->name('eventsByAdmin');
 Route::get('/dash/events/edit/{id}','EventController@editEvent')->name('editEvent');
 Route::post('/dash/events','EventController@insertEvent')->name('insertevent');
-Route::post('/dash/events/update','EventController@editEvent')->name('updatevent');
+Route::post('/dash/events/update','EventController@updateEvent')->name('updatevent');
 Route::get('/dash/events/{id}','EventController@deletePublishedEvent')->name('deleteEventsByAdmin');
 
 Auth::routes();
