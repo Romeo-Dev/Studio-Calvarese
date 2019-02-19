@@ -58,18 +58,18 @@
 
             <div class="row">
                 <div class="col-md-12" id="evento">
-                    <div class="panel panel-primary">
+                    <div class="panel panel-default">
                         <div class="panel-heading">
                             <div class="card-title">
                                 <div class="title" >Aggiungi Evento</div>
                             </div>
                         </div>
                         <div class="panel-body">
-                            <form action="{{url('/dash/events')}}" method="post">
+                            <form action="{{route('insertevent')}}" method="post">
                                 @csrf
                                 <div class="form-group">
                                     <label for="servizio">Utente</label>
-                                    <input type="text" class="form-control"  placeholder="Email dell'utente" name="service" required>
+                                    <input type="text" class="form-control"  placeholder="Email dell'utente" name="email" required>
                                 </div>
                                 <div class="form-group">
                                     <label >Data (Y-m-d alfanumerico)</label>
@@ -78,10 +78,10 @@
                                 <br>
                                 <div class="form-group">
                                     <label>Categoria</label>
-                                    <select class="selectbox">
+                                    <select class="selectbox" name="categoria">
                                         <optgroup label="nessuna">
                                             @foreach($categories as $category)
-                                                <option value={{$category->categoria}}>{{$category->categoria}}</option>
+                                                <option  value="{{$category->categoria}}">{{$category->categoria}}</option>
                                             @endforeach
                                         </optgroup>
                                     </select>
@@ -89,29 +89,29 @@
                                 <br>
                                 <div class="form-group">
                                     <label for="servizio">Titolo Evento</label>
-                                    <input type="text" class="form-control"  placeholder="Titolo dell'evento" name="service" required>
+                                    <input type="text" class="form-control"  placeholder="Titolo dell'evento" name="titolo" required>
                                 </div>
                                 <div class="sub-title">Paragrafo 1</div>
                                 <div>
-                                    <textarea class="form-control" rows="3" placeholder="Paragrafo" name="descrizione" required></textarea>
+                                    <textarea class="form-control" rows="3" placeholder="Paragrafo" name="descrizione1" required></textarea>
                                 </div>
                                 <br>
                                 <div class="form-group">
                                     <label for="servizio">Sottotitolo</label>
-                                    <input type="text" class="form-control"  placeholder="Sottotitolo" name="service" required>
+                                    <input type="text" class="form-control"  placeholder="Sottotitolo" name="sottotitolo" required>
                                 </div>
                                 <div class="sub-title">Paragrafo 2</div>
                                 <div>
-                                    <textarea class="form-control" rows="3" placeholder="Paragrafo" name="descrizione" required></textarea>
+                                    <textarea class="form-control" rows="3" placeholder="Paragrafo" name="descrizione2" required></textarea>
                                 </div>
                                 <br>
                                 <div class="form-group">
                                     <label for="servizio">Conclusione</label>
-                                    <input type="text" class="form-control"  placeholder="Conclusione" name="service" required>
+                                    <input type="text" class="form-control"  placeholder="Conclusione" name="conclusione" required>
                                 </div>
                                 <div class="sub-title">Paragrafo 3</div>
                                 <div>
-                                    <textarea class="form-control" rows="3" placeholder="Paragrafo" name="descrizione" required></textarea>
+                                    <textarea class="form-control" rows="3" placeholder="Paragrafo" name="descrizione3" required></textarea>
                                 </div>
                                 <br>
                                 <div class="form-group">
@@ -120,10 +120,10 @@
                                 </div>
                                 <br>
 
-                                <div class="form-group">
+{{--                                <div class="form-group">
                                     <label>Impaginato</label>
                                     <input type="file" id="exampleInputFile" name="impaginato">
-                                </div>
+                                </div>--}}
 
                                 <br>
                                 <button type="submit" class="btn btn-success btn-circle"><i class="fa fa-check"></i></button>

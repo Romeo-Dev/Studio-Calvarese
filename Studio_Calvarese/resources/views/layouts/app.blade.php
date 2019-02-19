@@ -33,7 +33,7 @@
             <!-- Menu -->
             <nav id="menu">
 
-                    <img src="{{asset('storage/images/logo/logoCalv.png')}}" alt="" width="100%" height="20%">
+                    <img src="{{asset('storage/images/logo/logo modificato.png')}}" alt="" width="100%" height="20%">
                 <br>
 
                 <ul>
@@ -75,9 +75,9 @@
                                 <li>
                                     <a href="#">Prenotazione Appuntamento</a>
                                 </li>
-                                <li>
+{{--                                <li>
                                     <a href="#">Noleggia Attrezzatura</a>
-                                </li>
+                                </li>--}}
                                 @endauth
                                 @if(Auth::user()->group_id == '1')
                                     <li><a href="{{url('/dash')}}">My Dash</a></li>
@@ -110,62 +110,10 @@
                                 San Benedetto dei Marsi (AQ)</li></a>
                         </ul>
                     </section>
-                   {{-- <li><a href="generic.html">Generic</a></li>
-                    <li><a href="#notizie">Recent posts</a></li>
-                    <li>
-                        <span class="opener">Categories</span>
-                        <ul>
-                            @foreach($categories as $category)
-                            <li><a href="#">{{$category->nome}}</a></li>
-                            @endforeach
-                        </ul>
-                    </li>
-                    <li>
-                        <span class="opener">Societies</span>
-                        <ul>
-                            @foreach($society as $societa)
-                                <li><a href="#">{{$societa->societa}}</a></li>
-                            @endforeach
-                        </ul>
-                    </li>
-                    <!-- Authentication Links -->
-                    @guest
-                        <li>
-                            <a  href="{{ route('login') }}">{{ __('Login') }}</a>
-                        </li>
-                        @if (Route::has('register'))
-                            <li>
-                                <a href="{{ route('register') }}">{{ __('Register') }}</a>
-                            </li>
-                        @endif
-                    @else
-                        <li>
-                            <span class="opener"> {{ Auth::user()->name }} </span>
-
-
-
-                            <ul>
-                               <li></li> <a href="{{ route('logout') }}"
-                                   onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
-                                </li>
-                                <li>
-                                <a href="{{ route('voyager.dashboard') }}">My dash</a>
-                                </li>
-
-                            </ul>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    @csrf
-                                </form>
-                        </li>
-                    @endguest--}}
                 </ul>
 
             </nav>
 
-            {{--@yield('side')
---}}
         </div>
     </div>
 </div>
