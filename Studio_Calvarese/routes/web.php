@@ -92,8 +92,17 @@ Route::post('/dash/trophies','InfosController@storeTrophy')->name('insertrophy')
 Route::get('/dash/tropheis/edit/{id}','InfosController@editTrophy')->name('editTrophy');
 Route::post('/dash/trophies/update','InfosController@update')->name('updateTrophy');
 
+
+
+//---------------------------------Gestisci eventi by user
 Route::get('/dash/users','UserController@getUsersByAdmin')->name('usersByAdmin');
 Route::get('/dash/users/{id}','UserController@getEventsByUser')->name('eventsByUser');
+Route::get('/dash/users/{id}/{titolo}','UserController@getGestione')->name('gestEvent');
+Route::post('/dash/users','UserController@uploadImp')->name('uploadimp');
+
+
+
+//-----------------------------Generate Event
 
 Route::get('/dash/events','EventController@getEventsByAdmin')->name('eventsByAdmin');
 Route::get('/dash/events/edit/{id}','EventController@editEvent')->name('editEvent');

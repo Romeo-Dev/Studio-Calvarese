@@ -31,9 +31,7 @@
                                                 <td>{{$event->categoria}}</td>
                                                 <td>{{date('d F Y',strtotime($event->giorno))}}</td>
                                                 <td>
-                                                    <a href="{{asset('storage/images/Matrimoni/'.$event->titolo)}}" class="btn btn-primary large" style="width: 100%;margin-bottom: 4px;"><i class="fas fa-file-download"> Download Stampe</i></a>
-                                                    <br>
-                                                    <a {{--href="{{route('eventsByUser',['id'=>$user->id])}}"--}} class="btn btn-warning large" style="width: 100%;"><i class="fas fa-file-upload"> Carica Impaginato</i></a>
+                                                    <a  href="{{route('gestEvent',['id'=>$user->id,'titolo'=>$event->titolo])}}" class="btn btn-warning large" style="width: 100%;"><i class="fas fa-calendar-plus"> Gestisci l'evento di questo utente</i></a>
                                                 </td>
                                             </tr>
                                         @endforeach

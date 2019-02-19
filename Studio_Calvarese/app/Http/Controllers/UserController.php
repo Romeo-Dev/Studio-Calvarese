@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use Hash;
-use DB;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Category;
 use App\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use File;
 
 class UserController extends Controller
 {
@@ -69,6 +71,48 @@ class UserController extends Controller
             ->where('user_id','=',$id)
             ->get();
         return view('dashboard.eventsbyuser',$data);
+    }
+
+
+    public function getGestione($id,$titolo){
+        $data['utente']=User::all()->find($id);
+        $data['event']=DB::table('posts')
+            ->join('categories','category_id','=','categories.id')
+            ->where('user_id','=',$id)
+            ->where('titolo','=',$titolo)
+            ->get();
+        $data['stampe']=DB::table('posts')
+            ->select('path','images.id')
+            ->join('images','post_id','=','posts.id')
+            ->where('user_id','=',$id)
+            ->where('titolo','=',$titolo)
+            ->where('stato','=','stampe')
+            ->get();
+        return view('dashboard.gestisciEventByUser',$data);
+    }
+
+    public function uploadImp(Request $request){
+
+        if ($request->impaginato != null) {
+
+           /* $validator = Validator::make($request->all(), [
+                'file' => 'max:10120', //5MB
+            ]);*/
+
+            $cover = $request->file('impaginato');
+            $cat = $request->categoria;
+            $titolo = $request->titolo;
+            $extension = $cover->getClientOriginalExtension();
+            Storage::disk('public')->put('images/'.$cat.'/'.$titolo.'/'.$cover->getClientOriginalName(),  File::get($cover));
+
+            DB::table('posts')
+                ->where('id','=',$request->id)
+                ->update(['impaginato' => $cover->getClientOriginalName()]);
+
+            return redirect('dash/users')->with('alert','Impaginato caricato con successo');
+        }else
+            return redirect()->back()->with('alert','Nessun file inserito');
+
     }
 
 }
