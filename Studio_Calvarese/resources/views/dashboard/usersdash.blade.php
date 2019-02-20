@@ -4,6 +4,11 @@
     <div id="page-wrapper" >
         <div class="header">
             <h1 class="page-header">Utenti</h1>
+            @if(session('alert'))
+                <div class="alert alert-success">
+                    <h4>{{session('alert')}}</h4>
+                </div>
+            @endif
             <div id="page-inner">
 
                 <div class="row">

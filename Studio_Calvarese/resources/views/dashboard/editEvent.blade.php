@@ -97,17 +97,27 @@
                                 <div class="panel-heading">
                                 <h2>Gallery</h2>
                                 </div>
-                                <div class="box alt">
-                                    <div class="row gtr-50 gtr-uniform">
-                                        @foreach($images->chunk(2) as $chunk)
-                                            <div class="row">
-                                            @foreach($chunk as $vary)
-                                                <div class="col-md-2"><img src="{{asset('storage/images/'.$event->categoria.'/'.$event->titolo.'/'.$vary->path)}}" alt="img gallery" width="100px" height="100px" /></div>
-                                            @endforeach
-                                            </div>
-                                        @endforeach
+                                <br>
+                                @foreach($images->chunk(3) as $chunk)
+                                <div class="row">
+                                <div class="col-md-12">
+                                    @foreach($chunk as $image)
+                                <div class="col-md-4">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">
+                                    </div>
+                                    <div class="panel-body">
+                                        <img src="{{asset('storage/images/'.$event->categoria.'/'.$event->titolo.'/'.$image->path)}}" alt="" width="100%" height="100%">
+                                    </div>
+                                    <div class="panel-footer">
+                                        <strong style="text-transform: uppercase">{{$image->posizione}}</strong>
                                     </div>
                                 </div>
+                                </div>
+                                    @endforeach
+                                </div>
+                                </div>
+                                    @endforeach
                             </div>
                         </div>
                         <div class="col-md-6">

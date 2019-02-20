@@ -8,6 +8,10 @@
                     <div class="alert alert-success">
                         {{session('alert')}}
                     </div>
+                    @elseif(session('alertdanger'))
+                    <div class="alert alert-danger">
+                        {{session('alertdanger')}}
+                    </div>
                 @endif
             </h1>
 
