@@ -72,12 +72,7 @@
                             <div>
                                 <textarea class="form-control" rows="3" placeholder="Paragrafo" name="par3" ></textarea>
                             </div>
-                            <br>
-                            <div class="form-group">
-                                <label for="servizio">Rendi pubblico</label>
-                                <input type="text" class="form-control" id="evento" placeholder="si/no" name="pubblicato" >
-                            </div>
-                            <br>
+
 
 
                             <br>

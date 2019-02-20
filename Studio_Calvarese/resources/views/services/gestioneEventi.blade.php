@@ -30,7 +30,7 @@
                 <th>Data</th>
                 <th>Impaginati</th>
                 <th>Stampe</th>
-                <th>Pubblicazione</th>
+              {{--  <th>Pubblicazione</th>--}}
             </tr>
             </thead>
             <tbody>
@@ -41,16 +41,16 @@
                 <td>{{$event->categoria}}</td>
                     <td>{{date('d F Y',strtotime($event->giorno))}}</td>
                     @if($event->impaginato != 'NULL')
-                    <td><a href="{{asset('storage/images/'.$event->categoria.'/'.$event->titolo.'/'.$event->impaginato)}}"class="button"><span class="icon fas fa-address-book"></span> Impaginato</a></td>
+                    <td><a href="{{asset('storage/images/'.$event->categoria.'/'.$event->titolo.'/'.$event->impaginato)}}"class="button primary"><span class="icon fas fa-address-book"></span> Impaginato</a></td>
                     @else
-                        <td><a href="#"class="button disabled"><span class="icon fas fa-address-book"></span> Impaginato</a></td>
+                        <td><a href="#"class="button primary disabled"><span class="icon fas fa-address-book"></span> Impaginato</a></td>
                         @endif
-                        <td><a href="{{ route('stampe',['idst'=>$event->id]) }}"class="button"><span class="icon fas fa-image"></span> Stampe</a></td>
-                        @if($event->pubblicato == 'no')
+                        <td><a href="{{ route('stampe',['idst'=>$event->id]) }}"class="button primary"><span class="icon fas fa-image"></span> Stampe</a></td>
+                   {{--     @if($event->pubblicato == 'no')
                     <td><a href="{{route('publicPost',['id'=>$event->id])}}" class="button primary"><span class="icon fas fa-align-center"> </span> Rendi pubblico</a></td>
                     @else
                         <td><a href="#"class="button primary disabled"><span class="icon fas fa-align-center"> </span> Rendi pubblico</a></td>
-                    @endif
+                    @endif--}}
             </tr>
             @endforeach
 
@@ -74,12 +74,12 @@
             Lorem ipsum dolor vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Lorem ipsum dolor. Lorem ipsum dolor vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus.
         </blockquote>
 
-        <h3>Rendi Pubblico</h3>
+{{--        <h3>Rendi Pubblico</h3>
         <blockquote>
             Questa funzionalità permette di rendere pubblico e visibile l'evento da te scelto a tutti gli utenti (ed anche semplici visitatori) del sito,
             garantendo così un'esperienza senza eguali, ricca di meravigliosi momenti ed indimenticabili scatti fotografici.
             E' possibile pubblicare SOLO gli eventi appartenenti all'utente loggato.
-        </blockquote>
+        </blockquote>--}}
     </section>
 
     </div>
