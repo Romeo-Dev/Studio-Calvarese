@@ -110,5 +110,10 @@ Route::post('/dash/events','EventController@insertEvent')->name('insertevent');
 Route::post('/dash/events/update','EventController@updateEvent')->name('updatevent');
 Route::get('/dash/events/{id}','EventController@deletePublishedEvent')->name('deleteEventsByAdmin');
 
+
+//-----------------------------Infos Dash
+Route::get('/dash/about','InfosController@editAbout')->name('about');
+Route::post('/dash/about/update','InfosController@updateAboutUs')->name('updateAbout');
+
 Auth::routes();
 

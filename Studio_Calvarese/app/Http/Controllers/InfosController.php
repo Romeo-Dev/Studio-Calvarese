@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\About_us;
 use App\Trophy;
 use Illuminate\Http\Request;
 use App\Category;
@@ -14,15 +15,60 @@ use File;
 
 class InfosController extends Controller
 {
-    public function getContact(){
-        $data['categories']=Category::all();
+    public function getContact()
+    {
+        $data['categories'] = Category::all();
         return view('infos.contatti', $data);
     }
 
-    public function getAboutme(){
-        $data['categories']=Category::all();
-        return view('infos.chisiamo',$data);
+    public function getAboutme()
+    {
+        $data['categories'] = Category::all();
+        $data['about'] = About_us::all()->first();
+        return view('infos.chisiamo', $data);
     }
+
+    public function editAbout()
+    {
+        $data['about'] = About_us::all()->first();
+        return view('dashboard.about_us', $data);
+    }
+
+    public function updateAboutUs(Request $request)
+    {
+
+        $this->updateChiSiamo($request->chi_siamo);
+        $this->updateAbo($request->about_us);
+        if ($request->hasFile('immagine')) {
+            $cover = $request->file('immagine');
+            Storage::disk('public')->put('images/logo/' . $cover->getClientOriginalName(), File::get($cover));
+            //Store Db
+            DB::table('about_uses')
+                ->where('id', '=', '1')
+                ->update(['immagine' => $cover->getClientOriginalName()]);
+        }
+
+        return redirect()->back()->with('alert', 'Presentazione aggiornata con successo');
+    }
+
+    //------------------------------metodi update di about us
+    public function updateChiSiamo($chi){
+        if ($chi == null)
+            return;
+        DB::table('about_uses')
+            ->where('id','=','1')
+            ->update(['chi_siamo' => $chi]);
+    }
+    public function updateAbo($us){
+        if ($us == null)
+            return;
+        DB::table('about_uses')
+            ->where('id','=','1')
+            ->update(['about_us' => $us]);
+    }
+
+    //--------------------------------------------------------
+
 
     public function getTrophy(){
 
