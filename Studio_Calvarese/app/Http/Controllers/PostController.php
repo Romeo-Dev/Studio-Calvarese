@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Image;
-use App\Post;
+use App\Contact;
 use Illuminate\Http\Request;
 use App\Category;
 use Illuminate\Support\Facades\DB;
@@ -13,6 +13,7 @@ class PostController extends Controller
     public function getPost($id){
         $save=$id;
         $data['categories']=Category::all();
+        $data['contact']=Contact::all()->first();
         $data['posts']=DB::table('posts')
             ->select('posts.id','categoria','name','surname','titolo','giorno','paragraph_1','subtitle','paragraph_2','in_conclusion','paragraph_3')
             ->join('categories','category_id','=','categories.id')

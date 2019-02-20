@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Category;
+use App\Contact;
 class LoginController extends Controller
 {
     /*
@@ -39,7 +40,7 @@ class LoginController extends Controller
 
     public function showLoginForm() {
         $data['categories']=Category::all();
-
+        $data['contact']=Contact::all()->first();
         return view('auth.login', $data);
     }
 

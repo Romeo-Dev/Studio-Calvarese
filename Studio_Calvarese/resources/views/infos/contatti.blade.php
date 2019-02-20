@@ -5,14 +5,15 @@
         <h1 class="major">Contatti</h1>
     </header>
     <section>
-        <p>Lo Studio Fotografico Calvarese si trova in <strong>Via Pace 10</strong> a <strong>San Benedetto dei Marsi (AQ)</strong>, puoi contattarci al numero telefonico <strong>0863 867 767</strong> oppure compilando il seguente form:</p>
+        <p>{!! $contact->contact !!}</p>
         <ul class="contact">
-            <li href="#" class="icon fa-facebook"><a href="https://www.facebook.com/StudiofotograficoCalvarese/" target="_blank"><h5> Facebook</h5></a></li>
-            <li href="#" class="icon fa-instagram"><a href="https://www.instagram.com/studio_fotografico_calvarese/?hl=it&fbclid=IwAR24JO5EwH9-IKbDrFygLfcLsO6iBnE3N4SYsCLl9vTZHDv8MJO838K9kLs" target="_blank"><h5> Instagram</h5></a></li>
-            <li class="fa-envelope-o"><a href="mailto:fotocalvarese@gmail.com"><h5>fotocalvarese@gmail.com</h5></a></li>
-            <li class="fa-phone"><h5>0863 867767</h5></li>
-            <li class="fa-home"><a href="https://www.google.com/maps/place/Via+Pace,+10,+67058+San+Benedetto+dei+Marsi+AQ/@42.0052982,13.6251422,3a,75y,229.02h,87.66t/data=!3m6!1e1!3m4!1s--kAg7bokC_HbzHceHrR4w!2e0!7i13312!8i6656!4m5!3m4!1s0x13301ed116164e7f:0xa06c719d14975f14!8m2!3d42.003812!4d13.628592" target="_blank"/><h5>Via Pace 10 <br />
-                    San Benedetto dei Marsi (AQ)</h5> </li></a>
+            <li class="icon fa-facebook"><a href="{{$contact->facebook}}" target="_blank"><h5> Facebook</h5></a></li>
+            <li class="icon fa-instagram"><a href="{{$contact->instagram}}" target="_blank"><h5> Instagram</h5></a></li>
+            <li class="fa-envelope-o"><a href="mailto:{{$contact->email}}"><h5>{{$contact->email}}</h5></a></li>
+            <li class="fa-phone"><h5>{{$contact->number}}</h5></li>
+            <li class="fa-home"><a href="{{$contact->location}}" target="_blank"/>
+                <h5>{!! $contact->nome_via !!}</h5>
+            </li></a>
         </ul>
     </section>
 

@@ -10,11 +10,13 @@ use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use File;
+use App\Contact;
 
 class UserController extends Controller
 {
     public function getProfile(){
         $data['categories']=Category::all();
+        $data['contact']=Contact::all()->first();
         return view('auth.profilo',$data);
     }
 
@@ -95,14 +97,9 @@ class UserController extends Controller
 
         if ($request->impaginato != null) {
 
-           /* $validator = Validator::make($request->all(), [
-                'file' => 'max:10120', //5MB
-            ]);*/
-
             $cover = $request->file('impaginato');
             $cat = $request->categoria;
             $titolo = $request->titolo;
-            $extension = $cover->getClientOriginalExtension();
             Storage::disk('public')->put('images/'.$cat.'/'.$titolo.'/'.$cover->getClientOriginalName(),  File::get($cover));
 
             DB::table('posts')

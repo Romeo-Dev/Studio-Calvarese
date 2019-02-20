@@ -134,6 +134,10 @@ Website: http://www.webthemez.com/
                     <a href="{{route('about')}}"><i class="fas fa-address-card"></i> About_us</a>
 
                 </li>
+                <li>
+                    <a href="{{--route('about')--}}"><i class="fas fa-phone-square"></i> Contatti</a>
+
+                </li>
 
 
             </ul>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\About_us;
+use App\Contact;
 use App\Trophy;
 use Illuminate\Http\Request;
 use App\Category;
@@ -18,12 +19,14 @@ class InfosController extends Controller
     public function getContact()
     {
         $data['categories'] = Category::all();
+        $data['contact']=Contact::all()->first();
         return view('infos.contatti', $data);
     }
 
     public function getAboutme()
     {
         $data['categories'] = Category::all();
+        $data['contact']=Contact::all()->first();
         $data['about'] = About_us::all()->first();
         return view('infos.chisiamo', $data);
     }
@@ -73,6 +76,7 @@ class InfosController extends Controller
     public function getTrophy(){
 
         $data['categories']=Category::all();
+        $data['contact']=Contact::all()->first();
 
         $data['trophies']=DB::table('trophies')
         ->orderBy('conseguimento','desc')

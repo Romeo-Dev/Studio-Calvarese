@@ -5,11 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Category;
 use Illuminate\Support\Facades\DB;
+use App\Contact;
 
 class StampeController extends Controller
 {
     public function getStampe($id){
         $data['categories']=Category::all();
+        $data['contact']=Contact::all()->first();
 
         $data['stampe']= DB::table('images')
             ->select('titolo','path','categoria','stato','images.id')

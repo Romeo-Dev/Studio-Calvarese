@@ -105,6 +105,38 @@ INSERT INTO `comments` VALUES (1,3,5,'Lorem ipsum dolor sit amet, ex quo everti 
 UNLOCK TABLES;
 
 --
+-- Table structure for table `contacts`
+--
+
+DROP TABLE IF EXISTS `contacts`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `contacts` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `contact` mediumtext COLLATE utf8mb4_unicode_ci,
+  `facebook` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `instagram` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `number` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nome_via` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `location` longtext COLLATE utf8mb4_unicode_ci,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `contacts`
+--
+
+LOCK TABLES `contacts` WRITE;
+/*!40000 ALTER TABLE `contacts` DISABLE KEYS */;
+INSERT INTO `contacts` VALUES (1,'Lo Studio Fotografico Calvarese si trova in Via Pace 10 a San Benedetto dei Marsi (AQ), puoi contattarci al numero telefonico 0863 867 767 oppure compilando il seguente form:','https://www.facebook.com/StudiofotograficoCalvarese/','https://www.instagram.com/studio_fotografico_calvarese/?hl=it&fbclid=IwAR24JO5EwH9-IKbDrFygLfcLsO6iBnE3N4SYsCLl9vTZHDv8MJO838K9kLs','fotocalvarese@gmail.com','0863 867767','Via Pace 10 San Benedetto dei Marsi (AQ)','https://www.google.com/maps/place/Via+Pace,+10,+67058+San+Benedetto+dei+Marsi+AQ/@42.0052982,13.6251422,3a,75y,229.02h,87.66t/data=!3m6!1e1!3m4!1s--kAg7bokC_HbzHceHrR4w!2e0!7i13312!8i6656!4m5!3m4!1s0x13301ed116164e7f:0xa06c719d14975f14!8m2!3d42.003812!4d13.628592',NULL,NULL);
+/*!40000 ALTER TABLE `contacts` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `group_service`
 --
 
@@ -234,7 +266,7 @@ CREATE TABLE `migrations` (
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -243,7 +275,7 @@ CREATE TABLE `migrations` (
 
 LOCK TABLES `migrations` WRITE;
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
-INSERT INTO `migrations` VALUES (5,'2014_10_12_000000_create_users_table',1),(6,'2014_10_12_100000_create_password_resets_table',1),(7,'2019_01_31_134028_create_services_table',1),(8,'2019_01_31_134419_create_groups_table',1),(9,'2019_01_31_145634_create_group_user_table',1),(10,'2019_01_31_145649_create_group_service_table',1),(11,'2019_01_31_150335_create_categories_table',2),(12,'2019_01_31_150402_create_posts_table',2),(13,'2019_01_31_150938_create_comments_table',2),(14,'2019_01_31_152302_create_messages_table',3),(16,'2019_01_31_153903_create_images_table',4),(17,'2019_01_31_160722_add_descrizione_to_services',5),(18,'2019_02_02_103829_add_subtitle_to_posts',6),(19,'2019_02_05_110814_create_trophies_table',7),(20,'2019_02_08_150851_add_pubblicato_to_posts',8),(21,'2019_02_11_104047_add_impaginato_to_posts_table',9),(22,'2019_02_20_094906_create_about_uses_table',10);
+INSERT INTO `migrations` VALUES (5,'2014_10_12_000000_create_users_table',1),(6,'2014_10_12_100000_create_password_resets_table',1),(7,'2019_01_31_134028_create_services_table',1),(8,'2019_01_31_134419_create_groups_table',1),(9,'2019_01_31_145634_create_group_user_table',1),(10,'2019_01_31_145649_create_group_service_table',1),(11,'2019_01_31_150335_create_categories_table',2),(12,'2019_01_31_150402_create_posts_table',2),(13,'2019_01_31_150938_create_comments_table',2),(14,'2019_01_31_152302_create_messages_table',3),(16,'2019_01_31_153903_create_images_table',4),(17,'2019_01_31_160722_add_descrizione_to_services',5),(18,'2019_02_02_103829_add_subtitle_to_posts',6),(19,'2019_02_05_110814_create_trophies_table',7),(20,'2019_02_08_150851_add_pubblicato_to_posts',8),(21,'2019_02_11_104047_add_impaginato_to_posts_table',9),(22,'2019_02_20_094906_create_about_uses_table',10),(23,'2019_02_20_140420_create_contacts_table',11);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -400,7 +432,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Piero','Calvarese','pieroph@email.com',NULL,'pieroph',NULL,NULL,NULL,2),(2,'Gianluca','Calvarese','gianluc@email.com',NULL,'gianlucph',NULL,NULL,NULL,2),(3,'Romeo','De Vincentis','romeo@email.com',NULL,'$2y$10$Njy8GlQZLJjxNP5JTyELOORij80J.Mo.6e97lP.AVZZJDPer2ZGwi','scU9Jlm2PBTAUg6GiyT8AgtDjlPqzGCLxfirtZZoM2UOQDHnk6y3VkwUtj8r','2019-02-07 10:17:27','2019-02-07 10:17:27',1),(4,'Lorenzo','Iapadre','iap@gmail.com',NULL,'$2y$10$JnB1XCEMMM7yh5Yr5d0JM.QkPPr.TpEKxKIee0bxvOu9AGlSU6zDu','AnsvxczChVcijZonNTReJCyPTrNrLOq73sIX6DzI7utkmD2Jcv89nrQwLR3w','2019-02-07 10:27:53','2019-02-07 10:27:53',2),(5,'antonio','giandomenico','antog727@gmail.com',NULL,'$2y$10$n363iHXJrJcXpPlN.hIbWOZU92t.huYQzwO579PBq7DnHkf3tAkJG','PeERrAFoaGzQY7JZvii6dLqNEsSwSUPD1broVgbWzoxj5B3vpMl56MmILMiP','2019-02-10 15:55:06','2019-02-10 15:55:06',2),(6,'Guido','Rossi','guido@email.com',NULL,'$2y$10$1iTudhJKPoCmesMMDQHf9.fCmEn1O9Ccpai3hAUA/2P9tZNHUbhzS','y68ftSJ6re5nN4Mzf2qcMTz1jVBNdyogWquD3A6SFgDOBytAhZ1jAkDl7R94','2019-02-11 09:44:53','2019-02-11 09:44:53',2),(7,'Alexa','De Vincentis','alexadev@email.com',NULL,'$2y$10$DdJHTKDUfbt/NDEtCCigxOEHA86O9oryqc9QjLg6i4q4i7sqPzql6','YfQxcwNmfEokjmTl8z94qoxCmiOi4aDAYlBvuHl0ob0cXWv0Jqb0nUdQQJqL','2019-02-16 13:02:12','2019-02-16 13:02:12',2);
+INSERT INTO `users` VALUES (1,'Piero','Calvarese','pieroph@email.com',NULL,'pieroph',NULL,NULL,NULL,2),(2,'Gianluca','Calvarese','gianluc@email.com',NULL,'gianlucph',NULL,NULL,NULL,2),(3,'Romeo','De Vincentis','romeo@email.com',NULL,'$2y$10$Njy8GlQZLJjxNP5JTyELOORij80J.Mo.6e97lP.AVZZJDPer2ZGwi','hi4MBGqRoo50BwFXDIoeKmkb9B4Zf2XZpW7WyvJvVylWXVHlLikBM2Pqxqza','2019-02-07 10:17:27','2019-02-07 10:17:27',1),(4,'Lorenzo','Iapadre','iap@gmail.com',NULL,'$2y$10$JnB1XCEMMM7yh5Yr5d0JM.QkPPr.TpEKxKIee0bxvOu9AGlSU6zDu','6OnwNEUtbOkucXRSwuM1RycYQF3NzRnmw6jGlcVUrqSlS75I06eM61j6fthP','2019-02-07 10:27:53','2019-02-07 10:27:53',2),(5,'antonio','giandomenico','antog727@gmail.com',NULL,'$2y$10$n363iHXJrJcXpPlN.hIbWOZU92t.huYQzwO579PBq7DnHkf3tAkJG','PeERrAFoaGzQY7JZvii6dLqNEsSwSUPD1broVgbWzoxj5B3vpMl56MmILMiP','2019-02-10 15:55:06','2019-02-10 15:55:06',2),(6,'Guido','Rossi','guido@email.com',NULL,'$2y$10$1iTudhJKPoCmesMMDQHf9.fCmEn1O9Ccpai3hAUA/2P9tZNHUbhzS','77TPgygZ3lbm331ZkL1luvt7MlIUorXXzHNnoUuCtZ2uZ09jqDPWdx7KpCml','2019-02-11 09:44:53','2019-02-11 09:44:53',2),(7,'Alexa','De Vincentis','alexadev@email.com',NULL,'$2y$10$DdJHTKDUfbt/NDEtCCigxOEHA86O9oryqc9QjLg6i4q4i7sqPzql6','YfQxcwNmfEokjmTl8z94qoxCmiOi4aDAYlBvuHl0ob0cXWv0Jqb0nUdQQJqL','2019-02-16 13:02:12','2019-02-16 13:02:12',2);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -413,4 +445,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-02-20 14:21:38
+-- Dump completed on 2019-02-20 17:22:38

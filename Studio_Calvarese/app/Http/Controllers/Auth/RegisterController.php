@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use App\Category;
+use App\Contact;
 class RegisterController extends Controller
 {
     /*
@@ -74,7 +75,7 @@ class RegisterController extends Controller
 
     public function showRegistrationForm(){
         $data['categories']=Category::all();
-
+        $data['contact']=Contact::all()->first();
         return view('auth.register', $data);
     }
     protected function redirectTo()
