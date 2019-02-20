@@ -43,13 +43,31 @@ class EventController extends Controller
         return view('services.gestioneEventi',$data);
     }
 
+    public function checkImmagini($id){
+        $data['cover'] = Image::all()->where('post_id','=',$id)->where('posizione','=','cover')->first();
+        $data['left'] = Image::all()->where('post_id','=',$id)->where('posizione','=','left')->first();
+        $data['right'] = Image::all()->where('post_id','=',$id)->where('posizione','=','right')->first();
+        if ($data['cover'] == null || $data['left'] == null || $data['right'] == null) return false;
+        else return true;
+    }
+
     public function setEventPublication($id){
+        if(!$this->checkImmagini($id))
+            return redirect('/dash/events')->with('alert2','Non è possibile pubblicare il post. Selezionare le tre immagini cover, left e right');
 
         DB::table('posts')
             ->where('id', $id)
             ->update(['pubblicato' => 'si']);
-        return redirect('/gestisciEvento');
+        return redirect('/dash/events')->with('alert','Evento pubblicato con successo');
     }
+
+    public function setPrivateEvent($id){
+        DB::table('posts')
+            ->where('id', $id)
+            ->update(['pubblicato' => 'no']);
+        return redirect('/dash/events')->with('alert','Evento privatizzato con successo');
+    }
+
 
     public function getEventsByAdmin(){
         $data['categories']=Category::all();
@@ -156,7 +174,6 @@ class EventController extends Controller
         $post->paragraph_2=$request->descrizione2;
         $post->in_conclusion=$request->conclusione;
         $post->paragraph_3=$request->descrizione3;
-        $post->pubblicato=$request->pubblicato;
         $post->save();
         return redirect('/dash/events')->with('alert','Evento inserito con successo');
     }

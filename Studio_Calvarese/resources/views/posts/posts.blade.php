@@ -17,20 +17,20 @@
 
                 <span class="image fit"><img src="{{asset('storage/images/'.$posts['0']->categoria.'/'.$posts['0']->titolo.'/'.$images['cover']->path)}}" alt="" /></span>
 
-                <p>{{$posts['0']->paragraph_1}}</p>
+                <p>{!!$posts['0']->paragraph_1!!}</p>
                 <hr class="major" />
 
                 <h2>{{$posts['0']->subtitle}}</h2>
 
                 <p><span class="image left"><img src="{{asset('storage/images/'.$posts['0']->categoria.'/'.$posts['0']->titolo.'/'.$images['left']->path)}}" alt="" /></span>
-                    {{$posts['0']->paragraph_2}}
+                    {!!$posts['0']->paragraph_2!!}
                 </p>
                 <hr class="major" />
 
                 <h2>{{$posts['0']->in_conclusion}}</h2>
 
                 <p><span class="image right"><img src="{{asset('storage/images/'.$posts['0']->categoria.'/'.$posts['0']->titolo.'/'.$images['right']->path)}}" alt="img" /></span>
-                    {{$posts['0']->paragraph_3}}</p>
+                    {!!$posts['0']->paragraph_3!!}</p>
                 <hr class="major" />
 
 
