@@ -118,11 +118,13 @@
                         <div class="col-md-6">
                             <div class="panel panel-info">
                                 <div class="panel-heading">
-                                    <h2>Aggiungi Immagini</h2>
+                                    <h2>Aggiungi Immagini di Presentazione del Post</h2>
                                 </div>
-                                <form action="{{route('updatevent')}}" method="post" id="editForm">
+                                <form action="{{route('updateimportantimages')}}" method="post" id="editForm" enctype="multipart/form-data">
                                     @csrf
-                                    <input type="hidden" name="id" value="{{$event->id}}">
+                                    <input type="hidden" name="idevent" value="{{$event->id}}">
+                                    <input type="hidden" name="categoria" value="{{$event->categoria}}">
+                                    <input type="hidden" name="titolo" value="{{$event->titolo}}">
                                     <div class="form-group">
                                         <label>Immagine di copertina (cover)</label>
                                         <input type="file" id="exampleInputFile" name="cover">
@@ -138,12 +140,22 @@
                                         <input type="file" id="exampleInputFile" name="left">
                                     </div>
                                     <br>
-                                    <div class="form-group">
-                                        <label>Gallery completa</label>
-                                        <input type="folder" id="exampleInputFile" name="gallery">
-                                    </div>
-
-                                    <br>
+                                    <button type="submit" class="btn btn-success btn-circle"><i class="fa fa-check"></i></button>
+                                    <button type="reset" class="btn btn-warning btn-circle"><i class="fas fa-times"></i></button>
+                                </form>
+                                <div class="panel-heading">
+                                    <h2>Aggiungi Gallery Completa</h2>
+                                </div>
+                                <form action="{{route('insertGallery')}}" method="post" id="editForm" enctype="multipart/form-data">
+                                    @csrf
+                                    <input type="hidden" name="idevent" value="{{$event->id}}">
+                                    <input type="hidden" name="categoria" value="{{$event->categoria}}">
+                                    <input type="hidden" name="titolo" value="{{$event->titolo}}">
+                                <div class="form-group">
+                                    <label>Gallery completa</label>
+                                    <input type="file" multiple="multiple" id="exampleInputFile" name="gallery[]">
+                                </div>
+                                <br>
                                     <button type="submit" class="btn btn-success btn-circle"><i class="fa fa-check"></i></button>
                                     <button type="reset" class="btn btn-warning btn-circle"><i class="fas fa-times"></i></button>
                                 </form>

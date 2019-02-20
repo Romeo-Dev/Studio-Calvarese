@@ -112,5 +112,8 @@ Route::post('/dash/events/update','EventController@updateEvent')->name('updateve
 Route::get('/dash/events/{id}','EventController@deletePublishedEvent')->name('deleteEventsByAdmin');
 Route::get('/dash/event/{id}','EventController@setEventPublication')->name('publicPost');
 Route::get('/dash/pevent/{id}','EventController@setPrivateEvent')->name('privatePost');
+
+Route::post('/dash/events/editimages/','EventController@addPresentationImages')->name('updateimportantimages');
+Route::post('/dash/events/edit/gallery','EventController@addGallery')->name('insertGallery');
 Auth::routes();
 
