@@ -162,6 +162,8 @@ class EventController extends Controller
     public function insertEvent(Request $request){
         $post = new Post();
         $user=User::all()->where('email','=',$request->email)->first();
+        if ($user->id == null)
+            return redirect()->back()->with('alertdanger','Email dell utente non esistente');
         $cat=Category::all()->where('categoria','=',$request->categoria)->first();
         $post->user_id=$user->id;
         $post->category_id=$cat->id;
