@@ -79,6 +79,8 @@ class UserController extends Controller
     public function getGestione($id,$titolo){
         $data['utente']=User::all()->find($id);
         $data['event']=DB::table('posts')
+            ->select('posts.id','category_id','user_id','pubblicato','impaginato','titolo','giorno','paragraph_1','subtitle',
+                'paragraph_2','in_conclusion','paragraph_3','categoria')
             ->join('categories','category_id','=','categories.id')
             ->where('user_id','=',$id)
             ->where('titolo','=',$titolo)
@@ -90,6 +92,7 @@ class UserController extends Controller
             ->where('titolo','=',$titolo)
             ->where('stato','=','stampe')
             ->get();
+       // return $data;
         return view('dashboard.gestisciEventByUser',$data);
     }
 
@@ -103,7 +106,7 @@ class UserController extends Controller
             Storage::disk('public')->put('images/'.$cat.'/'.$titolo.'/'.$cover->getClientOriginalName(),  File::get($cover));
 
             DB::table('posts')
-                ->where('id','=',$request->id)
+                ->where('posts.id','=',$request->id)
                 ->update(['impaginato' => $cover->getClientOriginalName()]);
 
             return redirect('dash/users')->with('alert','Impaginato caricato con successo');
