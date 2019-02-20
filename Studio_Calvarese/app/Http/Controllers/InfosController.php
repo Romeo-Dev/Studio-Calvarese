@@ -54,7 +54,6 @@ class InfosController extends Controller
         return redirect()->back()->with('alert', 'Presentazione aggiornata con successo');
     }
 
-    //------------------------------metodi update di about us
     public function updateChiSiamo($chi){
         if ($chi == null)
             return;
@@ -72,7 +71,78 @@ class InfosController extends Controller
 
     //--------------------------------------------------------
 
+    //-----------------------Dash di contatti
 
+    public function editContact(){
+        $data['contact']=Contact::all()->first();
+        return view('dashboard.contatti',$data);
+    }
+
+    public function updateContact(Request $request){
+
+        $this->updateContactDesc($request->contact);
+        $this->updateContactFacebook($request->facebook);
+        $this->updateContactInstagram($request->instagram);
+        $this->updateContactEmail($request->email);
+        $this->updateContactNumber($request->number);
+        $this->updateContactNome_via($request->nome_via);
+        $this->updateContactLocation($request->maps);
+
+        return redirect()->back()->with('alert','Sezione Contatti aggiornata con successo');
+    }
+
+    public function updateContactDesc($contact){
+        if ($contact == null)
+            return;
+        DB::table('contacts')
+            ->where('id','=','1')
+            ->update(['contact' => $contact]);
+    }
+    public function updateContactFacebook($facebook){
+        if ($facebook == null)
+            return;
+        DB::table('contacts')
+            ->where('id','=','1')
+            ->update(['facebook' => $facebook]);
+    }
+
+    public function updateContactInstagram($instagram){
+        if ($instagram == null)
+            return;
+        DB::table('contacts')
+            ->where('id','=','1')
+            ->update(['instagram' => $instagram]);
+    }
+    public function updateContactEmail($email){
+        if ($email == null)
+            return;
+        DB::table('contacts')
+            ->where('id','=','1')
+            ->update(['email' => $email]);
+    }
+    public function updateContactNumber($number){
+        if ($number == null)
+            return;
+        DB::table('contacts')
+            ->where('id','=','1')
+            ->update(['number' => $number]);
+    }
+    public function updateContactNome_via($nome_via){
+        if ($nome_via == null)
+            return;
+        DB::table('contacts')
+            ->where('id','=','1')
+            ->update(['nome_via' => $nome_via]);
+    }
+    public function updateContactLocation($location){
+        if ($location == null)
+            return;
+        DB::table('contacts')
+            ->where('id','=','1')
+            ->update(['location' => $location]);
+    }
+
+    //---------------------------------------
     public function getTrophy(){
 
         $data['categories']=Category::all();

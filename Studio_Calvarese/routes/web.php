@@ -116,6 +116,8 @@ Route::get('/dash/pevent/{id}','EventController@setPrivateEvent')->name('private
 //-----------------------------Infos Dash
 Route::get('/dash/about','InfosController@editAbout')->name('about');
 Route::post('/dash/about/update','InfosController@updateAboutUs')->name('updateAbout');
+Route::get('/dash/contatti','InfosController@editContact')->name('contact');
+Route::post('/dash/contatti/update','InfosController@updateContact')->name('updateContact');
 
 Auth::routes();
 

@@ -135,7 +135,7 @@ Website: http://www.webthemez.com/
 
                 </li>
                 <li>
-                    <a href="{{--route('about')--}}"><i class="fas fa-phone-square"></i> Contatti</a>
+                    <a href="{{route('contact')}}"><i class="fas fa-phone-square"></i> Contatti</a>
 
                 </li>
 
