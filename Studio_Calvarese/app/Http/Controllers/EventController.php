@@ -10,7 +10,13 @@ use Illuminate\Support\Facades\DB;
 use App\Post;
 use App\User;
 use App\Image;
+
+use Illuminate\Support\Facades\Storage;
+use File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+
 use App\Contact;
+
 
 
 class EventController extends Controller
@@ -96,13 +102,16 @@ class EventController extends Controller
     }
 
     public function editEvent($id){
+
         $data['categories']=Category::all();
         $data['event'] = DB::table('posts')
+            ->select('posts.id','category_id','user_id','pubblicato','impaginato','titolo','giorno','paragraph_1','subtitle','paragraph_2','in_conclusion','paragraph_3','categoria')
         ->join('categories','category_id','=','categories.id')
         ->where('posts.id','=',$id)
         ->first();
         $data['images'] = Image::all()->where('post_id','=',$id);
-        return view('dashboard.editEvent',$data);
+
+       return view('dashboard.editEvent',$data);
     }
 
     public function updateEvent(Request $request){
@@ -186,7 +195,78 @@ class EventController extends Controller
         return redirect('/dash/events')->with('alert','Evento inserito con successo');
     }
 
+    public function addPresentationImages(Request $request){
 
+        if ($request->hasFile('cover') || $request->hasFile('left') || $request->hasFile('right')) {
+            if ($request->hasFile('cover')){
+                $cover = $request->file('cover');
+                /*$extension = $cover->getClientOriginalExtension();*/
+                Storage::disk('public')->put('images/'.$request->categoria.'/'.$request->titolo.'/'.$cover->getClientOriginalName(), File::get($cover));
 
+                $image = new Image();
+                $image->post_id = $request->idevent;
+                $image->path = $cover->getClientOriginalName();
+                $image->posizione = 'cover';
+                $image->save();
+            }
 
+            if ($request->hasFile('left')){
+                $cover = $request->file('left');
+                /*$extension = $cover->getClientOriginalExtension();*/
+                Storage::disk('public')->put('images/'.$request->categoria.'/'.$request->titolo.'/'.$cover->getClientOriginalName(), File::get($cover));
+
+                $image = new Image();
+                $image->post_id = $request->idevent;
+                $image->path = $cover->getClientOriginalName();
+                $image->posizione = 'left';
+                $image->save();
+            }
+
+            if ($request->hasFile('right')){
+                $cover = $request->file('right');
+               /* $extension = $cover->getClientOriginalExtension();*/
+                Storage::disk('public')->put('images/'.$request->categoria.'/'.$request->titolo.'/'.$cover->getClientOriginalName(), File::get($cover));
+
+                $image = new Image();
+                $image->post_id = $request->idevent;
+                $image->path = $cover->getClientOriginalName();
+                $image->posizione = 'right';
+                $image->save();
+            }
+        }
+        else
+            return redirect()->back()->with('alert','Nessun file inserito');
+        return redirect()->back()->with('alert','Immagini inserite con successo');
+    }
+
+    public function addGallery(Request $request){
+
+        if ($request->hasFile('gallery')) {
+            $images = $request->file('gallery');
+            foreach ($images as $file) {
+                /*$extension = $file->getClientOriginalExtension();*/
+                $filename = $file->getClientOriginalName();
+                if ($this->matchImage($filename)) {
+                    Storage::disk('public')->put('images/' . $request->categoria . '/' . $request->titolo . '/' . $file->getClientOriginalName(), File::get($file));
+                    $image = new Image();
+                    $image->post_id = $request->idevent;
+                    $image->path = $file->getClientOriginalName();
+                    $image->posizione = 'various';
+                    $image->save();
+                }
+            }
+            return redirect()->back()->with('alert', 'Immagini inserite con successo');
+        }
+        else
+            return redirect()->back()->with('alert','Nessun file inserito');
+    }
+
+    public function matchImage($filename){
+        $data['images']=Image::all();
+        foreach($data['images'] as $image){
+            if($image->path == $filename)
+                return false;
+        }
+        return true;
+    }
 }

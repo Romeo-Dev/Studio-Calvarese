@@ -113,11 +113,16 @@ Route::get('/dash/events/{id}','EventController@deletePublishedEvent')->name('de
 Route::get('/dash/event/{id}','EventController@setEventPublication')->name('publicPost');
 Route::get('/dash/pevent/{id}','EventController@setPrivateEvent')->name('privatePost');
 
+
+Route::post('/dash/events/editimages/','EventController@addPresentationImages')->name('updateimportantimages');
+Route::post('/dash/events/edit/gallery','EventController@addGallery')->name('insertGallery');
+
 //-----------------------------Infos Dash
 Route::get('/dash/about','InfosController@editAbout')->name('about');
 Route::post('/dash/about/update','InfosController@updateAboutUs')->name('updateAbout');
 Route::get('/dash/contatti','InfosController@editContact')->name('contact');
 Route::post('/dash/contatti/update','InfosController@updateContact')->name('updateContact');
+
 
 Auth::routes();
 
