@@ -6,11 +6,13 @@ use App\Services;
 use Illuminate\Http\Request;
 use App\Category;
 use Illuminate\Support\Facades\DB;
+use App\Contact;
 
 class ServicesController extends Controller
 {
     public function index(){
         $data['categories']=Category::all();
+        $data['contact']=Contact::all()->first();
         $data['services']=Services::all();
          //return $data;
         return view('infos.servizi',$data);

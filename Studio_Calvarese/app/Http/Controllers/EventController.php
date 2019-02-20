@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Services;
 use Illuminate\Http\Request;
 use App\Category;
 use Illuminate\Support\Facades\Auth;
@@ -9,14 +10,21 @@ use Illuminate\Support\Facades\DB;
 use App\Post;
 use App\User;
 use App\Image;
+
 use Illuminate\Support\Facades\Storage;
 use File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+
+use App\Contact;
+
+
 
 class EventController extends Controller
 {
     public function getCategory($categoria){
         $data['categories']=Category::all();
+        $data['contact']=Contact::all()->first();
+
 
         $data['section']=Category::all()->where('categoria','=',$categoria)->first();
 
@@ -35,12 +43,16 @@ class EventController extends Controller
 
     public function getEventByAuth(){
         $data['categories']=Category::all();
+        $data['contact']=Contact::all()->first();
+
         $id =Auth::id();
         $data['events']=DB::table('posts')
             ->select('posts.id','titolo','categoria','giorno','pubblicato','impaginato')
             ->join('categories','category_id','=','categories.id')
             ->where('user_id','=',$id)
             ->get();
+        $data['impaginato']=Services::all()->where('service','=','Impaginato')->first();
+        $data['stampe']=Services::all()->where('service','=','Stampe')->first();
       //return $data;
         return view('services.gestioneEventi',$data);
     }

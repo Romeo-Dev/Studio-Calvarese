@@ -7,10 +7,12 @@ use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Services;
+use App\Contact;
 class MainController extends Controller
 {
     public function index(){
         $data['categories']=Category::all();
+        $data['contact']=Contact::all()->first();
         $data['services'] = Services::take(4)->get();
 
         $data['posts']=DB::table('posts')
