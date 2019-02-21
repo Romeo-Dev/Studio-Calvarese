@@ -6,13 +6,13 @@
             <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img class="d-block w-100" src="{{asset('storage/images/Matrimoni/Lucia e Stefano/DSC_3754 copia.jpg')}}" alt="First slide">
+                        <img class="d-block w-100" src="{{asset('storage/home/'.$home->carosel_1)}}" alt="First slide">
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="{{asset('storage/images/Matrimoni/Lucia e Stefano/DSC_3814 copia.jpg')}}" alt="Second slide">
+                        <img class="d-block w-100" src="{{asset('storage/home/'.$home->carosel_2)}}" alt="Second slide">
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="{{asset('storage/images/Matrimoni/Lucia e Stefano/GDF_7090 copia.jpg')}}" alt="Third slide">
+                        <img class="d-block w-100" src="{{asset('storage/home/'.$home->carosel_3)}}" alt="Third slide"/>
                     </div>
                 </div>
             </div>
@@ -38,8 +38,21 @@
                 @endforeach
             @endforeach
                 <br>
-                <a href="{{route('servizi')}}" class="button fit icon fa fa-arrow-circle-right" style="padding-top:18px;" >Learn more...</a>
+                <a href="{{route('servizi')}}" class="button fit" style="width: 80%; margin: auto;" ><i class=" icon fa fa-arrow-circle-right"></i>Learn more...</a>
         </div>
+    </section>
+
+    <!--Sezione video -->
+
+    <section>
+        <header class="major">
+            <h2>{{$home->video_titolo}}</h2>
+        </header>
+        <br>
+        <video src="{{asset('storage/home/'.$home->video)}}" width="100%" controls></video>
+
+        <p style="margin-top: 3%">{!! $home->video_desc !!}</p>
+
     </section>
 
 

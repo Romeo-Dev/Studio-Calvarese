@@ -21,32 +21,53 @@
                             <div class="panel-body">
                                 <h3>Slider</h3>
                                 <br>
-       {{--                        @foreach($images->chunk(3) as $chunk)
                                     <div class="row">
                                         <div class="col-md-12">
-                                            @foreach($chunk as $image)
                                                 <div class="col-md-4">
                                                     <div class="panel panel-primary">
                                                         <div class="panel-heading">
                                                         </div>
                                                         <div class="panel-body">
-                                                            <img src="{{asset('storage/images/'.$event->categoria.'/'.$event->titolo.'/'.$image->path)}}" alt="" width="100%" height="100%">
+                                                            <img src="{{asset('storage/home/'.$home->carosel_1)}}" alt="" width="100%" height="100%">
                                                         </div>
                                                         <div class="panel-footer">
-                                                            <strong style="text-transform: uppercase">{{$image->posizione}}</strong>
+                                                            <strong>Carosello 1</strong>
+                                                        </div>
                                                         </div>
                                                     </div>
+                                            <div class="col-md-4">
+                                                <div class="panel panel-primary">
+                                                    <div class="panel-heading">
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <img src="{{asset('storage/home/'.$home->carosel_2)}}" alt="" width="100%" height="100%">
+                                                    </div>
+                                                    <div class="panel-footer">
+                                                        <strong>Carosello 2</strong>
+                                                    </div>
                                                 </div>
-                                            @endforeach
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="panel panel-primary">
+                                                    <div class="panel-heading">
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <img src="{{asset('storage/home/'.$home->carosel_3)}}" alt="" width="100%" height="100%">
+                                                    </div>
+                                                    <div class="panel-footer">
+                                                        <strong>Carosello 3</strong>
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                         </div>
                                     </div>
-                                @endforeach--}}
                                 <hr>
-                                <h3>Titolo Video</h3>
+                                <h3>{{$home->video_titolo}}</h3>
                                 <br>
-                                <video src="#" alt="" controls width="100%" height="35%"></video>
+                                <video src="{{asset('storage/home/'.$home->video)}}" alt="" controls width="100%" height="35%"></video>
                                 <br>
-                                <p>Descrizione video</p>
+                                <p>{!! $home->video_desc !!}</p>
                                 <br>
                             </div>
                             </div>
