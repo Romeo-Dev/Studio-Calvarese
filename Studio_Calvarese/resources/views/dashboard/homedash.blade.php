@@ -79,35 +79,34 @@
                             </div>
                             <form action="{{route('updateHome')}}" method="post" id="editForm" enctype="multipart/form-data">
                                 @csrf
-                                <input type="hidden" name="id" value="">
                                 <div class="form-group">
                                     <label for="immaginepres" >Inserire immagine Carosello_1</label>
                                     <input type="file" name="carosello1" id="immaginepres">
                                 </div>
                                 <br>
                                 <div class="form-group">
-                                    <label for="immaginepres" >Inserire immagine Carosello_2</label>
+                                    <label >Inserire immagine Carosello_2</label>
                                     <input type="file" name="carosello2" id="immaginepres">
                                 </div>
                                 <br>
                                 <div class="form-group">
-                                    <label for="immaginepres" >Inserire immagine Carosello_3</label>
+                                    <label>Inserire immagine Carosello_3</label>
                                     <input type="file" name="carosello3" id="immaginepres">
                                 </div>
                                 <br>
                                 <div class="form-group">
-                                    <label for="servizio">Titolo Video</label>
-                                    <input type="text" class="form-control" id="evento" placeholder="Titolo" name="titolovideo" >
+                                    <label>Titolo Video</label>
+                                    <input type="text" class="form-control" id="evento" placeholder="Titolo" name="video_titolo" >
                                 </div>
                                 <br>
                                 <div class="form-group">
-                                    <label for="immaginepres" >Inserire Video</label>
+                                    <label>Inserire Video (in formato mp4)</label>
                                     <input type="file" name="video" id="immaginepres">
                                 </div>
                                 <br>
                                 <div class="form-group">
                                     <label for="servizio">Descrizione Video</label>
-                                    <textarea class="form-control" rows="3" placeholder="Descrizione in italiano" name="desc_video" ></textarea>
+                                    <textarea class="form-control" rows="3" placeholder="Descrizione in italiano" name="video_desc" ></textarea>
                                 </div>
                                 <br>
                                     <button type="submit" class="btn btn-success btn-circle"><i class="fa fa-check"></i></button>
