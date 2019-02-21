@@ -52,8 +52,8 @@ Route::post('/sendStampe','StampeController@updateByAuth')->name('sendStamp');
 
 // -------------------------------------Route Backoffice
 
-Route::get('/dash',function (){
-   return view('dashboard.empty');
+Route::get('/dash/home',function (){
+   return view('dashboard.homedash');
 });
 
     //--------------------------------Rotte di Servizio by Admin
@@ -123,6 +123,9 @@ Route::post('/dash/about/update','InfosController@updateAboutUs')->name('updateA
 Route::get('/dash/contatti','InfosController@editContact')->name('contact');
 Route::post('/dash/contatti/update','InfosController@updateContact')->name('updateContact');
 
+//----------------------------Home Dash
+Route::get('/dash/home','HomeController@index')->name('homedash');
+Route::post('/dash/home/update','HomeController@updateHome')->name('updateHome');
 
 Auth::routes();
 

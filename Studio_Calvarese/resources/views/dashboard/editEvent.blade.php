@@ -21,19 +21,19 @@
                             <h2>{{$event->titolo}}</h2>
                         </div>
                         <div class="panel-body">
-                            <p>{{$event->paragraph_1}}</p>
+                            <p>{!! $event->paragraph_1 !!}</p>
                         </div>
                         <div class="panel-body">
                             <p>{{$event->subtitle}}</p>
                         </div>
                         <div class="panel-body">
-                            <p>{{$event->paragraph_2}}</p>
+                            <p>{!! $event->paragraph_2 !!}</p>
                         </div>
                         <div class="panel-body">
                             <p>{{$event->in_conclusion}}</p>
                         </div>
                         <div class="panel-body">
-                            <p>{{$event->paragraph_3}}</p>
+                            <p>{!! $event->paragraph_3 !!}</p>
                         </div>
                     </div>
                 </div>
@@ -131,13 +131,13 @@
                                     </div>
                                     <br>
                                     <div class="form-group">
-                                        <label>Immagine di destra (right)</label>
-                                        <input type="file" id="exampleInputFile" name="right">
+                                        <label>Immagine di sinistra (left)</label>
+                                        <input type="file" id="exampleInputFile" name="left">
                                     </div>
                                     <br>
                                     <div class="form-group">
-                                        <label>Immagine di sinistra (left)</label>
-                                        <input type="file" id="exampleInputFile" name="left">
+                                        <label>Immagine di destra (right)</label>
+                                        <input type="file" id="exampleInputFile" name="right">
                                     </div>
                                     <br>
                                     <button type="submit" class="btn btn-success btn-circle"><i class="fa fa-check"></i></button>

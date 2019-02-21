@@ -49,10 +49,10 @@
                                 <input type="text" class="form-control" id="icona" placeholder="Nome dell icona" name="icon" >
                             </div>
 
-                        <div class="panel-footer">
+                            <br>
                             <button type="submit" class="btn btn-success btn-circle"><i class="fa fa-check"></i></button>
                             <button type="reset" class="btn btn-warning btn-circle"><i class="fas fa-times"></i></button>
-                        </div>
+
                         </form>
                     </div>
                 </div>

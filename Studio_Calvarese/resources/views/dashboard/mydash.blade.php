@@ -87,7 +87,7 @@ Website: http://www.webthemez.com/
             <ul class="nav" id="main-menu">
 
                 <li>
-                    <a class="active-menu" href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                    <a class="active-menu" href="{{route('homedash')}}"><i class="fas fa-home"></i> Home</a>
                 </li>
                 <li>
                     <a href="{{route('categoryByAdm')}}"><i class="fas fa-align-justify"></i> Categorie</a>

@@ -80,7 +80,7 @@
                                 </li>--}}
                                 @endauth
                                 @if(Auth::user()->group_id == '1')
-                                    <li><a href="{{url('/dash')}}">My Dash</a></li>
+                                    <li><a href="{{url('/dash/home')}}">My Dash</a></li>
                                     @endif
                                 <li> <a href="{{ route('logout') }}"
                                         onclick="event.preventDefault();

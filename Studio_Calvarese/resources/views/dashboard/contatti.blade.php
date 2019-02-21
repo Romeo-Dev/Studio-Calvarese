@@ -40,8 +40,7 @@
                                 <h3>Maps (link)</h3>
                                 <p style="overflow: auto">{{$contact->location}}</p>
                             </div>
-                            <div class="panel-footer">
-                            </div>
+
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -77,10 +76,10 @@
 
                                 </div>
 
-                                <div class="panel-footer">
+                                <br>
                                     <button type="submit" class="btn btn-success btn-circle"><i class="fa fa-check"></i></button>
                                     <button type="reset" class="btn btn-warning btn-circle"><i class="fas fa-times"></i></button>
-                                </div>
+
                             </form>
                         </div>
                     </div>

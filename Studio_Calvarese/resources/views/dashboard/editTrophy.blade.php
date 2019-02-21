@@ -22,8 +22,7 @@
                             <p>{{$trophy->description}}</p>
                             <p>Data conseguimento: <b>{{$trophy->conseguimento}}</b></p>
                         </div>
-                        <div class="panel-footer">
-                        </div>
+
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -49,10 +48,10 @@
                                 <input type="text" class="form-control" id="icona" placeholder="Nome dell icona" name="data" >
                             </div>
 
-                            <div class="panel-footer">
+                            <br>
                                 <button type="submit" class="btn btn-success btn-circle"><i class="fa fa-check"></i></button>
                                 <button type="reset" class="btn btn-warning btn-circle"><i class="fas fa-times"></i></button>
-                            </div>
+
                         </form>
                     </div>
                 </div>

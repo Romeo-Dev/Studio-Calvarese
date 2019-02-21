@@ -26,9 +26,9 @@
                         {{session('alertdanger')}}
 
                     </div>
-                @endif
+                    </div>@endif
             </h1>
-
+        </div>
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
@@ -67,7 +67,6 @@
                                                         <a href="{{route('privatePost',['id'=>$event->id])}}" id="private-btn" class="btn btn-warning large" style="width: 100%;margin-bottom: 4px;"><i class="icon fas fa-align-center"> Rendi privato</i></a>
                                                      @endif
                                                         <br>
-                                                   <a href="{{route('deleteEventsByAdmin',['id'=>$event->id])}}" class="btn btn-danger large" style="width: 100%;"><i class="fas fa-trash-restore"> Elimina</i></a>
                                                </td>
                                            </tr>
                                        @endforeach

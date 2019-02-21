@@ -22,8 +22,7 @@
                             <p><h4>{{$category->categoria}}</h4></p>
                         </div>
 
-                        <div class="panel-footer">
-                        </div>
+
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -39,10 +38,10 @@
                                 <input type="text" class="form-control" id="categoria" placeholder="Nome del servizio" name="categoria" >
                             </div>
 
-                            <div class="panel-footer">
+                            <br>
                                 <button type="submit" class="btn btn-success btn-circle"><i class="fa fa-check"></i></button>
                                 <button type="reset" class="btn btn-warning btn-circle"><i class="fas fa-times"></i></button>
-                            </div>
+
                         </form>
                     </div>
                 </div>
