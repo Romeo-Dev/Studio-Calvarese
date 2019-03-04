@@ -119,9 +119,6 @@ Website: http://www.webthemez.com/
                     <a href="{{route('usersByAdmin')}}"><i class="fas fa-users"></i> Utenti</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fas fa-calendar-alt"></i> Prenotazioni</a>
-                </li>
-                <li>
 
                     <a href="{{route('messagesByAdmin')}}"><i class="fas fa-comment-alt"></i> Messaggi</a>
                 </li>
