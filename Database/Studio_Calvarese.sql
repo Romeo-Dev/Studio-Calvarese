@@ -18,6 +18,24 @@ USE `Studio_Calvarese`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `about_uses`
+--
+
+DROP TABLE IF EXISTS `about_uses`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `about_uses` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `immagine` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `chi_siamo` longtext COLLATE utf8mb4_unicode_ci,
+  `about_us` longtext COLLATE utf8mb4_unicode_ci,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Dumping data for table `about_uses`
 --
 
@@ -26,6 +44,22 @@ LOCK TABLES `about_uses` WRITE;
 INSERT INTO `about_uses` VALUES (1,'About us.jpg','<p>Gianluca e Piero Calvarese sono dei professionisti del settore wedding e con la loro professionalit&agrave; e la loro passione sapranno interpretare ogni istante rendendolo unico e indimenticabile. Il vostro grande giorno sar&agrave; ricordato per sempre grazie a immagini spelndide e senza tempo e a una immancabile simpatia. Gianluca Calvarese lavora nel campo della fotografia da oltre venti anni, seguito successivamente da suo figlio Piero appassionato di cinema e attuale videografo, ricercando continuamente nuovi spunti, continuando a studiare e a formarsi per offrire sempre un servizio fotografico impeccabile, capace di suscitare ogni volta forti emozioni.</p>','Gianluca and Piero Calvarese are specialized in the wedding sector and with their professionalism and passion they will be able to interpret every moment making it unique and unforgettable. Your big day will be remembered forever thanks to spelndide and timeless images and an unfailing sympathy. Gianluca Calvarese has worked in the field of photography for over twenty years, followed by his son Piero, passionate about cinema and current videographer, constantly looking for new ideas, continuing research and training to always offer an impeccable photographic service, able to evoke strong emotions every time. ',NULL,NULL);
 /*!40000 ALTER TABLE `about_uses` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `categories`
+--
+
+DROP TABLE IF EXISTS `categories`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `categories` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `categoria` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `categories`
@@ -38,14 +72,62 @@ INSERT INTO `categories` VALUES (1,'Matrimoni',NULL,NULL),(5,'Tutorial',NULL,NUL
 UNLOCK TABLES;
 
 --
+-- Table structure for table `comments`
+--
+
+DROP TABLE IF EXISTS `comments`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `comments` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) unsigned NOT NULL,
+  `post_id` int(10) unsigned NOT NULL,
+  `text` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `timestamp` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `comments_user_id_foreign` (`user_id`),
+  KEY `posts_comments_idx` (`post_id`),
+  KEY `fk_comments_1_idx` (`post_id`),
+  CONSTRAINT `comments_post_id_foreign` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`),
+  CONSTRAINT `comments_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
+  CONSTRAINT `fk_comments_1` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `posts_comments` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Dumping data for table `comments`
 --
 
 LOCK TABLES `comments` WRITE;
 /*!40000 ALTER TABLE `comments` DISABLE KEYS */;
-INSERT INTO `comments` VALUES (1,3,5,'Lorem ipsum dolor sit amet, ex quo everti interesset, ne eos deterruisset mediocritatem. His in facilisi mandamus, ius possim civibus erroribus ne, consul interesset ea vis. Ut prima saepe suavitate pro, suas habemus tincidunt ex qui. Quas simul no mei, quot dictas perfecto vis no. Est te diceret mentitum contentiones, iusto iisque diceret te mea, sed modus graeci oportere et. Eu diam salutatus disputando vix, eu pri viri ornatus, populo aliquid te usu.','2019-02-08 09:42:28.719018',NULL,NULL),(2,3,6,'Has platonem assentior no, ei summo perfecto inciderint vix, ne eum esse apeirian. Eos summo latine sapientem ut. Populo scriptorem conclusionemque ea est, ne mel tritani nostrud assueverit, habeo corpora sensibus in vix. Id melius salutatus pro, noster constituto est an.','2019-02-08 09:42:28.719018',NULL,NULL),(3,4,5,'Mei eu mediocrem pertinacia, dicit maiorum corrumpit ex ius, cibo fastidii sea ei. Et nostro docendi est, usu in melius vocent iisque, possim pertinacia cum ad. Saperet petentium per ei. Mea facilisis persecuti voluptatibus ut, vis utinam consequuntur ne. Nam ex falli laudem aperiri, te vix dicam iudico ullamcorper.','2019-02-08 09:42:28.719018',NULL,NULL),(6,4,5,'primo commento faccio commit','2019-02-08 11:26:11.601421','2019-02-08 10:26:11','2019-02-08 10:26:11'),(7,3,1,'Ottimo blog il mio voto e 10/10 scegliero Pieroph per il mio prossimo evento','2019-02-08 14:19:30.178823','2019-02-08 13:19:30','2019-02-08 13:19:30'),(11,3,1,'questo è un commento di prova','2019-02-08 14:22:51.820589','2019-02-08 13:22:51','2019-02-08 13:22:51'),(12,5,5,'mare','2019-02-10 17:02:23.529990','2019-02-10 16:02:23','2019-02-10 16:02:23'),(13,4,3,'Questo e il mio commento','2019-02-12 14:51:58.400786','2019-02-12 13:51:58','2019-02-12 13:51:58'),(14,4,1,'Secondo commento di oggi','2019-02-12 14:52:15.100743','2019-02-12 13:52:15','2019-02-12 13:52:15');
+INSERT INTO `comments` VALUES (1,3,5,'Lorem ipsum dolor sit amet, ex quo everti interesset, ne eos deterruisset mediocritatem. His in facilisi mandamus, ius possim civibus erroribus ne, consul interesset ea vis. Ut prima saepe suavitate pro, suas habemus tincidunt ex qui. Quas simul no mei, quot dictas perfecto vis no. Est te diceret mentitum contentiones, iusto iisque diceret te mea, sed modus graeci oportere et. Eu diam salutatus disputando vix, eu pri viri ornatus, populo aliquid te usu.','2019-02-08 09:42:28.719018',NULL,NULL),(2,3,6,'Has platonem assentior no, ei summo perfecto inciderint vix, ne eum esse apeirian. Eos summo latine sapientem ut. Populo scriptorem conclusionemque ea est, ne mel tritani nostrud assueverit, habeo corpora sensibus in vix. Id melius salutatus pro, noster constituto est an.','2019-02-08 09:42:28.719018',NULL,NULL),(3,4,5,'Mei eu mediocrem pertinacia, dicit maiorum corrumpit ex ius, cibo fastidii sea ei. Et nostro docendi est, usu in melius vocent iisque, possim pertinacia cum ad. Saperet petentium per ei. Mea facilisis persecuti voluptatibus ut, vis utinam consequuntur ne. Nam ex falli laudem aperiri, te vix dicam iudico ullamcorper.','2019-02-08 09:42:28.719018',NULL,NULL),(6,4,5,'primo commento faccio commit','2019-02-08 11:26:11.601421','2019-02-08 10:26:11','2019-02-08 10:26:11'),(7,3,1,'Ottimo blog il mio voto e 10/10 scegliero Pieroph per il mio prossimo evento','2019-02-08 14:19:30.178823','2019-02-08 13:19:30','2019-02-08 13:19:30'),(12,5,5,'mare','2019-02-10 17:02:23.529990','2019-02-10 16:02:23','2019-02-10 16:02:23'),(13,4,3,'Questo e il mio commento','2019-02-12 14:51:58.400786','2019-02-12 13:51:58','2019-02-12 13:51:58'),(14,4,1,'Secondo commento di oggi','2019-02-12 14:52:15.100743','2019-02-12 13:52:15','2019-02-12 13:52:15'),(15,4,10,'bello questo post','2019-02-27 17:32:59.568553','2019-02-27 16:32:59','2019-02-27 16:32:59');
 /*!40000 ALTER TABLE `comments` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `contacts`
+--
+
+DROP TABLE IF EXISTS `contacts`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `contacts` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `contact` mediumtext COLLATE utf8mb4_unicode_ci,
+  `facebook` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `instagram` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `number` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nome_via` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `location` longtext COLLATE utf8mb4_unicode_ci,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `contacts`
@@ -58,6 +140,27 @@ INSERT INTO `contacts` VALUES (1,'<p>Lo Studio Fotografico Calvarese si trova in
 UNLOCK TABLES;
 
 --
+-- Table structure for table `group_service`
+--
+
+DROP TABLE IF EXISTS `group_service`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `group_service` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `service_id` int(10) unsigned NOT NULL,
+  `group_id` int(10) unsigned NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `group_service_group_id_foreign` (`group_id`),
+  KEY `group_service_service_id_foreign` (`service_id`),
+  CONSTRAINT `group_service_group_id_foreign` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`),
+  CONSTRAINT `group_service_service_id_foreign` FOREIGN KEY (`service_id`) REFERENCES `services` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Dumping data for table `group_service`
 --
 
@@ -65,6 +168,22 @@ LOCK TABLES `group_service` WRITE;
 /*!40000 ALTER TABLE `group_service` DISABLE KEYS */;
 /*!40000 ALTER TABLE `group_service` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `groups`
+--
+
+DROP TABLE IF EXISTS `groups`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `groups` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `ruolo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `groups`
@@ -77,14 +196,56 @@ INSERT INTO `groups` VALUES (1,'admin',NULL,NULL),(2,'normal user',NULL,NULL);
 UNLOCK TABLES;
 
 --
+-- Table structure for table `homes`
+--
+
+DROP TABLE IF EXISTS `homes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `homes` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `carosel_1` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `carosel_2` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `carosel_3` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `video_titolo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `video` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `video_desc` longtext COLLATE utf8mb4_unicode_ci,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Dumping data for table `homes`
 --
 
 LOCK TABLES `homes` WRITE;
 /*!40000 ALTER TABLE `homes` DISABLE KEYS */;
-INSERT INTO `homes` VALUES (1,'DSC_3754 copia.jpg','DSC_3814 copia.jpg','GDF_7090 copia.jpg','La mia produzione video','Alberto Mardegan - Selfie del futuro.mp4','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non felis quis odio varius maximus. Etiam bibendum enim neque, id fermentum nibh elementum ut. Quisque cursus tortor purus, eu aliquam diam sodales sit amet. Curabitur finibus pharetra elit ultricies lobortis. Aliquam risus ipsum, luctus sed velit sit amet, consequat fermentum massa. Phasellus dictum neque sit amet gravida viverra. Donec rhoncus molestie ante, id accumsan purus lobortis id. Etiam vel mauris metus. Etiam vel condimentum sem. In laoreet dui iaculis rutrum tempor. Nulla facilisi. Duis a mollis neque. Ut pellentesque sodales erat, vel tincidunt nibh efficitur eget. Pellentesque gravida, enim at rhoncus congue, eros eros volutpat risus, sit amet maximus turpis lectus quis leo. Etiam vel nunc leo. Aliquam sodales malesuada purus. Etiam a nibh ex. Quisque sit amet augue id nunc luctus sodales bibendum at nibh. Curabitur et libero eget lorem posuere malesuada id in velit. Mauris sed congue leo. Vivamus enim velit, congue sed arcu ut, dignissim congue elit. Duis congue sed risus sed dapibus. Vivamus interdum eros nisi, laoreet dapibus erat gravida quis. Integer commodo purus tristique nisl sagittis ornare. In luctus mi vel turpis sodales tincidunt. Quisque at tincidunt lorem. Nunc enim risus, viverra aliquet porta id, rhoncus non elit. Pellentesque nisl neque, venenatis id facilisis eu, finibus a nibh. Vivamus vel mauris eu sem auctor iaculis. Mauris pellentesque tempus risus ut lobortis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc sem velit, posuere eu ultrices ut, rutrum non ex. Nullam varius, eros at varius posuere, orci arcu viverra velit, a pellentesque ipsum nibh vitae mi. Cras sed elit ac diam porta laoreet. Praesent et tristique nisl. Quisque laoreet nulla convallis, pharetra augue eget, ornare dui. Morbi sed odio consequat, fermentum ex eget, pulvinar magna. Pellentesque consectetur commodo cursus. Nulla semper, risus eget molestie consectetur, nulla sapien hendrerit arcu, sed congue lorem quam ac sem. Nunc in semper lorem. Suspendisse vestibulum libero viverra est volutpat maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tincidunt euismod leo id elementum. Sed lacinia at dolor vel varius. Maecenas pretium lobortis diam et lacinia. Curabitur eget semper dui. Vestibulum vulputate imperdiet auctor. Sed auctor neque vel mi condimentum sagittis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ultrices nisi est, sed suscipit arcu elementum vel. Vivamus condimentum mauris quis massa auctor, nec accumsan risus placerat. ',NULL,NULL);
+INSERT INTO `homes` VALUES (1,'GDF_4583 copia.jpg','DSC_3814 copia.jpg','GDF_7090 copia.jpg','Il video di Gianluca','Video Web.mp4','<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non felis quis odio varius maximus. Etiam bibendum enim neque, id fermentum nibh elementum ut. Quisque cursus tortor purus, eu aliquam diam sodales sit amet. Curabitur finibus pharetra elit ultricies lobortis. Aliquam risus ipsum, luctus sed velit sit amet, consequat fermentum massa. Phasellus dictum neque sit amet gravida viverra. Donec rhoncus molestie ante, id accumsan purus lobortis id. Etiam vel mauris metus. Etiam vel condimentum sem. In laoreet dui iaculis rutrum tempor. Nulla facilisi. Duis a mollis neque. Ut pellentesque sodales erat, vel tincidunt nibh efficitur eget. Pellentesque gravida, enim at rhoncus congue, eros eros volutpat risus, sit amet maximus turpis lectus quis leo. Etiam vel nunc leo. Aliquam sodales malesuada purus. Etiam a nibh ex. Quisque sit amet augue id nunc luctus sodales bibendum at nibh. Curabitur et libero eget lorem posuere malesuada id in velit. Mauris sed congue leo. Vivamus enim velit, congue sed arcu ut, dignissim congue elit. Duis congue sed risus sed dapibus. Vivamus interdum eros nisi, laoreet dapibus erat gravida quis. Integer commodo purus tristique nisl sagittis ornare. In luctus mi vel turpis sodales tincidunt. Quisque at tincidunt lorem. Nunc enim risus, viverra aliquet porta id, rhoncus non elit. Pellentesque nisl neque, venenatis id facilisis eu, finibus a nibh. Vivamus vel mauris eu sem auctor iaculis. Mauris pellentesque tempus risus ut lobortis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc sem velit, posuere eu ultrices ut, rutrum non ex. Nullam varius, eros at varius posuere, orci arcu viverra velit, a pellentesque ipsum nibh vitae mi. Cras sed elit ac diam porta laoreet. Praesent et tristique nisl. Quisque laoreet nulla convallis, pharetra augue eget, ornare dui. Morbi sed odio consequat, fermentum ex eget, pulvinar magna. Pellentesque consectetur commodo cursus. Nulla semper, risus eget molestie consectetur, nulla sapien hendrerit arcu, sed congue lorem quam ac sem. Nunc in semper lorem. Suspendisse vestibulum libero viverra est volutpat maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tincidunt euismod leo id elementum. Sed lacinia at dolor vel varius. Maecenas pretium lobortis diam et lacinia. Curabitur eget semper dui. Vestibulum vulputate imperdiet auctor. Sed auctor neque vel mi condimentum sagittis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ultrices nisi est, sed suscipit arcu elementum vel. Vivamus condimentum mauris quis massa auctor, nec accumsan risus placerat.</p>',NULL,NULL);
 /*!40000 ALTER TABLE `homes` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `images`
+--
+
+DROP TABLE IF EXISTS `images`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `images` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `post_id` int(10) unsigned NOT NULL,
+  `path` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `stato` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'published',
+  `posizione` enum('cover','right','left','various') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `images_post_id_foreign` (`post_id`),
+  CONSTRAINT `images_post_id_foreign` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `images`
@@ -92,9 +253,30 @@ UNLOCK TABLES;
 
 LOCK TABLES `images` WRITE;
 /*!40000 ALTER TABLE `images` DISABLE KEYS */;
-INSERT INTO `images` VALUES (1,1,'GDF_2450.JPG','stampe','cover',NULL,NULL),(2,1,'NIK_0004.JPG','published','left',NULL,NULL),(3,1,'NIK_0012.JPG','published','right',NULL,NULL),(4,1,'NIK_9990.JPG','stampe','various',NULL,NULL),(5,2,'GDF_6565 copia.jpg','published','cover',NULL,NULL),(6,2,'GDF_6581 copia.jpg','published','left',NULL,NULL),(7,2,'NIK_4973 copia.jpg','published','right',NULL,NULL),(8,2,'NIK_4996 copia.jpg','published','various',NULL,NULL),(9,3,'DSC_3754 copia.jpg','published','cover',NULL,NULL),(10,3,'DSC_3814 copia.jpg','published','various',NULL,NULL),(11,3,'GDF_7090 copia.jpg','published','left',NULL,NULL),(12,3,'GDF_7107 copia.jpg','published','right',NULL,NULL),(13,4,'NIK_2061.jpg','published','cover',NULL,NULL),(14,4,'GDF_4583 copia.jpg','stampe','left',NULL,NULL),(15,4,'GDF_4550 copia.jpg','stampe','right',NULL,NULL),(16,4,'NIK_2073.jpg','published','various',NULL,NULL),(18,5,'estateleft.jpg','published','left',NULL,NULL),(19,5,'ruinmylife.jpg','published','cover',NULL,NULL),(20,5,'sottacqua.jpg','published','various',NULL,NULL),(21,5,'costaright.jpeg','published','right',NULL,NULL),(22,6,'invernocover.jpg','published','cover',NULL,NULL),(23,6,'invernoarious.jpg','published','left',NULL,NULL),(24,6,'invernoleft.jpg','published','right',NULL,NULL),(25,6,'sunsetright.jpg','published','various',NULL,NULL),(26,7,'autumncover1.jpg','published','cover',NULL,NULL),(27,7,'stradaleft.jpg','published','left',NULL,NULL),(28,7,'ponteright.jpg','published','right',NULL,NULL),(29,7,'autumncover.jpg','published','various',NULL,NULL),(30,8,'NIK_5970 copia.jpg','published','cover',NULL,NULL),(31,8,'NIK_5980 copia.jpg','published','left',NULL,NULL),(32,8,'NIK_6010 copia.jpg','published','right',NULL,NULL),(33,8,'NIK_6175 copia.jpg','published','various',NULL,NULL),(34,8,'GDF_6542 copia.jpg','published','various',NULL,NULL),(35,8,'GDF_6537 copia.jpg','published','various',NULL,NULL),(36,8,'GDF_6225 copia.jpg','published','various',NULL,NULL),(37,8,'soap-bubble-1958650_960_720.jpg','published','various',NULL,NULL),(41,10,'DSC_5809 copia.jpg','published','cover',NULL,NULL),(42,10,'DSC_5821 copia.jpg','published','left',NULL,NULL),(43,10,'01.jpg','published','right',NULL,NULL),(44,10,'GDF_5898 copia.jpg','published','various',NULL,NULL),(45,10,'GDF_5865 copia.jpg','published','various',NULL,NULL),(46,13,'NIK_6238 copia.jpg','published','cover','2019-02-20 20:02:19','2019-02-20 20:02:19'),(47,13,'GDF_2784 copia.jpg','published','left','2019-02-20 20:02:20','2019-02-20 20:02:20'),(48,13,'GDF_2671 copia.jpg','published','right','2019-02-20 20:02:20','2019-02-20 20:02:20'),(49,13,'GDF_2718 copia.jpg','published','various','2019-02-20 20:05:28','2019-02-20 20:05:28'),(50,13,'GDF_2677 copia.jpg','published','various','2019-02-20 20:05:28','2019-02-20 20:05:28'),(51,13,'Copertina.jpg','published','various','2019-02-20 20:05:28','2019-02-20 20:05:28'),(52,14,'NIK_0818.jpg','stampe','cover','2019-02-20 20:57:56','2019-02-20 20:57:56'),(53,14,'GDF_2291 copia.jpg','published','left','2019-02-20 20:57:56','2019-02-20 20:57:56'),(54,14,'DSC_1681 copia.jpg','stampe','right','2019-02-20 20:57:56','2019-02-20 20:57:56'),(55,14,'GDF_2328 copia.jpg','published','various','2019-02-20 20:58:30','2019-02-20 20:58:30'),(56,14,'GDF_2295 copia.jpg','published','various','2019-02-20 20:58:30','2019-02-20 20:58:30'),(57,14,'GDF_2285 copia.jpg','published','various','2019-02-20 20:58:30','2019-02-20 20:58:30'),(58,14,'GDF_2219 copia.jpg','stampe','various','2019-02-20 20:58:30','2019-02-20 20:58:30'),(59,14,'GDF_1891 copia.jpg','stampe','various','2019-02-20 20:58:30','2019-02-20 20:58:30');
+INSERT INTO `images` VALUES (1,1,'GDF_2450.JPG','stampe','cover',NULL,NULL),(2,1,'NIK_0004.JPG','published','left',NULL,NULL),(3,1,'NIK_0012.JPG','stampe','right',NULL,NULL),(4,1,'NIK_9990.JPG','stampe','various',NULL,NULL),(5,2,'GDF_6565 copia.jpg','published','cover',NULL,NULL),(6,2,'GDF_6581 copia.jpg','published','left',NULL,NULL),(7,2,'NIK_4973 copia.jpg','published','right',NULL,NULL),(8,2,'NIK_4996 copia.jpg','published','various',NULL,NULL),(9,3,'DSC_3754 copia.jpg','published','cover',NULL,NULL),(10,3,'DSC_3814 copia.jpg','published','various',NULL,NULL),(11,3,'GDF_7090 copia.jpg','published','left',NULL,NULL),(12,3,'GDF_7107 copia.jpg','published','right',NULL,NULL),(13,4,'NIK_2061.jpg','published','cover',NULL,NULL),(14,4,'GDF_4583 copia.jpg','stampe','left',NULL,NULL),(15,4,'GDF_4550 copia.jpg','stampe','right',NULL,NULL),(16,4,'NIK_2073.jpg','published','various',NULL,NULL),(18,5,'estateleft.jpg','published','left',NULL,NULL),(19,5,'ruinmylife.jpg','published','cover',NULL,NULL),(20,5,'sottacqua.jpg','published','various',NULL,NULL),(21,5,'costaright.jpeg','published','right',NULL,NULL),(22,6,'invernocover.jpg','published','cover',NULL,NULL),(23,6,'invernoarious.jpg','published','left',NULL,NULL),(24,6,'invernoleft.jpg','published','right',NULL,NULL),(25,6,'sunsetright.jpg','published','various',NULL,NULL),(26,7,'autumncover1.jpg','published','cover',NULL,NULL),(27,7,'stradaleft.jpg','published','left',NULL,NULL),(28,7,'ponteright.jpg','published','right',NULL,NULL),(29,7,'autumncover.jpg','published','various',NULL,NULL),(30,8,'NIK_5970 copia.jpg','published','cover',NULL,NULL),(31,8,'NIK_5980 copia.jpg','published','left',NULL,NULL),(32,8,'NIK_6010 copia.jpg','published','right',NULL,NULL),(33,8,'NIK_6175 copia.jpg','published','various',NULL,NULL),(34,8,'GDF_6542 copia.jpg','published','various',NULL,NULL),(35,8,'GDF_6537 copia.jpg','published','various',NULL,NULL),(36,8,'GDF_6225 copia.jpg','published','various',NULL,NULL),(37,8,'soap-bubble-1958650_960_720.jpg','published','various',NULL,NULL),(41,10,'DSC_5809 copia.jpg','published','cover',NULL,NULL),(42,10,'DSC_5821 copia.jpg','published','left',NULL,NULL),(43,10,'01.jpg','published','right',NULL,NULL),(44,10,'GDF_5898 copia.jpg','published','various',NULL,NULL),(45,10,'GDF_5865 copia.jpg','published','various',NULL,NULL),(46,13,'NIK_6238 copia.jpg','published','cover','2019-02-20 20:02:19','2019-02-20 20:02:19'),(47,13,'GDF_2784 copia.jpg','published','left','2019-02-20 20:02:20','2019-02-20 20:02:20'),(48,13,'GDF_2671 copia.jpg','published','right','2019-02-20 20:02:20','2019-02-20 20:02:20'),(49,13,'GDF_2718 copia.jpg','published','various','2019-02-20 20:05:28','2019-02-20 20:05:28'),(50,13,'GDF_2677 copia.jpg','published','various','2019-02-20 20:05:28','2019-02-20 20:05:28'),(51,13,'Copertina.jpg','published','various','2019-02-20 20:05:28','2019-02-20 20:05:28'),(52,14,'NIK_0818.jpg','stampe','cover','2019-02-20 20:57:56','2019-02-20 20:57:56'),(53,14,'GDF_2291 copia.jpg','published','left','2019-02-20 20:57:56','2019-02-20 20:57:56'),(54,14,'DSC_1681 copia.jpg','stampe','right','2019-02-20 20:57:56','2019-02-20 20:57:56'),(55,14,'GDF_2328 copia.jpg','published','various','2019-02-20 20:58:30','2019-02-20 20:58:30'),(56,14,'GDF_2295 copia.jpg','published','various','2019-02-20 20:58:30','2019-02-20 20:58:30'),(57,14,'GDF_2285 copia.jpg','published','various','2019-02-20 20:58:30','2019-02-20 20:58:30'),(58,14,'GDF_2219 copia.jpg','stampe','various','2019-02-20 20:58:30','2019-02-20 20:58:30'),(59,14,'GDF_1891 copia.jpg','stampe','various','2019-02-20 20:58:30','2019-02-20 20:58:30');
 /*!40000 ALTER TABLE `images` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `messages`
+--
+
+DROP TABLE IF EXISTS `messages`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `messages` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `nome` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cognome` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `text` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `risposta` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'no',
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `messages`
@@ -102,9 +284,24 @@ UNLOCK TABLES;
 
 LOCK TABLES `messages` WRITE;
 /*!40000 ALTER TABLE `messages` DISABLE KEYS */;
-INSERT INTO `messages` VALUES (1,'Romeo','De Vincentis','romeo@email.com','Questo e il primo messaggio inviato dal sito di piero per controllare la validita e la fruibilita e l efficenza del sito','no','2019-02-09 15:46:33','2019-02-09 14:46:33','2019-02-09 14:46:33'),(2,'Lorenzo','Iapadre','iap@gmail.com','Questo e il primo messaggio da utente autenticato gestito tramite if e else  in base al guest speriamo funzioni','no','2019-02-09 16:08:04','2019-02-09 15:08:04','2019-02-09 15:08:04'),(3,'Romeo','De Vincentis','romeo@email.com','Provo a inviarmi dell email da solo per vedere il giusto e corretto funzionamento  dei message','no','2019-02-09 16:21:24','2019-02-09 15:21:24','2019-02-09 15:21:24'),(4,'Vincenzo','Giandomenico','giando@email.com','il primo messaggio di vincenzo al sito di pieroph','no','2019-02-10 16:58:53','2019-02-10 15:58:53','2019-02-10 15:58:53'),(5,'antonio','giandomenico','antog727@gmail.com','ciao','no','2019-02-10 16:59:57','2019-02-10 15:59:57','2019-02-10 15:59:57'),(6,'Lorenzo','Iapadre','iap@gmail.com','Questo e il primo messaggio di piero autenticato','no','2019-02-12 14:54:34','2019-02-12 13:54:34','2019-02-12 13:54:34'),(7,'Piero','Calvarese','pieroph@emil.com','Questo e il messagigio di piero non autenticatio','no','2019-02-12 14:55:13','2019-02-12 13:55:13','2019-02-12 13:55:13');
+INSERT INTO `messages` VALUES (1,'Romeo','De Vincentis','romeo@email.com','Questo e il primo messaggio inviato dal sito di piero per controllare la validita e la fruibilita e l efficenza del sito','no','2019-02-09 15:46:33','2019-02-09 14:46:33','2019-02-09 14:46:33'),(2,'Lorenzo','Iapadre','iap@gmail.com','Questo e il primo messaggio da utente autenticato gestito tramite if e else  in base al guest speriamo funzioni','no','2019-02-09 16:08:04','2019-02-09 15:08:04','2019-02-09 15:08:04'),(3,'Romeo','De Vincentis','romeo@email.com','Provo a inviarmi dell email da solo per vedere il giusto e corretto funzionamento  dei message','no','2019-02-09 16:21:24','2019-02-09 15:21:24','2019-02-09 15:21:24'),(4,'Vincenzo','Giandomenico','giando@email.com','il primo messaggio di vincenzo al sito di pieroph','no','2019-02-10 16:58:53','2019-02-10 15:58:53','2019-02-10 15:58:53'),(5,'antonio','giandomenico','antog727@gmail.com','ciao','no','2019-02-10 16:59:57','2019-02-10 15:59:57','2019-02-10 15:59:57'),(6,'Lorenzo','Iapadre','iap@gmail.com','Questo e il primo messaggio di piero autenticato','si','2019-02-27 17:44:04','2019-02-12 13:54:34','2019-02-12 13:54:34'),(7,'Piero','Calvarese','pieroph@emil.com','Questo e il messagigio di piero non autenticatio','no','2019-02-12 14:55:13','2019-02-12 13:55:13','2019-02-12 13:55:13'),(8,'Romeo','De Vincentis','romeo@email.com','ciao Gianluca','no','2019-02-27 17:43:00','2019-02-27 16:43:00','2019-02-27 16:43:00');
 /*!40000 ALTER TABLE `messages` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `migrations`
+--
+
+DROP TABLE IF EXISTS `migrations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `migrations` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `batch` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `migrations`
@@ -117,6 +314,21 @@ INSERT INTO `migrations` VALUES (5,'2014_10_12_000000_create_users_table',1),(6,
 UNLOCK TABLES;
 
 --
+-- Table structure for table `password_resets`
+--
+
+DROP TABLE IF EXISTS `password_resets`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `password_resets` (
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  KEY `password_resets_email_index` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Dumping data for table `password_resets`
 --
 
@@ -124,6 +336,36 @@ LOCK TABLES `password_resets` WRITE;
 /*!40000 ALTER TABLE `password_resets` DISABLE KEYS */;
 /*!40000 ALTER TABLE `password_resets` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `posts`
+--
+
+DROP TABLE IF EXISTS `posts`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `posts` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `category_id` int(10) unsigned NOT NULL,
+  `user_id` int(10) unsigned NOT NULL,
+  `pubblicato` enum('si','no') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'no',
+  `impaginato` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'NULL',
+  `titolo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `giorno` date NOT NULL,
+  `paragraph_1` longtext COLLATE utf8mb4_unicode_ci,
+  `subtitle` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `paragraph_2` longtext COLLATE utf8mb4_unicode_ci,
+  `in_conclusion` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `paragraph_3` longtext COLLATE utf8mb4_unicode_ci,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `posts_category_id_foreign` (`category_id`),
+  KEY `posts_user_id_foreign` (`user_id`),
+  CONSTRAINT `posts_category_id_foreign` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`),
+  CONSTRAINT `posts_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `posts`
@@ -136,6 +378,27 @@ INSERT INTO `posts` VALUES (1,1,4,'si','Brian e Chiara pdf.pdf','Chiara e Brian'
 UNLOCK TABLES;
 
 --
+-- Table structure for table `prenotations`
+--
+
+DROP TABLE IF EXISTS `prenotations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `prenotations` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) unsigned NOT NULL,
+  `appuntamento` date DEFAULT NULL,
+  `ora` time DEFAULT NULL,
+  `stato` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'in attesa',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `prenotations_user_id_foreign` (`user_id`),
+  CONSTRAINT `prenotations_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Dumping data for table `prenotations`
 --
 
@@ -143,6 +406,25 @@ LOCK TABLES `prenotations` WRITE;
 /*!40000 ALTER TABLE `prenotations` DISABLE KEYS */;
 /*!40000 ALTER TABLE `prenotations` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `services`
+--
+
+DROP TABLE IF EXISTS `services`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `services` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `service` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `descrizione` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `icon` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `route` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `services`
@@ -155,6 +437,25 @@ INSERT INTO `services` VALUES (1,'Stampe','permette di stampare tutte le foto ch
 UNLOCK TABLES;
 
 --
+-- Table structure for table `trophies`
+--
+
+DROP TABLE IF EXISTS `trophies`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `trophies` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `trofeo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `conseguimento` date NOT NULL,
+  `description` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Dumping data for table `trophies`
 --
 
@@ -165,12 +466,37 @@ INSERT INTO `trophies` VALUES (1,'Photo Wedding awards','12247891_92253428450734
 UNLOCK TABLES;
 
 --
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `users` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `surname` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `group_id` int(11) unsigned NOT NULL DEFAULT '2',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `users_email_unique` (`email`),
+  KEY `fk_users_1_idx` (`group_id`),
+  CONSTRAINT `fk_users_1` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Dumping data for table `users`
 --
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (3,'Romeo','De Vincentis','romeo@email.com',NULL,'$2y$10$Njy8GlQZLJjxNP5JTyELOORij80J.Mo.6e97lP.AVZZJDPer2ZGwi','NtwZHBRo0OWB35xDuDnw3YPg8QwKg6GkoA6X8xhhRr4YBfwaKXvHlXD0Nglv','2019-02-07 10:17:27','2019-02-07 10:17:27',1),(4,'Lorenzo','Iapadre','iap@gmail.com',NULL,'$2y$10$JnB1XCEMMM7yh5Yr5d0JM.QkPPr.TpEKxKIee0bxvOu9AGlSU6zDu','6OnwNEUtbOkucXRSwuM1RycYQF3NzRnmw6jGlcVUrqSlS75I06eM61j6fthP','2019-02-07 10:27:53','2019-02-07 10:27:53',2),(5,'antonio','giandomenico','antog727@gmail.com',NULL,'$2y$10$n363iHXJrJcXpPlN.hIbWOZU92t.huYQzwO579PBq7DnHkf3tAkJG','PeERrAFoaGzQY7JZvii6dLqNEsSwSUPD1broVgbWzoxj5B3vpMl56MmILMiP','2019-02-10 15:55:06','2019-02-10 15:55:06',2),(6,'Guido','Rossi','guido@email.com',NULL,'$2y$10$1iTudhJKPoCmesMMDQHf9.fCmEn1O9Ccpai3hAUA/2P9tZNHUbhzS','y1jI2mNujFt4uh4k9jvGdGufz3sWA4B96Ru12HcMp4UGHCObciB6wRzAvQ4k','2019-02-11 09:44:53','2019-02-11 09:44:53',2),(7,'Alexa','De Vincentis','alexadev@email.com',NULL,'$2y$10$DdJHTKDUfbt/NDEtCCigxOEHA86O9oryqc9QjLg6i4q4i7sqPzql6','YfQxcwNmfEokjmTl8z94qoxCmiOi4aDAYlBvuHl0ob0cXWv0Jqb0nUdQQJqL','2019-02-16 13:02:12','2019-02-16 13:02:12',2),(8,'Roberta','Bianchi','roberta@email.com',NULL,'$2y$10$mdbHhPK/S1vlt6lZIpgKjeA6tlpA/4hnHtDPUgpKpqV8wK860pac.','guTqkSYU8v0cz8a2ThAqCM9dqIQIwhSfQBr7FgpMwi0XDz8FqLeSNBL0v7pv','2019-02-20 20:51:01','2019-02-20 20:51:01',2);
+INSERT INTO `users` VALUES (3,'Romeo','De Vincentis','romeo@email.com',NULL,'$2y$10$Njy8GlQZLJjxNP5JTyELOORij80J.Mo.6e97lP.AVZZJDPer2ZGwi','4WdTehrvXNpZhpKVoGc6xMIfrjyNsP9CLPGvjE0l16ZU458nytlVKkhPw3kk','2019-02-07 10:17:27','2019-02-07 10:17:27',1),(4,'Lorenzo','Iapadre','iap@gmail.com',NULL,'$2y$10$JnB1XCEMMM7yh5Yr5d0JM.QkPPr.TpEKxKIee0bxvOu9AGlSU6zDu','7T80lYaiumKGneVQTQzM8GkTHUhX2oiLWTlwBi0VfGRtkYJGVjxqgAmSKtMB','2019-02-07 10:27:53','2019-02-07 10:27:53',2),(5,'antonio','giandomenico','antog727@gmail.com',NULL,'$2y$10$n363iHXJrJcXpPlN.hIbWOZU92t.huYQzwO579PBq7DnHkf3tAkJG','PeERrAFoaGzQY7JZvii6dLqNEsSwSUPD1broVgbWzoxj5B3vpMl56MmILMiP','2019-02-10 15:55:06','2019-02-10 15:55:06',2),(6,'Guido','Rossi','guido@email.com',NULL,'$2y$10$1iTudhJKPoCmesMMDQHf9.fCmEn1O9Ccpai3hAUA/2P9tZNHUbhzS','jNOWK2URFAQgLus6Ta4Vxwx6kCHo7RiKC2dQN0CQLMEZQdHrBiv9huhSyzDJ','2019-02-11 09:44:53','2019-02-11 09:44:53',2),(7,'Alexa','De Vincentis','alexadev@email.com',NULL,'$2y$10$DdJHTKDUfbt/NDEtCCigxOEHA86O9oryqc9QjLg6i4q4i7sqPzql6','YfQxcwNmfEokjmTl8z94qoxCmiOi4aDAYlBvuHl0ob0cXWv0Jqb0nUdQQJqL','2019-02-16 13:02:12','2019-02-16 13:02:12',2),(8,'Roberta','Bianchi','roberta@email.com',NULL,'$2y$10$mdbHhPK/S1vlt6lZIpgKjeA6tlpA/4hnHtDPUgpKpqV8wK860pac.','DdcxPUpjbEQvmhkSOyjCVEcxH9RXu32w8cGFehpEzsErbYMOimiIOmKBu9tr','2019-02-20 20:51:01','2019-02-20 20:51:01',2);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -183,4 +509,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-02-21 11:46:52
+-- Dump completed on 2019-03-04 12:02:00
