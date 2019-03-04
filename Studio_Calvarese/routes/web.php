@@ -49,6 +49,12 @@ Route::get('/stampe/{idst}','StampeController@getStampe')->name('stampe');
 Route::post('/sendStampe','StampeController@updateByAuth')->name('sendStamp');
 
 
+/*Route::get('/gestisciPrenotazioni',function (){
+    return view('services.prenotazioni');
+});*/
+
+Route::get('/gestisciPrenotazioni','PrenotationController@getPrenotation')->name('gestionePrenotazioni');
+Route::post('/gestisciPrenotazioni','PrenotationController@store')->name('askforPrenotation');
 
 // -------------------------------------Route Backoffice
 
@@ -127,5 +133,8 @@ Route::post('/dash/contatti/update','InfosController@updateContact')->name('upda
 Route::get('/dash/home','HomeController@index')->name('homedash');
 Route::post('/dash/home/update','HomeController@updateHome')->name('updateHome');
 
+//----------------------------Prenotation Dash
+Route::get('/dash/prenotations','PrenotationController@browse')->name('prenotationdash');
+Route::get('/dash/prenotations/edit/{id}','PrenotationController@updatePrenotation')->name('editPrenotation');
 Auth::routes();
 

@@ -138,6 +138,10 @@ Website: http://www.webthemez.com/
                     <a href="{{route('contact')}}"><i class="fas fa-phone-square"></i> Contatti</a>
 
                 </li>
+                <li>
+                    <a href="{{route('prenotationdash')}}"><i class="fas fa-phone-square"></i> Prenotazioni</a>
+
+                </li>
 
 
             </ul>
