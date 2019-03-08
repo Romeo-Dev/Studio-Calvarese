@@ -136,8 +136,7 @@ Website: http://www.webthemez.com/
 
                 </li>
                 <li>
-                    <a href="{{route('prenotationdash')}}"><i class="fas fa-phone-square"></i> Prenotazioni</a>
-
+                    <a href="{{route('prenotationdash')}}"><i class="fas fa-calendar-alt"></i> Prenotazioni</a>
                 </li>
 
 

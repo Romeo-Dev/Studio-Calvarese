@@ -116,6 +116,7 @@ class EventController extends Controller
 
     public function updateEvent(Request $request){
 
+        $this->updateUtente($request->new_email,$request->id);
         $this->updatePubblicato($request->pubblicato,$request->id);
         $this->updateGiorno($request->data,$request->id);
         $this->updatePar1($request->par1,$request->id);
@@ -124,6 +125,18 @@ class EventController extends Controller
         $this->updateConclusione($request->conclusione,$request->id);
         $this->updatePar3($request->par3,$request->id);
         return redirect('/dash/events')->with('alert','Evento aggiornato con successo');
+    }
+
+    public function updateUtente($email,$id){
+        if ($email == null)
+            return ;
+        $user = DB::table('users')
+            ->select('id')
+            ->where('email','=', $email)
+            ->first();
+        DB::table('posts')
+            ->where('id','=',$id)
+            ->update(['user_id' => $user->id]);
     }
 
     public function updatePubblicato($pub,$id){

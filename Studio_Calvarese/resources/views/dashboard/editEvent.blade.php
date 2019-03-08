@@ -44,6 +44,16 @@
                         </div>
                         <form action="{{route('updatevent')}}" method="post" id="editForm">
                             @csrf
+                            <div class="form-group">
+                                <label for="new_email">Cambia Email</label>
+                                <input type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="new_email" id="email" placeholder="Email">
+                                @if ($errors->has('email'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                            <br>
                             <input type="hidden" name="id" value="{{$event->id}}">
                             <div class="form-group">
                                 <label >Data (Y-m-d alfanumerico)</label>
