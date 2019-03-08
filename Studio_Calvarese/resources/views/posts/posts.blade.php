@@ -60,7 +60,7 @@
                     </dd>
                     @endforeach
                 </dl>
-
+            @if(auth()->id() != null)
                 @auth
 
                 <div id="header">
@@ -83,8 +83,12 @@
                 </form>
 
             </section>
-            @endauth
-
+             @endauth
+            @else
+                <div id="header">
+                    <h3 class="major"><a href="{{route('login')}}">Per poter commentare effettua il <i>login</i></a></h3>
+                </div>
+            @endif
         </div>
     </div>
 
