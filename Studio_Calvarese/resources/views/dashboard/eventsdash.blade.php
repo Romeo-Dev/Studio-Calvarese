@@ -66,7 +66,9 @@
                                                      @else
                                                         <a href="{{route('privatePost',['id'=>$event->id])}}" id="private-btn" class="btn btn-warning large" style="width: 100%;margin-bottom: 4px;"><i class="icon fas fa-align-center"> Rendi privato</i></a>
                                                      @endif
-                                                        <br>
+                                                    <br>
+                                                    <a href="{{route('deleteEvent',['id'=>$event->id])}}" class="btn btn-danger large" style="width: 100%;margin-bottom: 4px;"><i class="fas fa-delete"> Elimina</i></a>
+                                                    <br>
                                                </td>
                                            </tr>
                                        @endforeach

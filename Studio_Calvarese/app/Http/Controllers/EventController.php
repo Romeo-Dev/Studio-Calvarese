@@ -98,6 +98,12 @@ class EventController extends Controller
             ->where('id','=',$id)
             ->update(['pubblicato' => 'no']);
 
+        return redirect('/dash/events')->with('alert','Evento privatizzato con successo');
+    }
+
+    public function deleteEvent($id){
+
+        Post::destroy($id);
         return redirect('/dash/events')->with('alert','Evento cancellato con successo');
     }
 

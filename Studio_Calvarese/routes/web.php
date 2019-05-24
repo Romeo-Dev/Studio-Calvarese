@@ -116,6 +116,7 @@ Route::get('/dash/events/edit/{id}','EventController@editEvent')->name('editEven
 Route::post('/dash/events','EventController@insertEvent')->name('insertevent');
 Route::post('/dash/events/update','EventController@updateEvent')->name('updatevent');
 Route::get('/dash/events/{id}','EventController@deletePublishedEvent')->name('deleteEventsByAdmin');
+Route::get('/dash/event/delete/{id}','EventController@deleteEvent')->name('deleteEvent');
 Route::get('/dash/event/{id}','EventController@setEventPublication')->name('publicPost');
 Route::get('/dash/pevent/{id}','EventController@setPrivateEvent')->name('privatePost');
 
