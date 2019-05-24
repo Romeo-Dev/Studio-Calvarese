@@ -37,10 +37,10 @@ class HomeController extends Controller
         $this->updateHomeCarosello1($carosello1);
         }if ($request->hasFile('carosello2')){
             $carosello2=$request->file('carosello2');
-            $this->updateHomeCarosello1($carosello2);
+            $this->updateHomeCarosello2($carosello2);
         }if ($request->hasFile('carosello3')){
-            $carosello3=$request->file('carosello1');
-            $this->updateHomeCarosello1($carosello3);
+            $carosello3=$request->file('carosello3');
+            $this->updateHomeCarosello3($carosello3);
         }if ($request->hasFile('video')){
             $video=$request->file('video');
             $this->updateHomeVideo($video);
@@ -70,6 +70,7 @@ class HomeController extends Controller
     }
     public function updateHomeCarosello3($carosello){
         //Store in laravel
+        if ($carosello == null) return redirect()->back()->with('alert','File inserito troppo grande');
         Storage::disk('public')->put('home/'.$carosello->getClientOriginalName(), File::get($carosello));
         //Store Db
         DB::table('homes')

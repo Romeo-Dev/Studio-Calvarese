@@ -2033,7 +2033,7 @@ input, select, textarea {
 		.icon:before {
 			-moz-osx-font-smoothing: grayscale;
 			-webkit-font-smoothing: antialiased;
-			font-family: FontAwesome;
+			font-family: FontAwesome,"Helvetica Neue", Helvetica, Arial, sans-serif;
 			font-style: normal;
 			font-weight: normal;
 			text-transform: none !important;

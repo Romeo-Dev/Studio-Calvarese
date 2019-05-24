@@ -65,7 +65,7 @@ Route::get('/dash/home',function (){
     //--------------------------------Rotte di Servizio by Admin
 Route::get('/dash/services','ServicesController@browse')->name('serviceByAdm');
 Route::get('/dash/services/{id}','ServicesController@delete')->name('deleteservice');
-Route::post('/dash/services','ServicesController@store')->name('insertservice');
+Route::post('/dash/servizio','ServicesController@store')->name('insertservice');
 
 
 Route::get('/dash/comments','CommentController@browse')->name('commentsByAdmin');

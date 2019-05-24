@@ -18,24 +18,24 @@
                 <span class="image fit"><img src="{{asset('storage/images/'.$posts['0']->categoria.'/'.$posts['0']->titolo.'/'.$images['cover']->path)}}" alt="" /></span>
 
                 <p>{!!$posts['0']->paragraph_1!!}</p>
-                <hr class="major" />
 
-                <h2>{{$posts['0']->subtitle}}</h2>
 
-                <p><span class="image left"><img src="{{asset('storage/images/'.$posts['0']->categoria.'/'.$posts['0']->titolo.'/'.$images['left']->path)}}" alt="" /></span>
+                <h2 style="border-top: 2px solid lightgrey;padding-top: 10px;">{{$posts['0']->subtitle}}</h2>
+
+                <p style="margin-bottom: 10%"><span class="image left"><img src="{{asset('storage/images/'.$posts['0']->categoria.'/'.$posts['0']->titolo.'/'.$images['left']->path)}}" alt="" /></span>
                     {!!$posts['0']->paragraph_2!!}
                 </p>
-                <hr class="major" />
 
-                <h2>{{$posts['0']->in_conclusion}}</h2>
 
-                <p><span class="image right"><img src="{{asset('storage/images/'.$posts['0']->categoria.'/'.$posts['0']->titolo.'/'.$images['right']->path)}}" alt="img" /></span>
+                <h2 style="border-top: 2px solid lightgray; padding-top: 10px;">{{$posts['0']->in_conclusion}}</h2>
+
+                <p style="margin-bottom: 10%"><span class="image right"><img src="{{asset('storage/images/'.$posts['0']->categoria.'/'.$posts['0']->titolo.'/'.$images['right']->path)}}" alt="img" /></span>
                     {!!$posts['0']->paragraph_3!!}</p>
-                <hr class="major" />
 
 
 
-                <h2>Gallery</h2>
+
+                <h2 style="border-top: 2px solid lightgray; padding-top: 10px;">Gallery</h2>
 
                 <div class="box alt">
                     <div class="row gtr-50 gtr-uniform">

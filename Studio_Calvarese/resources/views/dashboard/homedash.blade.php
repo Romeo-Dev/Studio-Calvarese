@@ -81,17 +81,17 @@
                                 @csrf
                                 <div class="form-group">
                                     <label for="immaginepres" >Inserire immagine Carosello_1</label>
-                                    <input type="file" name="carosello1" id="immaginepres">
+                                    <input type="file" name="carosello1">
                                 </div>
                                 <br>
                                 <div class="form-group">
                                     <label >Inserire immagine Carosello_2</label>
-                                    <input type="file" name="carosello2" id="immaginepres">
+                                    <input type="file" name="carosello2">
                                 </div>
                                 <br>
                                 <div class="form-group">
                                     <label>Inserire immagine Carosello_3</label>
-                                    <input type="file" name="carosello3" id="immaginepres">
+                                    <input type="file" name="carosello3">
                                 </div>
                                 <br>
                                 <div class="form-group">
