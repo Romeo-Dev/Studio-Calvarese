@@ -18,20 +18,20 @@
                 <span class="image fit"><img src="{{asset('storage/images/'.$posts['0']->categoria.'/'.$posts['0']->titolo.'/'.$images['cover']->path)}}" alt="" /></span>
 
                 <p>{!!$posts['0']->paragraph_1!!}</p>
-                <hr class="major" />
+
 
                 <h2>{{$posts['0']->subtitle}}</h2>
 
                 <p><span class="image left"><img src="{{asset('storage/images/'.$posts['0']->categoria.'/'.$posts['0']->titolo.'/'.$images['left']->path)}}" alt="" /></span>
                     {!!$posts['0']->paragraph_2!!}
                 </p>
-                <hr class="major" />
+
 
                 <h2>{{$posts['0']->in_conclusion}}</h2>
 
                 <p><span class="image right"><img src="{{asset('storage/images/'.$posts['0']->categoria.'/'.$posts['0']->titolo.'/'.$images['right']->path)}}" alt="img" /></span>
                     {!!$posts['0']->paragraph_3!!}</p>
-                <hr class="major" />
+
 
 
 
@@ -41,13 +41,13 @@
                     <div class="row gtr-50 gtr-uniform">
                         @foreach($images['various']->chunk(3) as $chunk)
                             @foreach($chunk as $vary)
-                        <div class="col-4"><a href="{{asset('storage/images/'.$posts['0']->categoria.'/'.$posts['0']->titolo.'/'.$vary->path)}}" data-lightbox="myGallery"><span class="image fit"><img src="{{asset('storage/images/'.$posts['0']->categoria.'/'.$posts['0']->titolo.'/'.$vary->path)}}" alt="img gallery" /></span></a></div>
+                        <div class="col-4"><a href="{{asset('storage/images/'.$posts['0']->categoria.'/'.$posts['0']->titolo.'/'.$vary->path)}}" data-lightbox="myGallery"><span class="image fit"><img src="{{asset('storage/images/'.$posts['0']->categoria.'/'.$posts['0']->titolo.'/'.$vary->path)}}" alt="img gallery" height="300px" width="200px"/></span></a></div>
                             @endforeach
                             @endforeach
                  </div>
                 </div>
 
-                <hr>
+
                 <h2 id="comment">Commenti</h2>
 
                 <dl>
