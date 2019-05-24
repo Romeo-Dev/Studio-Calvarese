@@ -65,7 +65,7 @@
                             </div>
                         </div>
                         <div class="panel-body">
-                            <form action="{{url('/dash/services')}}" method="post">
+                            <form action="{{url('/dash/servizio')}}" method="post">
                                 @csrf
                                 <div class="form-group">
                                     <label for="servizio">Nome Servizio</label>
@@ -73,7 +73,7 @@
                                 </div>
                                 <div class="sub-title">Descrizione</div>
                                 <div>
-                                    <textarea class="form-control" rows="3" placeholder="Descrizione servizio" name="descrizione" required></textarea>
+                                    <textarea class="form-control" rows="3" placeholder="Descrizione servizio" name="descrizione" id="descrizione" required></textarea>
                                 </div>
                                 <br>
                                 <div class="form-group">

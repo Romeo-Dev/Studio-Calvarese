@@ -70,6 +70,7 @@ class HomeController extends Controller
     }
     public function updateHomeCarosello3($carosello){
         //Store in laravel
+        if ($carosello == null) return redirect()->back()->with('alert','File inserito troppo grande');
         Storage::disk('public')->put('home/'.$carosello->getClientOriginalName(), File::get($carosello));
         //Store Db
         DB::table('homes')
