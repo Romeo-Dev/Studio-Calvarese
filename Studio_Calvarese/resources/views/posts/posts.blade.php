@@ -4,42 +4,47 @@
             <!-- Content -->
             <section>
 
+                <div class="row gtr-50 gtr-uniform">
                 <header class="main" id="header">
-                    <h1 class="major">{{$posts['0']->titolo}}</h1>
+                    <h1 class="major sol-header-post">{{$posts['0']->titolo}}</h1>
                 </header>
-                <br>
-                    <ul class="alt">
-                        <li><strong>Categoria:  </strong>{{$posts['0']->categoria}}</li>
-                        <li><strong>Date: </strong><span>{{date('d F Y',strtotime($posts['0']->giorno))}}</span></li>
+                </div>
 
-                    </ul>
-
-
+                <div class="row gtr-50 gtr-uniform">
                 <span class="image fit"><img src="{{asset('storage/images/'.$posts['0']->categoria.'/'.$posts['0']->titolo.'/'.$images['cover']->path)}}" alt="" /></span>
+                <p class="image fit">{!!$posts['0']->paragraph_1!!}</p>
+                </div>
 
-                <p>{!!$posts['0']->paragraph_1!!}</p>
-
-
-
-                <h2 style="border-top: 2px solid lightgrey;padding-top: 10px;">{{$posts['0']->subtitle}}</h2>
-
-                <p style="margin-bottom: 10%"><span class="image left"><img src="{{asset('storage/images/'.$posts['0']->categoria.'/'.$posts['0']->titolo.'/'.$images['left']->path)}}" alt="" /></span>
-                    {!!$posts['0']->paragraph_2!!}
+                <!---------------------------primo sottotitolo-->
+                <div class="row gtr-50 gtr-uniform">
+                <div class="box custom-hr">
+                <div class="custom-text-subtitle">{{$posts['0']->subtitle}}</div>
+                </div>
+                    </div>
+                <div class="row gtr-50 gtr-uniform">
+                <p><span class="image left col-3"><img src="{{asset('storage/images/'.$posts['0']->categoria.'/'.$posts['0']->titolo.'/'.$images['left']->path)}}" alt="" /></span>
+                    <span class="col-9-large">{!!$posts['0']->paragraph_2!!}</span>
                 </p>
+                </div>
 
+                <!----------------------------secondo sottotitolo-->
+                <div class="row gtr-50 gtr-uniform">
+                    <div class="box custom-hr">
+                        <div class="custom-text-subtitle-left">{{$posts['0']->in_conclusion}}</div>
+                    </div>
+                </div>
+                <div class="row gtr-50 gtr-uniform">
+                <p><span class="image right col-3"><img src="{{asset('storage/images/'.$posts['0']->categoria.'/'.$posts['0']->titolo.'/'.$images['right']->path)}}" alt="img" /></span>
+                   <span class="col-9-large"> {!!$posts['0']->paragraph_3!!}</span>
+                </p>
+                </div>
 
-
-                <h2 style="border-top: 2px solid lightgray; padding-top: 10px;">{{$posts['0']->in_conclusion}}</h2>
-
-                <p style="margin-bottom: 10%"><span class="image right"><img src="{{asset('storage/images/'.$posts['0']->categoria.'/'.$posts['0']->titolo.'/'.$images['right']->path)}}" alt="img" /></span>
-                    {!!$posts['0']->paragraph_3!!}</p>
-
-
-
-
-
-                <h2 style="border-top: 2px solid lightgray; padding-top: 10px;">Gallery</h2>
-
+                <!----------------------------gallery-->
+                <div class="row gtr-50 gtr-uniform">
+                    <div class="box custom-hr">
+                        <div class="custom-text-subtitle-gallery">Gallery</div>
+                    </div>
+                </div>
                 <div class="box alt">
                     <div class="row gtr-50 gtr-uniform">
                         @foreach($images['various']->chunk(3) as $chunk)

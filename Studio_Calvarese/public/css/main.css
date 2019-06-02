@@ -314,6 +314,43 @@ input, select, textarea {
 		text-align: right;
 	}
 
+	.custom-hr{
+		background: #566D7E;
+		border: 2px solid;
+		border-radius: 100px;
+		color: white;
+		width: 100%;
+		height: 5%;
+		margin-top: 2%;
+
+	}
+
+	.custom-text-subtitle-left{
+		margin-left: 4%;
+		font-size: 25px;
+		font-style: italic;
+		text-transform: uppercase;
+		text-align: left;
+	}
+	.custom-text-subtitle-gallery{
+		font-size: 25px;
+		font-style: italic;
+		text-transform: uppercase;
+		text-align: center;
+	}
+
+	.custom-text-subtitle{
+		margin-right: 5%;
+		font-size: 25px;
+		font-style: italic;
+		text-transform: uppercase;
+		text-align: right;
+	}
+	.sol-header-post{
+		margin-bottom: 5em;
+		padding-bottom: 1px;
+	}
+
 /* Row */
 
 	.row {
@@ -2081,6 +2118,7 @@ input, select, textarea {
 			display: block;
 			margin: 0 0 2em 0;
 			width: 100%;
+			padding-left: 0px;
 		}
 
 			.image.fit img {
@@ -3300,6 +3338,7 @@ input, select, textarea {
 		border-bottom: solid 5px #566D7E;
 		padding: 6em 0 1em 0;
 		position: relative;
+		margin-bottom: 3em;
 	}
 
 		#header > * {
