@@ -222,6 +222,9 @@ class EventController extends Controller
                 /*$extension = $cover->getClientOriginalExtension();*/
                 Storage::disk('public')->put('images/'.$request->categoria.'/'.$request->titolo.'/'.$cover->getClientOriginalName(), File::get($cover));
 
+
+                $this->setCoverImageToVarious($request->idevent);
+
                 $image = new Image();
                 $image->post_id = $request->idevent;
                 $image->path = $cover->getClientOriginalName();
@@ -233,6 +236,9 @@ class EventController extends Controller
                 $cover = $request->file('left');
                 /*$extension = $cover->getClientOriginalExtension();*/
                 Storage::disk('public')->put('images/'.$request->categoria.'/'.$request->titolo.'/'.$cover->getClientOriginalName(), File::get($cover));
+
+
+                $this->setLeftImageToVarious($request->idevent);
 
                 $image = new Image();
                 $image->post_id = $request->idevent;
@@ -246,6 +252,8 @@ class EventController extends Controller
                /* $extension = $cover->getClientOriginalExtension();*/
                 Storage::disk('public')->put('images/'.$request->categoria.'/'.$request->titolo.'/'.$cover->getClientOriginalName(), File::get($cover));
 
+                $this->setRightImageToVarious($request->idevent);
+
                 $image = new Image();
                 $image->post_id = $request->idevent;
                 $image->path = $cover->getClientOriginalName();
@@ -257,6 +265,29 @@ class EventController extends Controller
             return redirect()->back()->with('alert','Nessun file inserito');
         return redirect()->back()->with('alert','Immagini inserite con successo');
     }
+
+
+    public function setCoverImageToVarious($idevent){
+        DB::table('images')
+            ->where('post_id', '=', $idevent)
+            ->where('posizione','=', 'cover')
+            ->update(['posizione' => 'various']);
+    }
+
+    public function setLeftImageToVarious($idevent){
+        DB::table('images')
+            ->where('post_id', '=', $idevent)
+            ->where('posizione','=', 'left')
+            ->update(['posizione' => 'various']);
+    }
+
+    public function setRightImageToVarious($idevent){
+        DB::table('images')
+            ->where('post_id', '=', $idevent)
+            ->where('posizione','=', 'right')
+            ->update(['posizione' => 'various']);
+    }
+
 
     public function addGallery(Request $request){
 
