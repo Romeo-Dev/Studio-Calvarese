@@ -11,8 +11,8 @@ use App\Post;
 use App\User;
 use App\Image;
 
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
-use File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 use App\Contact;
@@ -103,6 +103,31 @@ class EventController extends Controller
 
     public function deleteEvent($id){
 
+        $data['images'] = DB::table('posts')->select('path','images.id')
+            ->join('images','post_id','=','posts.id')
+            ->where('posts.id','=',$id)->get();
+
+        $event = DB::table('posts')->select('categoria','titolo')
+            ->join('categories','category_id','=','categories.id')->where('posts.id','=',$id)->first();
+
+
+        $impaginato = DB::table('posts')->select('impaginato')->where('id','=',$id)->first();
+
+
+        if($impaginato->impaginato != 'NULL') {
+            unlink(storage_path('app/public/images/' . $event->categoria . '/' . $event->titolo . '/' . $impaginato->impaginato));
+            DB::table('posts')
+                ->where('id','=',$id)
+                ->update(['impaginato' => 'NULL']);
+        }
+
+        foreach($data['images'] as $image) {
+            unlink(storage_path('app/public/images/' . $event->categoria . '/' . $event->titolo . '/' . $image->path));
+            Image::destroy($image->id);
+        }
+
+
+        rmdir(storage_path('app/public/images/'.$event->categoria.'/'.$event->titolo));
         Post::destroy($id);
         return redirect('/dash/events')->with('alert','Evento cancellato con successo');
     }
@@ -110,7 +135,7 @@ class EventController extends Controller
     public function editEvent($id){
 
         $data['categories']=Category::all();
-        $data['event'] = DB::table('posts')
+        $event = DB::table('posts')
             ->select('posts.id','category_id','user_id','pubblicato','impaginato','titolo','giorno','paragraph_1','subtitle','paragraph_2','in_conclusion','paragraph_3','categoria')
         ->join('categories','category_id','=','categories.id')
         ->where('posts.id','=',$id)
